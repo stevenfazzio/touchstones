@@ -1,8 +1,8 @@
 """Tests for the corpus singleton and Corpus API.
 
-The default corpus contains 6 seeded entries spanning multiple
-categories, license statuses, and text/no-text paths. These tests
-exercise the full API surface against real data.
+The default corpus contains 18 seeded entries spanning all 10 categories,
+multiple license statuses, and text/no-text paths. These tests exercise
+the full API surface against real data.
 """
 
 from __future__ import annotations
@@ -15,38 +15,38 @@ from touchstones.schema import Entry
 
 def test_corpus_singleton_loads() -> None:
     assert isinstance(corpus, Corpus)
-    assert len(corpus) == 6
+    assert len(corpus) == 18
     assert all(isinstance(e, Entry) for e in corpus)
 
 
 def test_texts_returns_entries_with_text() -> None:
     texts = corpus.texts()
-    assert len(texts) == 2
+    assert len(texts) == 6
     assert all(isinstance(t, str) for t in texts)
 
 
 def test_texts_include_none() -> None:
     texts = corpus.texts(include_none=True)
-    assert len(texts) == 6
-    assert sum(t is None for t in texts) == 4
+    assert len(texts) == 18
+    assert sum(t is None for t in texts) == 12
 
 
 def test_labels() -> None:
     labels = corpus.labels(field="discipline")
-    assert len(labels) == 6
+    assert len(labels) == 18
     assert all(isinstance(label, str) for label in labels)
 
 
 def test_filter_by_category() -> None:
     tabular = corpus.filter(category="tabular")
     assert isinstance(tabular, Corpus)
-    assert len(tabular) == 2
+    assert len(tabular) == 3
     assert all(e.category == "tabular" for e in tabular)
 
 
 def test_filter_by_discipline() -> None:
     stats = corpus.filter(discipline="statistics")
-    assert len(stats) == 2
+    assert len(stats) == 3
 
 
 def test_filter_by_tag() -> None:
@@ -100,7 +100,7 @@ def test_copyrighted_entry_has_no_text() -> None:
 def test_to_dataframe() -> None:
     pytest.importorskip("pandas")
     df = corpus.to_dataframe()
-    assert len(df) == 6
+    assert len(df) == 18
     assert "name" in df.columns
     assert "category" in df.columns
     assert "license_status" in df.columns

@@ -1,9 +1,14 @@
 [
   {
     "name": "The Rainbow Passage",
-    "text": "When the sunlight strikes raindrops in the air, they act as a prism and form a rainbow. The rainbow is a division of white light into many beautiful colors. These take the shape of a long round arch, with its path high above, and its two ends apparently beyond the horizon. There is, according to legend, a boiling pot of gold at one end. People look, but no one ever finds it. When a man looks for something beyond his reach, his friends say he is looking for the pot of gold at the end of the rainbow.\n\nThroughout the centuries people have explained the rainbow in various ways. Some have accepted it as a miracle without physical explanation. To the Hebrews it was a token that there would be no more universal floods. The Greeks used to imagine that it was a sign from the gods to foretell war or heavy rain. The Norsemen considered the rainbow as a bridge over which the gods passed from earth to their home in the sky.\n\nOthers have tried to explain the phenomenon physically. Aristotle thought that the rainbow was caused by reflection of the sun\u2019s rays by the rain. Since then physicists have found that it is not reflection, but refraction by the raindrops which causes the rainbows.\n\nMany complicated ideas about the rainbow have been formed. The difference in the rainbow depends considerably upon the size of the drops, and the width of the colored band increases as the size of the drops increases. The actual primary rainbow observed is said to be the effect of super-imposition of a number of bows. If the red of the second bow falls upon the green of the first, the result is to give a bow with an abnormally wide yellow band, since red and green light when mixed form yellow. This is a very common type of bow, one showing mainly red and yellow, with little or no green or blue.",
+    "text": "When the sunlight strikes raindrops in the air, they act as a prism and form a rainbow. The rainbow is a division of white light into many beautiful colors. These take the shape of a long round arch, with its path high above, and its two ends apparently beyond the horizon. There is, according to legend, a boiling pot of gold at one end. People look, but no one ever finds it. When a man looks for something beyond his reach, his friends say he is looking for the pot of gold at the end of the rainbow.\n\nThroughout the centuries people have explained the rainbow in various ways. Some have accepted it as a miracle without physical explanation. To the Hebrews it was a token that there would be no more universal floods. The Greeks used to imagine that it was a sign from the gods to foretell war or heavy rain. The Norsemen considered the rainbow as a bridge over which the gods passed from earth to their home in the sky.\n\nOthers have tried to explain the phenomenon physically. Aristotle thought that the rainbow was caused by reflection of the sun’s rays by the rain. Since then physicists have found that it is not reflection, but refraction by the raindrops which causes the rainbows.\n\nMany complicated ideas about the rainbow have been formed. The difference in the rainbow depends considerably upon the size of the drops, and the width of the colored band increases as the size of the drops increases. The actual primary rainbow observed is said to be the effect of super-imposition of a number of bows. If the red of the second bow falls upon the green of the first, the result is to give a bow with an abnormally wide yellow band, since red and green light when mixed form yellow. This is a very common type of bow, one showing mainly red and yellow, with little or no green or blue.",
     "discipline": "speech pathology",
-    "disciplines": ["speech pathology", "phonetics", "linguistics", "voice science"],
+    "disciplines": [
+      "speech pathology",
+      "phonetics",
+      "linguistics",
+      "voice science"
+    ],
     "category": "natural_language",
     "year_introduced": 1960,
     "creator": "Grant Fairbanks",
@@ -12,55 +17,90 @@
     "usage": "Used to elicit a sustained sample of connected speech for perceptual and acoustic analysis of voice quality, articulation, resonance, and prosody. Clinicians record patients reading the passage to assess dysphonia, dysarthria, and accent features.",
     "known_issues": "Contains gendered language (\"When a man looks for something beyond his reach\") that excludes or misgenders transgender and gender-diverse clients. References to Hebrews, Greeks, and Norsemen reflect a Western cultural bias. Critiqued in Dietsch et al. (2023), \"Revisiting the Rainbow,\" American Journal of Speech-Language Pathology.",
     "alternatives": "The Grandfather Passage (Van Riper, 1963) is the other traditional standard. The Caterpillar (Patel et al., 2013) is a more rigorously designed modern alternative for motor speech assessment, containing all English phonemes with controlled prosodic contrasts.",
-    "related": [],
+    "related": [
+      "The Harvard Sentences",
+      "The North Wind and the Sun"
+    ],
     "length_tokens": 372,
     "license_status": "public_domain",
-    "tags": ["speech", "phonetics", "clinical", "English"],
+    "tags": [
+      "speech",
+      "phonetics",
+      "clinical",
+      "English"
+    ],
     "url": "https://www.dialectsarchive.com/the-rainbow-passage"
   },
   {
     "name": "Anscombe's Quartet",
     "text": null,
     "discipline": "statistics",
-    "disciplines": ["statistics", "data visualization", "data science education"],
+    "disciplines": [
+      "statistics",
+      "data visualization",
+      "data science education"
+    ],
     "category": "tabular",
     "year_introduced": 1973,
     "creator": "F. J. Anscombe",
-    "source": "Anscombe, F. J. (1973). Graphs in Statistical Analysis. The American Statistician, 27(1), 17\u201321.",
+    "source": "Anscombe, F. J. (1973). Graphs in Statistical Analysis. The American Statistician, 27(1), 17–21.",
     "description": "Four small datasets (11 points each) that share nearly identical summary statistics (mean, variance, correlation, and linear regression line) yet look completely different when graphed. Anscombe constructed them to demonstrate that summary statistics alone are insufficient to understand data.",
     "usage": "Used in introductory statistics courses worldwide to motivate the importance of data visualization before fitting models. The quartet is the canonical demonstration that summary statistics can mask fundamentally different data structures.",
     "known_issues": null,
     "alternatives": "The Datasaurus Dozen (Matejka & Fitzmaurice, 2017) extends the concept to 12 datasets with identical statistics but wildly different shapes, including a dinosaur, demonstrating the same principle with more visual impact.",
-    "related": ["Iris Dataset"],
+    "related": [
+      "Iris Dataset",
+      "The Boston Housing Dataset"
+    ],
     "length_tokens": null,
     "license_status": "public_domain",
-    "tags": ["pedagogy", "visualization", "summary statistics"],
+    "tags": [
+      "pedagogy",
+      "visualization",
+      "summary statistics"
+    ],
     "url": "https://en.wikipedia.org/wiki/Anscombe%27s_quartet"
   },
   {
     "name": "The Utah Teapot",
     "text": null,
     "discipline": "computer graphics",
-    "disciplines": ["computer graphics", "3D modeling", "computer science education"],
+    "disciplines": [
+      "computer graphics",
+      "3D modeling",
+      "computer science education"
+    ],
     "category": "3d_model",
     "year_introduced": 1975,
     "creator": "Martin Newell",
     "source": "Newell, M. (1975). Teapot data [3D model]. University of Utah.",
-    "description": "A 3D model of a Melitta teapot, digitized by hand at the University of Utah, that became the de facto standard test object in computer graphics. It is to rendering what \"Hello, World!\" is to programming \u2014 the first thing you draw when testing a new graphics pipeline.",
+    "description": "A 3D model of a Melitta teapot, digitized by hand at the University of Utah, that became the de facto standard test object in computer graphics. It is to rendering what \"Hello, World!\" is to programming — the first thing you draw when testing a new graphics pipeline.",
     "usage": "Used to benchmark and demonstrate rendering algorithms including shading, texturing, ray tracing, shadow mapping, and hidden-surface removal. Its moderately complex curved surface with a handle, spout, and lid exercises most rendering edge cases in a single object.",
     "known_issues": "The original model has no bottom surface (the base is open), because Newell never expected it to be viewed from below. The digital model is shorter and wider than the physical teapot; the common explanation attributes this to non-square pixels on the Evans & Sutherland framebuffer, though Jim Blinn has disputed this account.",
     "alternatives": "The Stanford Bunny (Turk & Levoy, 1994) and the Cornell Box (Goral et al., 1984) are the other widely used standard test objects in graphics, each emphasizing different rendering challenges.",
-    "related": ["Lena"],
+    "related": [
+      "Lena",
+      "The Stanford Bunny"
+    ],
     "length_tokens": null,
     "license_status": "public_domain",
-    "tags": ["rendering", "3D", "benchmark", "computer science"],
+    "tags": [
+      "rendering",
+      "3D",
+      "benchmark",
+      "computer science"
+    ],
     "url": "https://graphics.cs.utah.edu/teapot/"
   },
   {
     "name": "Hello, World! (K&R C)",
     "text": "#include <stdio.h>\n\nmain()\n{\n    printf(\"hello, world\\n\");\n}",
     "discipline": "computer science education",
-    "disciplines": ["computer science education", "programming", "software engineering"],
+    "disciplines": [
+      "computer science education",
+      "programming",
+      "software engineering"
+    ],
     "category": "code",
     "year_introduced": 1978,
     "creator": "Brian W. Kernighan and Dennis M. Ritchie",
@@ -72,45 +112,437 @@
     "related": [],
     "length_tokens": 17,
     "license_status": "fair_use",
-    "tags": ["programming", "pedagogy", "C", "tradition"],
+    "tags": [
+      "programming",
+      "pedagogy",
+      "C",
+      "tradition"
+    ],
     "url": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program"
   },
   {
     "name": "Lena",
     "text": null,
     "discipline": "image processing",
-    "disciplines": ["image processing", "computer vision", "signal processing"],
+    "disciplines": [
+      "image processing",
+      "computer vision",
+      "signal processing"
+    ],
     "category": "visual",
     "year_introduced": 1973,
     "creator": "Alexander Sawchuk (digitization); Dwight Hooker (original photograph)",
-    "source": "Sawchuk, A. (1973). Digitized test image [512\u00d7512 pixels]. USC Signal and Image Processing Institute. Original photograph: Hooker, D. (1972). Playboy, November 1972.",
-    "description": "A 512\u00d7512-pixel crop of Lena S\u00f6derberg's November 1972 Playboy centerfold, digitized at USC in 1973. It became the most widely used standard test image in image processing research, appearing in thousands of papers over five decades.",
+    "source": "Sawchuk, A. (1973). Digitized test image [512×512 pixels]. USC Signal and Image Processing Institute. Original photograph: Hooker, D. (1972). Playboy, November 1972.",
+    "description": "A 512×512-pixel crop of Lena Söderberg's November 1972 Playboy centerfold, digitized at USC in 1973. It became the most widely used standard test image in image processing research, appearing in thousands of papers over five decades.",
     "usage": "Used to benchmark image compression, filtering, edge detection, and other image processing algorithms. Its mix of flat regions, texture (the hat feathers), and sharp edges made it a technically useful test case.",
-    "known_issues": "The use of a Playboy centerfold as the field's standard test image has been criticized since the 1990s for signaling that women are not the intended audience of computer science. Nature Nanotechnology banned it in 2018. IEEE banned it from all publications effective April 1, 2024. Lena S\u00f6derberg herself has asked the community to stop using it, stating in the 2019 documentary \"Losing Lena\": \"I retired from modelling a long time ago. It's time I retired from tech, too.\" The image is copyrighted by Playboy (now PLBY Group) with no open license; its use has been informally tolerated for research purposes.",
+    "known_issues": "The use of a Playboy centerfold as the field's standard test image has been criticized since the 1990s for signaling that women are not the intended audience of computer science. Nature Nanotechnology banned it in 2018. IEEE banned it from all publications effective April 1, 2024. Lena Söderberg herself has asked the community to stop using it, stating in the 2019 documentary \"Losing Lena\": \"I retired from modelling a long time ago. It's time I retired from tech, too.\" The image is copyrighted by Playboy (now PLBY Group) with no open license; its use has been informally tolerated for research purposes.",
     "alternatives": "Commonly recommended replacements include the Kodak Lossless True Color Image Suite, the USC-SIPI Misc database images (Cameraman, Peppers, Mandrill), and the Berkeley Segmentation Dataset (BSD500). A 2017 Journal of Modern Optics editorial specifically recommends Cameraman and Peppers as the closest feature-space equivalents.",
-    "related": ["The Utah Teapot"],
+    "related": [
+      "The Utah Teapot"
+    ],
     "length_tokens": null,
     "license_status": "copyrighted",
-    "tags": ["ethics", "benchmark", "computer science", "controversy"],
+    "tags": [
+      "ethics",
+      "benchmark",
+      "computer science",
+      "controversy"
+    ],
     "url": "https://en.wikipedia.org/wiki/Lenna"
   },
   {
     "name": "Iris Dataset",
     "text": null,
     "discipline": "statistics",
-    "disciplines": ["statistics", "machine learning", "data science education", "biology"],
+    "disciplines": [
+      "statistics",
+      "machine learning",
+      "data science education",
+      "biology"
+    ],
     "category": "tabular",
     "year_introduced": 1936,
     "creator": "Ronald A. Fisher (analysis); Edgar Anderson (data collection)",
-    "source": "Fisher, R. A. (1936). The Use of Multiple Measurements in Taxonomic Problems. Annals of Eugenics, 7(2), 179\u2013188.",
+    "source": "Fisher, R. A. (1936). The Use of Multiple Measurements in Taxonomic Problems. Annals of Eugenics, 7(2), 179–188.",
     "description": "A dataset of 150 iris flower measurements (sepal length, sepal width, petal length, petal width) across three species (setosa, versicolor, virginica), collected by Edgar Anderson and made famous by Fisher's 1936 paper on linear discriminant analysis. It is the most widely used dataset in machine learning education.",
     "usage": "Used as the introductory dataset for teaching classification, clustering, dimensionality reduction, and data visualization. Its small size, clean structure, and one linearly separable class (setosa) make it ideal for demonstrating basic ML concepts.",
     "known_issues": "Originally published in the Annals of Eugenics (now Annals of Human Genetics); Fisher was a committed eugenicist, and the journal's provenance is a legitimate concern in educational contexts. The UCI Machine Learning Repository version contains two known data errors (rows 35 and 38) compared to Fisher's original paper. The dataset is widely criticized as too small, too clean, and too overused to serve as a meaningful benchmark for modern ML methods.",
     "alternatives": "The Palmer Penguins dataset (Horst, Hill & Gorman, 2020) was explicitly designed as a modern drop-in replacement, with added complexity including missing values, unequal class sizes, and Simpson's Paradox.",
-    "related": ["Anscombe's Quartet"],
+    "related": [
+      "Anscombe's Quartet",
+      "The Boston Housing Dataset"
+    ],
     "length_tokens": null,
     "license_status": "public_domain",
-    "tags": ["machine learning", "classification", "pedagogy", "biology"],
+    "tags": [
+      "machine learning",
+      "classification",
+      "pedagogy",
+      "biology"
+    ],
     "url": "https://archive.ics.uci.edu/dataset/53/iris"
+  },
+  {
+    "name": "The Harvard Sentences",
+    "text": "1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.",
+    "discipline": "speech engineering",
+    "disciplines": [
+      "speech engineering",
+      "telecommunications",
+      "audio coding",
+      "speech intelligibility"
+    ],
+    "category": "audio",
+    "year_introduced": 1969,
+    "creator": "IEEE Subcommittee on Subjective Measurements",
+    "source": "IEEE Subcommittee on Subjective Measurements (1969). IEEE Recommended Practice for Speech Quality Measurements. IEEE Transactions on Audio and Electroacoustics, AU-17(3), 225–246.",
+    "description": "A set of 72 lists of phonetically balanced English sentences, each list containing 10 sentences with five keywords per sentence, codified by the IEEE in 1969 for measuring speech intelligibility. They became the de facto standard text for evaluating speech codecs, telephony systems, and noise-canceling technologies.",
+    "usage": "Used to score speech intelligibility under noise, distortion, or compression by counting correctly identified keywords. Standard input for evaluating telephony codecs (G.711, G.729, AMR), hearing-aid algorithms, and modern neural speech enhancement systems.",
+    "known_issues": "The sentences reflect 1960s American English vocabulary and speech patterns (\"These days a chicken leg is a rare dish\"). They are not phonetically balanced for contemporary speech or for non-American English varieties. The IEEE corpus provides only 720 sentences in total — limited for training modern data-hungry speech models.",
+    "alternatives": "The TIMIT corpus (Garofolo et al., 1993) and LibriSpeech (Panayotov et al., 2015) provide much larger, more diverse speech recordings. The HINT (Hearing in Noise Test) sentences (Nilsson et al., 1994) are designed specifically for clinical hearing assessment.",
+    "related": [
+      "The Rainbow Passage",
+      "The North Wind and the Sun"
+    ],
+    "length_tokens": 116,
+    "license_status": "fair_use",
+    "tags": [
+      "speech",
+      "audio",
+      "benchmark",
+      "telecommunications"
+    ],
+    "url": "https://www.cs.columbia.edu/~hgs/audio/harvard.html"
+  },
+  {
+    "name": "The Amen Break",
+    "text": null,
+    "discipline": "music",
+    "disciplines": [
+      "music",
+      "audio sampling",
+      "musicology",
+      "popular music studies"
+    ],
+    "category": "audio",
+    "year_introduced": 1969,
+    "creator": "The Winstons (drummer Gregory Coleman)",
+    "source": "The Winstons. (1969). Amen, Brother [Recorded by The Winstons]. On Color Him Father / Amen, Brother [7-inch single]. Metromedia Records.",
+    "description": "A six-second drum break performed by Gregory Coleman of The Winstons in the 1969 B-side \"Amen, Brother.\" After being included on the bootleg compilation \"Ultimate Breaks and Beats\" in 1986, it became the most-sampled drum break in music history, forming the rhythmic backbone of jungle, drum-and-bass, hip-hop, and countless other genres.",
+    "usage": "Used as the canonical sample for studying drum break manipulation, time-stretching, beat-slicing, and the emergence of breakbeat-based genres. Frequently referenced in musicology of sampling and in intellectual-property scholarship.",
+    "known_issues": "Gregory Coleman, who played the break, died homeless in 2006 having received no royalties for any of the thousands of songs that sampled it. Richard Spencer, The Winstons' songwriter and copyright holder, also received nothing until a 2015 GoFundMe campaign raised about £24,000 in his honor. The Amen Break is the textbook case for the failures of sampling-era copyright in compensating original performers.",
+    "alternatives": "\"Funky Drummer\" (James Brown, 1970) is the second-most-sampled break and frequently studied alongside the Amen Break. \"Apache\" (The Incredible Bongo Band, 1973) is another foundational break in hip-hop sampling history.",
+    "related": [],
+    "length_tokens": null,
+    "license_status": "copyrighted",
+    "tags": [
+      "music",
+      "sampling",
+      "ethics",
+      "copyright"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Amen_break"
+  },
+  {
+    "name": "The Phi X 174 Genome",
+    "text": null,
+    "discipline": "bioinformatics",
+    "disciplines": [
+      "bioinformatics",
+      "molecular biology",
+      "genomics",
+      "DNA sequencing"
+    ],
+    "category": "sequence",
+    "year_introduced": 1977,
+    "creator": "Frederick Sanger and colleagues",
+    "source": "Sanger, F., Air, G. M., Barrell, B. G., Brown, N. L., Coulson, A. R., Fiddes, C. A., Hutchison, C. A., Slocombe, P. M., & Smith, M. (1977). Nucleotide sequence of bacteriophage φX174 DNA. Nature, 265(5596), 687–695.",
+    "description": "The 5,386-nucleotide single-stranded DNA genome of bacteriophage φX174, sequenced by Frederick Sanger's group in 1977. It was the first DNA-based genome ever sequenced, establishing the methods and conventions still used by modern genomics.",
+    "usage": "Used as the canonical control sample in DNA sequencing — virtually every Illumina sequencing run includes φX174 as a quality-control spike-in to monitor base-calling accuracy. Also used as a teaching example for sequence assembly, gene prediction, and overlapping reading frames (φX174 famously encodes overlapping genes in different reading frames).",
+    "known_issues": "The 1977 published sequence contained several errors that were corrected in the 1978 revision (Sanger et al., J. Mol. Biol., 125, 225–246). The reference sequence in NCBI is the corrected version (GenBank accession NC_001422 / J02482); older bioinformatics tools occasionally still ship the original 1977 sequence by mistake.",
+    "alternatives": "For larger benchmark genomes: the lambda phage genome (NC_001416, 48,502 bp) and E. coli K-12 MG1655 (NC_000913, 4.6 Mbp) are common alternatives. The Genome in a Bottle Consortium reference samples (NA12878, HG002) are the modern human-sequencing benchmarks.",
+    "related": [],
+    "length_tokens": null,
+    "license_status": "public_domain",
+    "tags": [
+      "genomics",
+      "DNA",
+      "benchmark",
+      "biology"
+    ],
+    "url": "https://www.ncbi.nlm.nih.gov/nuccore/NC_001422"
+  },
+  {
+    "name": "BNF for ALGOL 60",
+    "text": "<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n<unsigned integer> ::= <digit> | <unsigned integer> <digit>\n<integer> ::= <unsigned integer> | + <unsigned integer> | - <unsigned integer>\n<decimal fraction> ::= . <unsigned integer>\n<exponent part> ::= 10 <integer>\n<decimal number> ::= <unsigned integer> | <decimal fraction> | <unsigned integer> <decimal fraction>\n<unsigned number> ::= <decimal number> | <exponent part> | <decimal number> <exponent part>\n<number> ::= <unsigned number> | + <unsigned number> | - <unsigned number>",
+    "discipline": "formal languages",
+    "disciplines": [
+      "formal languages",
+      "computer science",
+      "compiler design",
+      "programming language theory"
+    ],
+    "category": "notation",
+    "year_introduced": 1960,
+    "creator": "John Backus and Peter Naur",
+    "source": "Naur, P. (Ed.). (1960). Report on the Algorithmic Language ALGOL 60. Communications of the ACM, 3(5), 299–314.",
+    "description": "The metalanguage notation introduced by John Backus and refined by Peter Naur to formally define the syntax of ALGOL 60. Backus-Naur Form is the foundational notation for context-free grammars and remains the standard way that programming language references describe syntax.",
+    "usage": "Used to teach context-free grammars, compiler design, and parser construction. The ALGOL 60 report is the canonical reference for BNF itself, and the number-grammar fragment shown here is one of the most quoted excerpts in computer science curricula.",
+    "known_issues": "Pure BNF lacks notation for repetition and optional elements, which Niklaus Wirth's Extended BNF (EBNF, 1977; later ISO/IEC 14977) was created to address. The ALGOL 60 report itself contained ambiguities in the original grammar that required errata in 1962 and 1963.",
+    "alternatives": "Extended BNF (EBNF) and Augmented BNF (ABNF, RFC 5234) are the modern variants used for programming languages and internet protocols respectively. PEG (Parsing Expression Grammars, Ford 2004) is a more recent alternative that resolves BNF's ambiguity issues by requiring ordered choice.",
+    "related": [],
+    "length_tokens": 154,
+    "license_status": "fair_use",
+    "tags": [
+      "grammar",
+      "compiler",
+      "notation",
+      "ALGOL"
+    ],
+    "url": "https://dl.acm.org/doi/10.1145/367236.367262"
+  },
+  {
+    "name": "Prelude in C Major, BWV 846",
+    "text": null,
+    "discipline": "music theory",
+    "disciplines": [
+      "music theory",
+      "music information retrieval",
+      "music education",
+      "symbolic music processing"
+    ],
+    "category": "notation",
+    "year_introduced": 1722,
+    "creator": "Johann Sebastian Bach",
+    "source": "Bach, J. S. (1722). Das Wohltemperierte Klavier, Book I, BWV 846–869. Manuscript.",
+    "description": "The opening prelude of Bach's Well-Tempered Clavier, Book I — a 35-bar piece in C major built almost entirely from broken chords. Its simplicity, harmonic richness, and unambiguous notation have made it the canonical test piece in music information retrieval, score-following, and MIDI software.",
+    "usage": "Used as the standard reference score for symbolic music processing — chord recognition, key estimation, score-to-audio alignment, and music transcription benchmarks routinely include BWV 846. It is also among the most commonly bundled sample MIDI files in DAWs and notation software.",
+    "known_issues": "The piece is heavily overrepresented in music IR benchmarks, leading to models that overfit to its specific arpeggiated texture. Bar 23 famously contains a passing dissonance that some 19th-century editors \"corrected\" by inserting an extra measure (the so-called Schwencke measure); modern editions follow the autograph manuscript and omit it.",
+    "alternatives": "For broader symbolic music benchmarks: the MAESTRO dataset (Hawthorne et al., 2019) and the Lakh MIDI Dataset (Raffel, 2016) provide thousands of pieces. For Bach-specific work, the Bach Chorales corpus (BWV 250–438) is a more diverse training set.",
+    "related": [],
+    "length_tokens": null,
+    "license_status": "public_domain",
+    "tags": [
+      "music",
+      "notation",
+      "Bach",
+      "MIDI"
+    ],
+    "url": "https://imslp.org/wiki/Prelude_and_Fugue_in_C_major,_BWV_846_(Bach,_Johann_Sebastian)"
+  },
+  {
+    "name": "The Mandelbrot Set",
+    "text": null,
+    "discipline": "dynamical systems",
+    "disciplines": [
+      "dynamical systems",
+      "fractal geometry",
+      "complex analysis",
+      "computer graphics"
+    ],
+    "category": "mathematical",
+    "year_introduced": 1980,
+    "creator": "Benoit B. Mandelbrot",
+    "source": "Mandelbrot, B. B. (1980). Fractal aspects of the iteration of z -> lambda*z*(1-z) for complex lambda and z. Annals of the New York Academy of Sciences, 357(1), 249–259.",
+    "description": "The set of complex numbers c for which the iteration z_(n+1) = z_n^2 + c remains bounded starting from z_0 = 0. Discovered through computer experimentation by Benoit Mandelbrot at IBM in 1980, it is the canonical visual artifact of fractal geometry and self-similarity.",
+    "usage": "Used to demonstrate iterated function systems, escape-time rendering algorithms, and the visual richness of simple recursive rules. It is the standard benchmark for parallel and GPU computation in introductory courses, and the canonical example in popular accounts of chaos theory.",
+    "known_issues": "The \"Mandelbrot set\" was first plotted by Robert W. Brooks and Peter Matelski in 1978, two years before Mandelbrot's paper, though their figure was much less detailed and the name stuck to Mandelbrot. The conjecture that the Mandelbrot set is locally connected (the MLC conjecture) remains open as of this writing and is one of the major unsolved problems in complex dynamics.",
+    "alternatives": "Julia sets (one for each c value) are the closely related family generated by fixing c and varying z_0; the Mandelbrot set can be viewed as a parameter-space index of all quadratic Julia sets. The Burning Ship fractal (Michelitsch & Rössler, 1992) is a well-known visual variant using absolute values.",
+    "related": [
+      "The Lorenz Attractor"
+    ],
+    "length_tokens": null,
+    "license_status": "public_domain",
+    "tags": [
+      "fractal",
+      "chaos",
+      "visualization",
+      "mathematics"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Mandelbrot_set"
+  },
+  {
+    "name": "The Lorenz Attractor",
+    "text": null,
+    "discipline": "chaos theory",
+    "disciplines": [
+      "chaos theory",
+      "dynamical systems",
+      "meteorology",
+      "applied mathematics"
+    ],
+    "category": "mathematical",
+    "year_introduced": 1963,
+    "creator": "Edward N. Lorenz",
+    "source": "Lorenz, E. N. (1963). Deterministic nonperiodic flow. Journal of the Atmospheric Sciences, 20(2), 130–141.",
+    "description": "A three-dimensional strange attractor arising from a simplified model of atmospheric convection: dx/dt = sigma*(y - x), dy/dt = x*(rho - z) - y, dz/dt = x*y - beta*z. With sigma=10, rho=28, beta=8/3, the trajectory traces the iconic butterfly-shaped attractor — the founding example of deterministic chaos.",
+    "usage": "Used as the canonical introduction to sensitive dependence on initial conditions (\"the butterfly effect\"), strange attractors, and deterministic chaos. The standard test case for ODE solvers, chaos detection algorithms, and visualizations of phase-space dynamics.",
+    "known_issues": "The popular \"butterfly effect\" name conflates two distinct ideas — the visual butterfly shape of the attractor and Lorenz's later (1972) lecture title \"Does the Flap of a Butterfly's Wings in Brazil Set Off a Tornado in Texas?\". The original 1963 paper does not contain the phrase \"butterfly effect\" at all.",
+    "alternatives": "The Rössler attractor (Rössler, 1976) is a structurally simpler 3D chaotic system often taught alongside Lorenz. The logistic map (May, 1976) is the canonical 1D example of deterministic chaos and bifurcation cascades.",
+    "related": [
+      "The Mandelbrot Set"
+    ],
+    "length_tokens": null,
+    "license_status": "public_domain",
+    "tags": [
+      "chaos",
+      "dynamical systems",
+      "meteorology",
+      "ODE"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Lorenz_system"
+  },
+  {
+    "name": "HTTP/1.1 GET Request",
+    "text": "GET /pub/WWW/TheProject.html HTTP/1.1\r\nHost: www.w3.org",
+    "discipline": "networking",
+    "disciplines": [
+      "networking",
+      "web",
+      "computer science education",
+      "internet protocols"
+    ],
+    "category": "protocol",
+    "year_introduced": 1999,
+    "creator": "IETF HTTP Working Group (Roy Fielding et al.)",
+    "source": "Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P., & Berners-Lee, T. (1999). Hypertext Transfer Protocol — HTTP/1.1 (RFC 2616). Internet Engineering Task Force.",
+    "description": "The canonical minimal HTTP/1.1 GET request used as the introductory example throughout RFC 2616, the original HTTP/1.1 specification. A request line, a Host header, and an empty line — the smallest legal HTTP/1.1 request that can be issued against a real server.",
+    "usage": "Used as the canonical example for teaching HTTP, demonstrating client/server interaction, debugging network tooling, and writing protocol parsers. The minimal form (request line plus mandatory Host header) is the standard \"hello world\" of network programming.",
+    "known_issues": "RFC 2616 was obsoleted in 2014 by RFCs 7230–7235, and HTTP/1.1 itself has been largely supplanted by HTTP/2 (RFC 7540, 2015) and HTTP/3 (RFC 9114, 2022) for production traffic. The plaintext, line-oriented format is now considered a legacy interface — modern HTTP versions use binary framing and are not human-readable on the wire.",
+    "alternatives": "For modern protocol benchmarks: HTTP/2 frame examples (RFC 7540), HTTP/3 QUIC streams (RFC 9000), and gRPC method invocations. For pedagogical simplicity, the SMTP HELO exchange (RFC 5321) and the Gopher protocol (RFC 1436) are even simpler line-oriented examples.",
+    "related": [],
+    "length_tokens": 20,
+    "license_status": "fair_use",
+    "tags": [
+      "protocol",
+      "HTTP",
+      "networking",
+      "RFC"
+    ],
+    "url": "https://datatracker.ietf.org/doc/html/rfc2616"
+  },
+  {
+    "name": "The Diffie-Hellman Key Exchange",
+    "text": null,
+    "discipline": "cryptography",
+    "disciplines": [
+      "cryptography",
+      "computer security",
+      "number theory",
+      "computer science education"
+    ],
+    "category": "protocol",
+    "year_introduced": 1976,
+    "creator": "Whitfield Diffie and Martin Hellman",
+    "source": "Diffie, W., & Hellman, M. E. (1976). New directions in cryptography. IEEE Transactions on Information Theory, 22(6), 644–654.",
+    "description": "A protocol that lets two parties establish a shared secret over an insecure channel without ever transmitting the secret itself. Diffie and Hellman's 1976 paper introduced the protocol along with the concept of public-key cryptography itself, founding modern cryptography.",
+    "usage": "Used as the canonical first example in cryptography courses for explaining how public-key methods work, the discrete logarithm problem, and the gap between computational hardness and information-theoretic security. The protocol is also actively used in TLS, SSH, IPsec, and Signal as the standard key-agreement primitive.",
+    "known_issues": "The original Diffie-Hellman is vulnerable to man-in-the-middle attacks because it provides no authentication of the parties — practical use requires combining it with a signature scheme or pre-shared identity. Many real-world deployments used weak or shared 1024-bit primes, and the 2015 \"Logjam\" attack showed that nation-state adversaries could pre-compute discrete logs for the most common parameters. Modern deployments use elliptic-curve variants (X25519, X448) with much smaller key sizes.",
+    "alternatives": "Elliptic Curve Diffie-Hellman (ECDH) is the modern standard, with X25519 (RFC 7748) and X448 the most widely deployed variants. Post-quantum key encapsulation mechanisms — ML-KEM (Kyber, FIPS 203, 2024) — are now being deployed in TLS 1.3 to replace classical DH against future quantum adversaries.",
+    "related": [],
+    "length_tokens": null,
+    "license_status": "public_domain",
+    "tags": [
+      "cryptography",
+      "protocol",
+      "security",
+      "pedagogy"
+    ],
+    "url": "https://ee.stanford.edu/~hellman/publications/24.pdf"
+  },
+  {
+    "name": "The North Wind and the Sun",
+    "text": "The North Wind and the Sun were disputing which was the stronger, when a traveler came along wrapped in a warm cloak. They agreed that the one who first succeeded in making the traveler take his cloak off should be considered stronger than the other. Then the North Wind blew as hard as he could, but the more he blew the more closely did the traveler fold his cloak around him; and at last the North Wind gave up the attempt. Then the Sun shone out warmly, and immediately the traveler took off his cloak. And so the North Wind was obliged to confess that the Sun was the stronger of the two.",
+    "discipline": "linguistics",
+    "disciplines": [
+      "linguistics",
+      "phonetics",
+      "speech pathology",
+      "language documentation"
+    ],
+    "category": "natural_language",
+    "year_introduced": 1949,
+    "creator": "Aesop (original fable); standardized form first published in the IPA Principles (1949)",
+    "source": "International Phonetic Association. (1949). The Principles of the International Phonetic Association. London: University College London.",
+    "description": "A short Aesop fable used by the International Phonetic Association as the standard text for illustrating the sound system of any language. Each entry in the IPA Handbook of the International Phonetic Association consists of this passage transcribed in the language being described, plus an IPA transcription, providing a directly comparable phonetic snapshot of dozens of languages.",
+    "usage": "Used in linguistic fieldwork and phonetics for cross-linguistic comparison: any language's phonology can be illustrated by recording a native speaker reading this passage. It is the standard text for IPA transcription practice and the backbone of the IPA Handbook's language illustrations.",
+    "known_issues": "The passage is short and does not contain every phoneme of any single language, so it is incomplete as a phonetic survey. The narrative content (gendered protagonists, weather imagery) is not always meaningful or culturally appropriate when translated, which has prompted some fieldwork projects to use locally meaningful texts instead.",
+    "alternatives": "The Tower of Babel passage (Genesis 11:1–9) was historically used for similar cross-linguistic comparison. The Universal Declaration of Human Rights, Article 1, has been translated into more languages than any other text and serves as a modern alternative for typological work.",
+    "related": [
+      "The Rainbow Passage",
+      "The Harvard Sentences"
+    ],
+    "length_tokens": 124,
+    "license_status": "public_domain",
+    "tags": [
+      "phonetics",
+      "IPA",
+      "linguistics",
+      "Aesop"
+    ],
+    "url": "https://en.wikipedia.org/wiki/The_North_Wind_and_the_Sun"
+  },
+  {
+    "name": "The Boston Housing Dataset",
+    "text": null,
+    "discipline": "statistics",
+    "disciplines": [
+      "statistics",
+      "machine learning",
+      "econometrics",
+      "data science education"
+    ],
+    "category": "tabular",
+    "year_introduced": 1978,
+    "creator": "David Harrison Jr. and Daniel L. Rubinfeld",
+    "source": "Harrison Jr., D., & Rubinfeld, D. L. (1978). Hedonic housing prices and the demand for clean air. Journal of Environmental Economics and Management, 5(1), 81–102.",
+    "description": "A 506-observation dataset of housing prices and neighborhood characteristics from 1970s Boston census tracts, originally collected to estimate the willingness to pay for cleaner air. For decades it was the canonical introductory regression dataset in machine learning libraries, until concerns about a racially-coded feature led to its removal from scikit-learn.",
+    "usage": "Historically used as the introductory regression benchmark in scikit-learn, R packages, and ML textbooks for predicting median home value (MEDV) from features like crime rate, room count, and pollution. Now widely used as a teaching example for the ethics of dataset curation and the propagation of biased features through standard tooling.",
+    "known_issues": "The dataset contains a feature B = 1000 * (Bk - 0.63)^2 where Bk is the proportion of Black residents in a census tract. The construction encodes a U-shaped hypothesis in which both very low and very high Black populations correlate with higher home values — embedding a racist assumption about segregation directly into the feature. M Carlisle's 2019 analysis (\"racist data destruction?\") spurred wider awareness; scikit-learn deprecated the dataset in version 1.0 (2021) and removed it entirely in version 1.2 (2022), with the ethical objection documented in the official changelog.",
+    "alternatives": "The Ames Housing dataset (De Cock, 2011) was specifically designed as a modern, ethically-clean replacement for Boston Housing in regression pedagogy, with 79 features across 2,930 observations. The California Housing dataset (Pace & Barry, 1997, included in scikit-learn) is the other commonly used substitute.",
+    "related": [
+      "Iris Dataset",
+      "Anscombe's Quartet"
+    ],
+    "length_tokens": null,
+    "license_status": "public_domain",
+    "tags": [
+      "regression",
+      "ethics",
+      "pedagogy",
+      "fairness"
+    ],
+    "url": "https://lib.stat.cmu.edu/datasets/boston"
+  },
+  {
+    "name": "The Stanford Bunny",
+    "text": null,
+    "discipline": "computer graphics",
+    "disciplines": [
+      "computer graphics",
+      "3D scanning",
+      "geometry processing",
+      "computer science education"
+    ],
+    "category": "3d_model",
+    "year_introduced": 1994,
+    "creator": "Greg Turk and Marc Levoy",
+    "source": "Turk, G., & Levoy, M. (1994). Zippered polygon meshes from range images. Proceedings of SIGGRAPH '94, 311–318.",
+    "description": "A 3D mesh model of a ceramic rabbit figurine, scanned by Greg Turk and Marc Levoy at Stanford in 1994 to demonstrate range-image registration and zippering. With approximately 70,000 polygons, it became the canonical test mesh for geometry processing — to mesh research what the Utah Teapot is to rendering.",
+    "usage": "Used to benchmark mesh simplification, parameterization, remeshing, smoothing, and surface reconstruction algorithms. The Bunny appears in thousands of computer graphics papers and is a standard sample mesh in geometry libraries (libigl, MeshLab, CGAL).",
+    "known_issues": "The original scan has small holes in the bottom of the model because the scanner could not see the underside of the figurine when it was sitting on the platform. Several \"watertight\" repaired versions circulate, which can cause subtle benchmark inconsistencies depending on which mesh a paper actually uses.",
+    "alternatives": "The Stanford 3D Scanning Repository also includes the Dragon, Armadillo, Buddha, and Lucy models, which are commonly used together for richer evaluation. The Thingi10K dataset (Zhou & Jacobson, 2016) provides 10,000 diverse meshes from Thingiverse for modern, less-overfit benchmarks.",
+    "related": [
+      "The Utah Teapot"
+    ],
+    "length_tokens": null,
+    "license_status": "public_domain",
+    "tags": [
+      "3D",
+      "mesh",
+      "benchmark",
+      "geometry"
+    ],
+    "url": "https://graphics.stanford.edu/data/3Dscanrep/"
   }
 ]

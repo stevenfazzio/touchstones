@@ -43,4 +43,4 @@ df = corpus.to_dataframe()
 
 ## Status
 
-**v0.1** ships with 6 seed entries spanning natural language, tabular data, code, 3D models, and images. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the proposal process and field reference.
+**v0.1** ships with 18 seed entries covering all 10 categories — natural language, sequence, notation, visual, audio, tabular, code, 3D models, mathematical, and protocol. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the proposal process and field reference.
