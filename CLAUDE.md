@@ -17,23 +17,25 @@ This project uses `uv`. Run everything through it so the venv stays in sync.
 
 Touchstones is a small, data-first Python package (src/ layout, `src/touchstones/`). The runtime surface is intentionally minimal: a Pydantic schema, a JSON file of entries, and a thin `Corpus` wrapper. Three pieces hold the design together:
 
-1. **`schema.py` — `Entry` is the source of truth.** Every field is validated by Pydantic, and the model is `frozen=True` with `extra="forbid"`. The cross-field invariants live in a single `model_validator(mode="after")` (`_check_invariants`) and are not optional — they encode the corpus's contracts:
+1. **`schema.py` — `Entry` is the source of truth.** Every field is validated by Pydantic, and the model is `frozen=True` with `extra="forbid"`. Both `text` and `length_tokens` are **required** — every entry bundles a verbatim standard text, no exceptions. The cross-field invariants live in a single `model_validator(mode="after")` (`_check_invariants`):
    - `discipline` must appear in `disciplines`
-   - `length_tokens` is required iff `text` is set (both-or-neither)
-   - `license_status="copyrighted"` forbids bundling `text` (use `fair_use` for excerpts)
    - entries can't self-reference in `related`
    - `disciplines` / `related` / `tags` must be deduped
    When adding a new constraint, extend this validator and add a matching test in `tests/test_schema.py` rather than scattering checks across call sites.
 
-2. **`corpus.py` — `Corpus` enforces collection-level invariants.** The constructor verifies name uniqueness and that every `related` reference resolves to an existing entry — these can't be expressed on a single `Entry` and only make sense once you have the whole list. The module-level singleton `corpus = Corpus.load_default()` is built **eagerly at import time** from `data/entries.json` via `importlib.resources`. That means a malformed `entries.json` will fail at `import touchstones`, not lazily later. Keep this property — it's the whole point of having a schema.
+2. **`corpus.py` — `Corpus` enforces collection-level invariants.** The constructor verifies name uniqueness and (by default) that every `related` reference resolves to an existing entry — these can't be expressed on a single `Entry` and only make sense once you have the whole list. `filter()` passes `check_related=False` to the constructor when building subsets, because a filtered view can legitimately omit an entry that another retained entry references. The module-level singleton `corpus = Corpus.load_default()` is built **eagerly at import time** from `data/entries.json` via `importlib.resources`, so a malformed `entries.json` fails at `import touchstones`, not lazily later. Keep this property — it's the whole point of having a schema.
 
 3. **`io.py` — JSON round-trips go through a `TypeAdapter[list[Entry]]`.** `load_entries` / `save_entries` are the only sanctioned way to read/write the data file; both rely on Pydantic's JSON mode so URLs serialize as plain strings and enums as their string values, keeping `entries.json` human-editable. `count_tokens` is a contributor helper that imports `tiktoken` lazily because tiktoken is a dev-only extra — do not promote it to a runtime dep.
 
 `pandas` is similarly an optional extra. `Corpus.to_dataframe()` imports it lazily and raises `ImportError` with install instructions; preserve this pattern for any future optional integrations so the base install stays at just `pydantic`.
 
+## Selection rule
+
+Every entry in the corpus must pass this test: **"When a practitioner of [field] needs [kind of example], what specific verbatim string do they reach for?"** If you can name the field, the need, and the exact string, the entry fits. If the "thing" is famous but doesn't have a canonical verbatim text people reuse (Lena, Utah Teapot, Iris dataset, Mandelbrot set), it does not belong in this corpus. See `CONTRIBUTING.md` for worked examples and the proposal process.
+
 ## Status note (v0.1)
 
-`src/touchstones/data/entries.json` contains 18 seed entries covering all 10 `Category` enum values and a mix of license statuses. The test suite has two layers:
+`src/touchstones/data/entries.json` contains 19 seed entries across 5 `Category` enum values (`natural_language`, `code`, `notation`, `sequence`, `protocol`). Every entry has non-empty `text`; there are no metadata-only records. The test suite has two layers:
 
 - `tests/test_schema.py` exercises the `Entry` validators against an in-memory `minimal_entry_dict` fixture (a placeholder, **not** a real corpus entry). When changing the schema, update the fixture and the relevant validator test together.
 - `tests/test_corpus.py` tests the full Corpus API against the real singleton (lookup, filter, iteration, texts, labels, related cross-references, DataFrame export).

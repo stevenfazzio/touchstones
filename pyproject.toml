@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "touchstones"
 version = "0.0.1"
-description = "A curated corpus of canonical reference artifacts across human knowledge domains"
+description = "A curated corpus of standard example texts used across fields"
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [

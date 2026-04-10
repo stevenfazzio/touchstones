@@ -32,67 +32,6 @@
     "url": "https://www.dialectsarchive.com/the-rainbow-passage"
   },
   {
-    "name": "Anscombe's Quartet",
-    "text": null,
-    "discipline": "statistics",
-    "disciplines": [
-      "statistics",
-      "data visualization",
-      "data science education"
-    ],
-    "category": "tabular",
-    "year_introduced": 1973,
-    "creator": "F. J. Anscombe",
-    "source": "Anscombe, F. J. (1973). Graphs in Statistical Analysis. The American Statistician, 27(1), 17–21.",
-    "description": "Four small datasets (11 points each) that share nearly identical summary statistics (mean, variance, correlation, and linear regression line) yet look completely different when graphed. Anscombe constructed them to demonstrate that summary statistics alone are insufficient to understand data.",
-    "usage": "Used in introductory statistics courses worldwide to motivate the importance of data visualization before fitting models. The quartet is the canonical demonstration that summary statistics can mask fundamentally different data structures.",
-    "known_issues": null,
-    "alternatives": "The Datasaurus Dozen (Matejka & Fitzmaurice, 2017) extends the concept to 12 datasets with identical statistics but wildly different shapes, including a dinosaur, demonstrating the same principle with more visual impact.",
-    "related": [
-      "Iris Dataset",
-      "The Boston Housing Dataset"
-    ],
-    "length_tokens": null,
-    "license_status": "public_domain",
-    "tags": [
-      "pedagogy",
-      "visualization",
-      "summary statistics"
-    ],
-    "url": "https://en.wikipedia.org/wiki/Anscombe%27s_quartet"
-  },
-  {
-    "name": "The Utah Teapot",
-    "text": null,
-    "discipline": "computer graphics",
-    "disciplines": [
-      "computer graphics",
-      "3D modeling",
-      "computer science education"
-    ],
-    "category": "3d_model",
-    "year_introduced": 1975,
-    "creator": "Martin Newell",
-    "source": "Newell, M. (1975). Teapot data [3D model]. University of Utah.",
-    "description": "A 3D model of a Melitta teapot, digitized by hand at the University of Utah, that became the de facto standard test object in computer graphics. It is to rendering what \"Hello, World!\" is to programming — the first thing you draw when testing a new graphics pipeline.",
-    "usage": "Used to benchmark and demonstrate rendering algorithms including shading, texturing, ray tracing, shadow mapping, and hidden-surface removal. Its moderately complex curved surface with a handle, spout, and lid exercises most rendering edge cases in a single object.",
-    "known_issues": "The original model has no bottom surface (the base is open), because Newell never expected it to be viewed from below. The digital model is shorter and wider than the physical teapot; the common explanation attributes this to non-square pixels on the Evans & Sutherland framebuffer, though Jim Blinn has disputed this account.",
-    "alternatives": "The Stanford Bunny (Turk & Levoy, 1994) and the Cornell Box (Goral et al., 1984) are the other widely used standard test objects in graphics, each emphasizing different rendering challenges.",
-    "related": [
-      "Lena",
-      "The Stanford Bunny"
-    ],
-    "length_tokens": null,
-    "license_status": "public_domain",
-    "tags": [
-      "rendering",
-      "3D",
-      "benchmark",
-      "computer science"
-    ],
-    "url": "https://graphics.cs.utah.edu/teapot/"
-  },
-  {
     "name": "Hello, World! (K&R C)",
     "text": "#include <stdio.h>\n\nmain()\n{\n    printf(\"hello, world\\n\");\n}",
     "discipline": "computer science education",
@@ -109,7 +48,9 @@
     "usage": "Used as the canonical first program when learning a new language, testing a compiler toolchain, or verifying that a development environment works. Nearly every programming language tutorial and textbook now opens with a \"Hello, World!\" variant.",
     "known_issues": "The original K&R C syntax (implicit int return type, old-style function declaration with no prototype) is invalid under modern C standards (C99+). The program as written will produce warnings or errors on conforming compilers.",
     "alternatives": null,
-    "related": [],
+    "related": [
+      "99 Bottles of Beer"
+    ],
     "length_tokens": 17,
     "license_status": "fair_use",
     "tags": [
@@ -121,68 +62,6 @@
     "url": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program"
   },
   {
-    "name": "Lena",
-    "text": null,
-    "discipline": "image processing",
-    "disciplines": [
-      "image processing",
-      "computer vision",
-      "signal processing"
-    ],
-    "category": "visual",
-    "year_introduced": 1973,
-    "creator": "Alexander Sawchuk (digitization); Dwight Hooker (original photograph)",
-    "source": "Sawchuk, A. (1973). Digitized test image [512×512 pixels]. USC Signal and Image Processing Institute. Original photograph: Hooker, D. (1972). Playboy, November 1972.",
-    "description": "A 512×512-pixel crop of Lena Söderberg's November 1972 Playboy centerfold, digitized at USC in 1973. It became the most widely used standard test image in image processing research, appearing in thousands of papers over five decades.",
-    "usage": "Used to benchmark image compression, filtering, edge detection, and other image processing algorithms. Its mix of flat regions, texture (the hat feathers), and sharp edges made it a technically useful test case.",
-    "known_issues": "The use of a Playboy centerfold as the field's standard test image has been criticized since the 1990s for signaling that women are not the intended audience of computer science. Nature Nanotechnology banned it in 2018. IEEE banned it from all publications effective April 1, 2024. Lena Söderberg herself has asked the community to stop using it, stating in the 2019 documentary \"Losing Lena\": \"I retired from modelling a long time ago. It's time I retired from tech, too.\" The image is copyrighted by Playboy (now PLBY Group) with no open license; its use has been informally tolerated for research purposes.",
-    "alternatives": "Commonly recommended replacements include the Kodak Lossless True Color Image Suite, the USC-SIPI Misc database images (Cameraman, Peppers, Mandrill), and the Berkeley Segmentation Dataset (BSD500). A 2017 Journal of Modern Optics editorial specifically recommends Cameraman and Peppers as the closest feature-space equivalents.",
-    "related": [
-      "The Utah Teapot"
-    ],
-    "length_tokens": null,
-    "license_status": "copyrighted",
-    "tags": [
-      "ethics",
-      "benchmark",
-      "computer science",
-      "controversy"
-    ],
-    "url": "https://en.wikipedia.org/wiki/Lenna"
-  },
-  {
-    "name": "Iris Dataset",
-    "text": null,
-    "discipline": "statistics",
-    "disciplines": [
-      "statistics",
-      "machine learning",
-      "data science education",
-      "biology"
-    ],
-    "category": "tabular",
-    "year_introduced": 1936,
-    "creator": "Ronald A. Fisher (analysis); Edgar Anderson (data collection)",
-    "source": "Fisher, R. A. (1936). The Use of Multiple Measurements in Taxonomic Problems. Annals of Eugenics, 7(2), 179–188.",
-    "description": "A dataset of 150 iris flower measurements (sepal length, sepal width, petal length, petal width) across three species (setosa, versicolor, virginica), collected by Edgar Anderson and made famous by Fisher's 1936 paper on linear discriminant analysis. It is the most widely used dataset in machine learning education.",
-    "usage": "Used as the introductory dataset for teaching classification, clustering, dimensionality reduction, and data visualization. Its small size, clean structure, and one linearly separable class (setosa) make it ideal for demonstrating basic ML concepts.",
-    "known_issues": "Originally published in the Annals of Eugenics (now Annals of Human Genetics); Fisher was a committed eugenicist, and the journal's provenance is a legitimate concern in educational contexts. The UCI Machine Learning Repository version contains two known data errors (rows 35 and 38) compared to Fisher's original paper. The dataset is widely criticized as too small, too clean, and too overused to serve as a meaningful benchmark for modern ML methods.",
-    "alternatives": "The Palmer Penguins dataset (Horst, Hill & Gorman, 2020) was explicitly designed as a modern drop-in replacement, with added complexity including missing values, unequal class sizes, and Simpson's Paradox.",
-    "related": [
-      "Anscombe's Quartet",
-      "The Boston Housing Dataset"
-    ],
-    "length_tokens": null,
-    "license_status": "public_domain",
-    "tags": [
-      "machine learning",
-      "classification",
-      "pedagogy",
-      "biology"
-    ],
-    "url": "https://archive.ics.uci.edu/dataset/53/iris"
-  },
-  {
     "name": "The Harvard Sentences",
     "text": "1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.",
     "discipline": "speech engineering",
@@ -192,7 +71,7 @@
       "audio coding",
       "speech intelligibility"
     ],
-    "category": "audio",
+    "category": "natural_language",
     "year_introduced": 1969,
     "creator": "IEEE Subcommittee on Subjective Measurements",
     "source": "IEEE Subcommittee on Subjective Measurements (1969). IEEE Recommended Practice for Speech Quality Measurements. IEEE Transactions on Audio and Electroacoustics, AU-17(3), 225–246.",
@@ -202,7 +81,8 @@
     "alternatives": "The TIMIT corpus (Garofolo et al., 1993) and LibriSpeech (Panayotov et al., 2015) provide much larger, more diverse speech recordings. The HINT (Hearing in Noise Test) sentences (Nilsson et al., 1994) are designed specifically for clinical hearing assessment.",
     "related": [
       "The Rainbow Passage",
-      "The North Wind and the Sun"
+      "The North Wind and the Sun",
+      "Mary Had a Little Lamb"
     ],
     "length_tokens": 116,
     "license_status": "fair_use",
@@ -215,37 +95,8 @@
     "url": "https://www.cs.columbia.edu/~hgs/audio/harvard.html"
   },
   {
-    "name": "The Amen Break",
-    "text": null,
-    "discipline": "music",
-    "disciplines": [
-      "music",
-      "audio sampling",
-      "musicology",
-      "popular music studies"
-    ],
-    "category": "audio",
-    "year_introduced": 1969,
-    "creator": "The Winstons (drummer Gregory Coleman)",
-    "source": "The Winstons. (1969). Amen, Brother [Recorded by The Winstons]. On Color Him Father / Amen, Brother [7-inch single]. Metromedia Records.",
-    "description": "A six-second drum break performed by Gregory Coleman of The Winstons in the 1969 B-side \"Amen, Brother.\" After being included on the bootleg compilation \"Ultimate Breaks and Beats\" in 1986, it became the most-sampled drum break in music history, forming the rhythmic backbone of jungle, drum-and-bass, hip-hop, and countless other genres.",
-    "usage": "Used as the canonical sample for studying drum break manipulation, time-stretching, beat-slicing, and the emergence of breakbeat-based genres. Frequently referenced in musicology of sampling and in intellectual-property scholarship.",
-    "known_issues": "Gregory Coleman, who played the break, died homeless in 2006 having received no royalties for any of the thousands of songs that sampled it. Richard Spencer, The Winstons' songwriter and copyright holder, also received nothing until a 2015 GoFundMe campaign raised about £24,000 in his honor. The Amen Break is the textbook case for the failures of sampling-era copyright in compensating original performers.",
-    "alternatives": "\"Funky Drummer\" (James Brown, 1970) is the second-most-sampled break and frequently studied alongside the Amen Break. \"Apache\" (The Incredible Bongo Band, 1973) is another foundational break in hip-hop sampling history.",
-    "related": [],
-    "length_tokens": null,
-    "license_status": "copyrighted",
-    "tags": [
-      "music",
-      "sampling",
-      "ethics",
-      "copyright"
-    ],
-    "url": "https://en.wikipedia.org/wiki/Amen_break"
-  },
-  {
     "name": "The Phi X 174 Genome",
-    "text": null,
+    "text": "GAGTTTTATCGCTTCCATGACGCAGAAGTTAACACTTTCGGATATTTCTGATGAGTCGAAAAATTATCTTGATAAAGCAGGAATTACTACTGCTTGTTTACGAATTAAATCGAAGTGGACTGCTGGCGGAAAATGAGAAAATTCGACCTATCCTTGCGCAGCTCGAGAAGCTCTTACTTTGCGACCTTTCGCCATCAACTAACGATTCTGTCAAAAACTGACGCGTTGGATGAGGAGAAGTGGCTTAATATGCTTGGCACGTTCGTCAAGGACTGGTTTAGATATGAGTCACATTTTGTTCATGGTAGAGATTCTCTTGTTGACATTTTAAAAGAGCGTGGATTACTATCTGAGTCCGATGCTGTTCAACCACTAATAGGTAAGAAATCATGAGTCAAGTTACTGAACAATCCGTACGTTTCCAGACCGCTTTGGCCTCTATTAAGCTCATTCAGGCTTCTGCCGTTTTGGATTTAACCGAAGATGATTTCGATTTTCTGACGAGTAACAAAGTTTGGATTGCTACTGACCGCTCTCGTGCTCGTCGCTGCGTTGAGGCTTGCGTTTATGGTACGCTGGACTTTGTGGGATACCCTCGCTTTCCTGCTCCTGTTGAGTTTATTGCTGCCGTCATTGCTTATTATGTTCATCCCGTCAACATTCAAACGGCCTGTCTCATCATGGAAGGCGCTGAATTTACGGAAAACATTATTAATGGCGTCGAGCGTCCGGTTAAAGCCGCTGAATTGTTCGCGTTTACCTTGCGTGTACGCGCAGGAAACACTGACGTTCTTACTGACGCAGAAGAAAACGTGCGTCAAAAATTACGTGCGGAAGGAGTGATGTAATGTCTAAAGGTAAAAAACGTTCTGGCGCTCGCCCTGGTCGTCCGCAGCCGTTGCGAGGTACTAAAGGCAAGCGTAAAGGCGCTCGTCTTTGGTATGTAGGTGGTCAACAATTTTAATTGCAGGGGCTTCGGCCCCTTACTTGAGGATAAATTATGTCTAATATTCAAACTGGCGCCGAGCGTATGCCGCATGACCTTTCCCATCTTGGCTTCCTTGCTGGTCAGATTGGTCGTCTTATTACCATTTCAACTACTCCGGTTATCGCTGGCGACTCCTTCGAGATGGACGCCGTTGGCGCTCTCCGTCTTTCTCCATTGCGTCGTGGCCTTGCTATTGACTCTACTGTAGACATTTTTACTTTTTATGTCCCTCATCGTCACGTTTATGGTGAACAGTGGATTAAGTTCATGAAGGATGGTGTTAATGCCACTCCTCTCCCGACTGTTAACACTACTGGTTATATTGACCATGCCGCTTTTCTTGGCACGATTAACCCTGATACCAATAAAATCCCTAAGCATTTGTTTCAGGGTTATTTGAATATCTATAACAACTATTTTAAAGCGCCGTGGATGCCTGACCGTACCGAGGCTAACCCTAATGAGCTTAATCAAGATGATGCTCGTTATGGTTTCCGTTGCTGCCATCTCAAAAACATTTGGACTGCTCCGCTTCCTCCTGAGACTGAGCTTTCTCGCCAAATGACGACTTCTACCACATCTATTGACATTATGGGTCTGCAAGCTGCTTATGCTAATTTGCATACTGACCAAGAACGTGATTACTTCATGCAGCGTTACCATGATGTTATTTCTTCATTTGGAGGTAAAACCTCTTATGACGCTGACAACCGTCCTTTACTTGTCATGCGCTCTAATCTCTGGGCATCTGGCTATGATGTTGATGGAACTGACCAAACGTCGTTAGGCCAGTTTTCTGGTCGTGTTCAACAGACCTATAAACATTCTGTGCCGCGTTTCTTTGTTCCTGAGCATGGCACTATGTTTACTCTTGCGCTTGTTCGTTTTCCGCCTACTGCGACTAAAGAGATTCAGTACCTTAACGCTAAAGGTGCTTTGACTTATACCGATATTGCTGGCGACCCTGTTTTGTATGGCAACTTGCCGCCGCGTGAAATTTCTATGAAGGATGTTTTCCGTTCTGGTGATTCGTCTAAGAAGTTTAAGATTGCTGAGGGTCAGTGGTATCGTTATGCGCCTTCGTATGTTTCTCCTGCTTATCACCTTCTTGAAGGCTTCCCATTCATTCAGGAACCGCCTTCTGGTGATTTGCAAGAACGCGTACTTATTCGCCACCATGATTATGACCAGTGTTTCCAGTCCGTTCAGTTGTTGCAGTGGAATAGTCAGGTTAAATTTAATGTGACCGTTTATCGCAATCTGCCGACCACTCGCGATTCAATCATGACTTCGTGATAAAAGATTGAGTGTGAGGTTATAACGCCGAAGCGGTAAAAATTTTAATTTTTGCCGCTGAGGGGTTGACCAAGCGAAGCGCGGTAGGTTTTCTGCTTAGGAGTTTAATCATGTTTCAGACTTTTATTTCTCGCCATAATTCAAACTTTTTTTCTGATAAGCTGGTTCTCACTTCTGTTACTCCAGCTTCTTCGGCACCTGTTTTACAGACACCTAAAGCTACATCGTCAACGTTATATTTTGATAGTTTGACGGTTAATGCTGGTAATGGTGGTTTTCTTCATTGCATTCAGATGGATACATCTGTCAACGCCGCTAATCAGGTTGTTTCTGTTGGTGCTGATATTGCTTTTGATGCCGACCCTAAATTTTTTGCCTGTTTGGTTCGCTTTGAGTCTTCTTCGGTTCCGACTACCCTCCCGACTGCCTATGATGTTTATCCTTTGAATGGTCGCCATGATGGTGGTTATTATACCGTCAAGGACTGTGTGACTATTGACGTCCTTCCCCGTACGCCGGGCAATAACGTTTATGTTGGTTTCATGGTTTGGTCTAACTTTACCGCTACTAAATGCCGCGGATTGGTTTCGCTGAATCAGGTTATTAAAGAGATTATTTGTCTCCAGCCACTTAAGTGAGGTGATTTATGTTTGGTGCTATTGCTGGCGGTATTGCTTCTGCTCTTGCTGGTGGCGCCATGTCTAAATTGTTTGGAGGCGGTCAAAAAGCCGCCTCCGGTGGCATTCAAGGTGATGTGCTTGCTACCGATAACAATACTGTAGGCATGGGTGATGCTGGTATTAAATCTGCCATTCAAGGCTCTAATGTTCCTAACCCTGATGAGGCCGCCCCTAGTTTTGTTTCTGGTGCTATGGCTAAAGCTGGTAAAGGACTTCTTGAAGGTACGTTGCAGGCTGGCACTTCTGCCGTTTCTGATAAGTTGCTTGATTTGGTTGGACTTGGTGGCAAGTCTGCCGCTGATAAAGGAAAGGATACTCGTGATTATCTTGCTGCTGCATTTCCTGAGCTTAATGCTTGGGAGCGTGCTGGTGCTGATGCTTCCTCTGCTGGTATGGTTGACGCCGGATTTGAGAATCAAAAAGAGCTTACTAAAATGCAACTGGACAATCAGAAAGAGATTGCCGAGATGCAAAATGAGACTCAAAAAGAGATTGCTGGCATTCAGTCGGCGACTTCACGCCAGAATACGAAAGACCAGGTATATGCACAAAATGAGATGCTTGCTTATCAACAGAAGGAGTCTACTGCTCGCGTTGCGTCTATTATGGAAAACACCAATCTTTCCAAGCAACAGCAGGTTTCCGAGATTATGCGCCAAATGCTTACTCAAGCTCAAACGGCTGGTCAGTATTTTACCAATGACCAAATCAAAGAAATGACTCGCAAGGTTAGTGCTGAGGTTGACTTAGTTCATCAGCAAACGCAGAATCAGCGGTATGGCTCTTCTCATATTGGCGCTACTGCAAAGGATATTTCTAATGTCGTCACTGATGCTGCTTCTGGTGTGGTTGATATTTTTCATGGTATTGATAAAGCTGTTGCCGATACTTGGAACAATTTCTGGAAAGACGGTAAAGCTGATGGTATTGGCTCTAATTTGTCTAGGAAATAACCGTCAGGATTGACACCCTCCCAATTGTATGTTTTCATGCCTCCAAATCTTGGAGGCTTTTTTATGGTTCGTTCTTATTACCCTTCTGAATGTCACGCTGATTATTTTGACTTTGAGCGTATCGAGGCTCTTAAACCTGCTATTGAGGCTTGTGGCATTTCTACTCTTTCTCAATCCCCAATGCTTGGCTTCCATAAGCAGATGGATAACCGCATCAAGCTCTTGGAAGAGATTCTGTCTTTTCGTATGCAGGGCGTTGAGTTCGATAATGGTGATATGTATGTTGACGGCCATAAGGCTGCTTCTGACGTTCGTGATGAGTTTGTATCTGTTACTGAGAAGTTAATGGATGAATTGGCACAATGCTACAATGTGCTCCCCCAACTTGATATTAATAACACTATAGACCACCGCCCCGAAGGGGACGAAAAATGGTTTTTAGAGAACGAGAAGACGGTTACGCAGTTTTGCCGCAAGCTGGCTGCTGAACGCCCTCTTAAGGATATTCGCGATGAGTATAATTACCCCAAAAAGAAAGGTATTAAGGATGAGTGTTCAAGATTGCTGGAGGCCTCCACTATGAAATCGCGTAGAGGCTTTGCTATTCAGCGTTTGATGAATGCAATGCGACAGGCTCATGCTGATGGTTGGTTTATCGTTTTTGACACTCTCACGTTGGCTGACGACCGATTAGAGGCGTTTTATGATAATCCCAATGCTTTGCGTGACTATTTTCGTGATATTGGTCGTATGGTTCTTGCTGCCGAGGGTCGCAAGGCTAATGATTCACACGCCGACTGCTATCAGTATTTTTGTGTGCCTGAGTATGGTACAGCTAATGGCCGTCTTCATTTCCATGCGGTGCACTTTATGCGGACACTTCCTACAGGTAGCGTTGACCCTAATTTTGGTCGTCGGGTACGCAATCGCCGCCAGTTAAATAGCTTGCAAAATACGTGGCCTTATGGTTACAGTATGCCCATCGCAGTTCGCTACACGCAGGACGCTTTTTCACGTTCTGGTTGGTTGTGGCCTGTTGATGCTAAAGGTGAGCCGCTTAAAGCTACCAGTTATATGGCTGTTGGTTTCTATGTGGCTAAATACGTTAACAAAAAGTCAGATATGGACCTTGCTGCTAAAGGTCTAGGAGCTAAAGAATGGAACAACTCACTAAAAACCAAGCTGTCGCTACTTCCCAAGAAGCTGTTCAGAATCAGAATGAGCCGCAACTTCGGGATGAAAATGCTCACAATGACAAATCTGTCCACGGAGTGCTTAATCCAACTTACCAAGCTGGGTTACGACGCGACGCCGTTCAACCAGATATTGAAGCAGAACGCAAAAAGAGAGATGAGATTGAGGCTGGGAAAAGTTACTGTAGCCGACGTTTTGGCGGCGCAACCTGTGACGACAAATCTGCTCAAATTTATGCGCGCTTCGATAAAAATGATTGGCGTATCCAACCTGCA",
     "discipline": "bioinformatics",
     "disciplines": [
       "bioinformatics",
@@ -258,11 +109,11 @@
     "creator": "Frederick Sanger and colleagues",
     "source": "Sanger, F., Air, G. M., Barrell, B. G., Brown, N. L., Coulson, A. R., Fiddes, C. A., Hutchison, C. A., Slocombe, P. M., & Smith, M. (1977). Nucleotide sequence of bacteriophage φX174 DNA. Nature, 265(5596), 687–695.",
     "description": "The 5,386-nucleotide single-stranded DNA genome of bacteriophage φX174, sequenced by Frederick Sanger's group in 1977. It was the first DNA-based genome ever sequenced, establishing the methods and conventions still used by modern genomics.",
-    "usage": "Used as the canonical control sample in DNA sequencing — virtually every Illumina sequencing run includes φX174 as a quality-control spike-in to monitor base-calling accuracy. Also used as a teaching example for sequence assembly, gene prediction, and overlapping reading frames (φX174 famously encodes overlapping genes in different reading frames).",
+    "usage": "When an Illumina sequencing technician needs a spike-in control to calibrate base-calling accuracy, they reach for the Phi X 174 genome: every Illumina run includes PhiX as a quality-control standard, and base-callers validate against this exact 5,386-base reference. Also used as the canonical teaching example for sequence assembly, gene prediction, and overlapping reading frames (Phi X 174 famously encodes overlapping genes in different reading frames).",
     "known_issues": "The 1977 published sequence contained several errors that were corrected in the 1978 revision (Sanger et al., J. Mol. Biol., 125, 225–246). The reference sequence in NCBI is the corrected version (GenBank accession NC_001422 / J02482); older bioinformatics tools occasionally still ship the original 1977 sequence by mistake.",
     "alternatives": "For larger benchmark genomes: the lambda phage genome (NC_001416, 48,502 bp) and E. coli K-12 MG1655 (NC_000913, 4.6 Mbp) are common alternatives. The Genome in a Bottle Consortium reference samples (NA12878, HG002) are the modern human-sequencing benchmarks.",
     "related": [],
-    "length_tokens": null,
+    "length_tokens": 2824,
     "license_status": "public_domain",
     "tags": [
       "genomics",
@@ -302,97 +153,6 @@
     "url": "https://dl.acm.org/doi/10.1145/367236.367262"
   },
   {
-    "name": "Prelude in C Major, BWV 846",
-    "text": null,
-    "discipline": "music theory",
-    "disciplines": [
-      "music theory",
-      "music information retrieval",
-      "music education",
-      "symbolic music processing"
-    ],
-    "category": "notation",
-    "year_introduced": 1722,
-    "creator": "Johann Sebastian Bach",
-    "source": "Bach, J. S. (1722). Das Wohltemperierte Klavier, Book I, BWV 846–869. Manuscript.",
-    "description": "The opening prelude of Bach's Well-Tempered Clavier, Book I — a 35-bar piece in C major built almost entirely from broken chords. Its simplicity, harmonic richness, and unambiguous notation have made it the canonical test piece in music information retrieval, score-following, and MIDI software.",
-    "usage": "Used as the standard reference score for symbolic music processing — chord recognition, key estimation, score-to-audio alignment, and music transcription benchmarks routinely include BWV 846. It is also among the most commonly bundled sample MIDI files in DAWs and notation software.",
-    "known_issues": "The piece is heavily overrepresented in music IR benchmarks, leading to models that overfit to its specific arpeggiated texture. Bar 23 famously contains a passing dissonance that some 19th-century editors \"corrected\" by inserting an extra measure (the so-called Schwencke measure); modern editions follow the autograph manuscript and omit it.",
-    "alternatives": "For broader symbolic music benchmarks: the MAESTRO dataset (Hawthorne et al., 2019) and the Lakh MIDI Dataset (Raffel, 2016) provide thousands of pieces. For Bach-specific work, the Bach Chorales corpus (BWV 250–438) is a more diverse training set.",
-    "related": [],
-    "length_tokens": null,
-    "license_status": "public_domain",
-    "tags": [
-      "music",
-      "notation",
-      "Bach",
-      "MIDI"
-    ],
-    "url": "https://imslp.org/wiki/Prelude_and_Fugue_in_C_major,_BWV_846_(Bach,_Johann_Sebastian)"
-  },
-  {
-    "name": "The Mandelbrot Set",
-    "text": null,
-    "discipline": "dynamical systems",
-    "disciplines": [
-      "dynamical systems",
-      "fractal geometry",
-      "complex analysis",
-      "computer graphics"
-    ],
-    "category": "mathematical",
-    "year_introduced": 1980,
-    "creator": "Benoit B. Mandelbrot",
-    "source": "Mandelbrot, B. B. (1980). Fractal aspects of the iteration of z -> lambda*z*(1-z) for complex lambda and z. Annals of the New York Academy of Sciences, 357(1), 249–259.",
-    "description": "The set of complex numbers c for which the iteration z_(n+1) = z_n^2 + c remains bounded starting from z_0 = 0. Discovered through computer experimentation by Benoit Mandelbrot at IBM in 1980, it is the canonical visual artifact of fractal geometry and self-similarity.",
-    "usage": "Used to demonstrate iterated function systems, escape-time rendering algorithms, and the visual richness of simple recursive rules. It is the standard benchmark for parallel and GPU computation in introductory courses, and the canonical example in popular accounts of chaos theory.",
-    "known_issues": "The \"Mandelbrot set\" was first plotted by Robert W. Brooks and Peter Matelski in 1978, two years before Mandelbrot's paper, though their figure was much less detailed and the name stuck to Mandelbrot. The conjecture that the Mandelbrot set is locally connected (the MLC conjecture) remains open as of this writing and is one of the major unsolved problems in complex dynamics.",
-    "alternatives": "Julia sets (one for each c value) are the closely related family generated by fixing c and varying z_0; the Mandelbrot set can be viewed as a parameter-space index of all quadratic Julia sets. The Burning Ship fractal (Michelitsch & Rössler, 1992) is a well-known visual variant using absolute values.",
-    "related": [
-      "The Lorenz Attractor"
-    ],
-    "length_tokens": null,
-    "license_status": "public_domain",
-    "tags": [
-      "fractal",
-      "chaos",
-      "visualization",
-      "mathematics"
-    ],
-    "url": "https://en.wikipedia.org/wiki/Mandelbrot_set"
-  },
-  {
-    "name": "The Lorenz Attractor",
-    "text": null,
-    "discipline": "chaos theory",
-    "disciplines": [
-      "chaos theory",
-      "dynamical systems",
-      "meteorology",
-      "applied mathematics"
-    ],
-    "category": "mathematical",
-    "year_introduced": 1963,
-    "creator": "Edward N. Lorenz",
-    "source": "Lorenz, E. N. (1963). Deterministic nonperiodic flow. Journal of the Atmospheric Sciences, 20(2), 130–141.",
-    "description": "A three-dimensional strange attractor arising from a simplified model of atmospheric convection: dx/dt = sigma*(y - x), dy/dt = x*(rho - z) - y, dz/dt = x*y - beta*z. With sigma=10, rho=28, beta=8/3, the trajectory traces the iconic butterfly-shaped attractor — the founding example of deterministic chaos.",
-    "usage": "Used as the canonical introduction to sensitive dependence on initial conditions (\"the butterfly effect\"), strange attractors, and deterministic chaos. The standard test case for ODE solvers, chaos detection algorithms, and visualizations of phase-space dynamics.",
-    "known_issues": "The popular \"butterfly effect\" name conflates two distinct ideas — the visual butterfly shape of the attractor and Lorenz's later (1972) lecture title \"Does the Flap of a Butterfly's Wings in Brazil Set Off a Tornado in Texas?\". The original 1963 paper does not contain the phrase \"butterfly effect\" at all.",
-    "alternatives": "The Rössler attractor (Rössler, 1976) is a structurally simpler 3D chaotic system often taught alongside Lorenz. The logistic map (May, 1976) is the canonical 1D example of deterministic chaos and bifurcation cascades.",
-    "related": [
-      "The Mandelbrot Set"
-    ],
-    "length_tokens": null,
-    "license_status": "public_domain",
-    "tags": [
-      "chaos",
-      "dynamical systems",
-      "meteorology",
-      "ODE"
-    ],
-    "url": "https://en.wikipedia.org/wiki/Lorenz_system"
-  },
-  {
     "name": "HTTP/1.1 GET Request",
     "text": "GET /pub/WWW/TheProject.html HTTP/1.1\r\nHost: www.w3.org",
     "discipline": "networking",
@@ -422,35 +182,6 @@
     "url": "https://datatracker.ietf.org/doc/html/rfc2616"
   },
   {
-    "name": "The Diffie-Hellman Key Exchange",
-    "text": null,
-    "discipline": "cryptography",
-    "disciplines": [
-      "cryptography",
-      "computer security",
-      "number theory",
-      "computer science education"
-    ],
-    "category": "protocol",
-    "year_introduced": 1976,
-    "creator": "Whitfield Diffie and Martin Hellman",
-    "source": "Diffie, W., & Hellman, M. E. (1976). New directions in cryptography. IEEE Transactions on Information Theory, 22(6), 644–654.",
-    "description": "A protocol that lets two parties establish a shared secret over an insecure channel without ever transmitting the secret itself. Diffie and Hellman's 1976 paper introduced the protocol along with the concept of public-key cryptography itself, founding modern cryptography.",
-    "usage": "Used as the canonical first example in cryptography courses for explaining how public-key methods work, the discrete logarithm problem, and the gap between computational hardness and information-theoretic security. The protocol is also actively used in TLS, SSH, IPsec, and Signal as the standard key-agreement primitive.",
-    "known_issues": "The original Diffie-Hellman is vulnerable to man-in-the-middle attacks because it provides no authentication of the parties — practical use requires combining it with a signature scheme or pre-shared identity. Many real-world deployments used weak or shared 1024-bit primes, and the 2015 \"Logjam\" attack showed that nation-state adversaries could pre-compute discrete logs for the most common parameters. Modern deployments use elliptic-curve variants (X25519, X448) with much smaller key sizes.",
-    "alternatives": "Elliptic Curve Diffie-Hellman (ECDH) is the modern standard, with X25519 (RFC 7748) and X448 the most widely deployed variants. Post-quantum key encapsulation mechanisms — ML-KEM (Kyber, FIPS 203, 2024) — are now being deployed in TLS 1.3 to replace classical DH against future quantum adversaries.",
-    "related": [],
-    "length_tokens": null,
-    "license_status": "public_domain",
-    "tags": [
-      "cryptography",
-      "protocol",
-      "security",
-      "pedagogy"
-    ],
-    "url": "https://ee.stanford.edu/~hellman/publications/24.pdf"
-  },
-  {
     "name": "The North Wind and the Sun",
     "text": "The North Wind and the Sun were disputing which was the stronger, when a traveler came along wrapped in a warm cloak. They agreed that the one who first succeeded in making the traveler take his cloak off should be considered stronger than the other. Then the North Wind blew as hard as he could, but the more he blew the more closely did the traveler fold his cloak around him; and at last the North Wind gave up the attempt. Then the Sun shone out warmly, and immediately the traveler took off his cloak. And so the North Wind was obliged to confess that the Sun was the stronger of the two.",
     "discipline": "linguistics",
@@ -470,7 +201,9 @@
     "alternatives": "The Tower of Babel passage (Genesis 11:1–9) was historically used for similar cross-linguistic comparison. The Universal Declaration of Human Rights, Article 1, has been translated into more languages than any other text and serves as a modern alternative for typological work.",
     "related": [
       "The Rainbow Passage",
-      "The Harvard Sentences"
+      "The Harvard Sentences",
+      "UDHR Article 1",
+      "Jabberwocky, Stanza 1"
     ],
     "length_tokens": 124,
     "license_status": "public_domain",
@@ -483,66 +216,371 @@
     "url": "https://en.wikipedia.org/wiki/The_North_Wind_and_the_Sun"
   },
   {
-    "name": "The Boston Housing Dataset",
-    "text": null,
-    "discipline": "statistics",
+    "name": "The Quick Brown Fox",
+    "text": "The quick brown fox jumps over the lazy dog.",
+    "discipline": "typography",
     "disciplines": [
-      "statistics",
-      "machine learning",
-      "econometrics",
-      "data science education"
+      "typography",
+      "keyboard design",
+      "font testing",
+      "tokenizer testing"
     ],
-    "category": "tabular",
-    "year_introduced": 1978,
-    "creator": "David Harrison Jr. and Daniel L. Rubinfeld",
-    "source": "Harrison Jr., D., & Rubinfeld, D. L. (1978). Hedonic housing prices and the demand for clean air. Journal of Environmental Economics and Management, 5(1), 81–102.",
-    "description": "A 506-observation dataset of housing prices and neighborhood characteristics from 1970s Boston census tracts, originally collected to estimate the willingness to pay for cleaner air. For decades it was the canonical introductory regression dataset in machine learning libraries, until concerns about a racially-coded feature led to its removal from scikit-learn.",
-    "usage": "Historically used as the introductory regression benchmark in scikit-learn, R packages, and ML textbooks for predicting median home value (MEDV) from features like crime rate, room count, and pollution. Now widely used as a teaching example for the ethics of dataset curation and the propagation of biased features through standard tooling.",
-    "known_issues": "The dataset contains a feature B = 1000 * (Bk - 0.63)^2 where Bk is the proportion of Black residents in a census tract. The construction encodes a U-shaped hypothesis in which both very low and very high Black populations correlate with higher home values — embedding a racist assumption about segregation directly into the feature. M Carlisle's 2019 analysis (\"racist data destruction?\") spurred wider awareness; scikit-learn deprecated the dataset in version 1.0 (2021) and removed it entirely in version 1.2 (2022), with the ethical objection documented in the official changelog.",
-    "alternatives": "The Ames Housing dataset (De Cock, 2011) was specifically designed as a modern, ethically-clean replacement for Boston Housing in regression pedagogy, with 79 features across 2,930 observations. The California Housing dataset (Pace & Barry, 1997, included in scikit-learn) is the other commonly used substitute.",
+    "category": "natural_language",
+    "year_introduced": 1885,
+    "creator": "Anonymous; earliest known printed use in The Boston Journal (1885)",
+    "source": "The Boston Journal (1885); widely reproduced in 19th- and 20th-century typewriter manuals as the canonical English pangram.",
+    "description": "A nine-word English sentence that contains every letter of the alphabet at least once. It became the standard pangram used to exercise typewriter keys, printer characters, fonts, keyboard layouts, and text-rendering pipelines.",
+    "usage": "When a font designer, keyboard designer, or tokenizer tester needs a short English pangram, they reach for this sentence. It is the default text in font preview panels (Apple Font Book, Microsoft Font Viewer), keyboard test utilities, and countless 'placeholder text' generators.",
+    "known_issues": "'Jumps' contains a double-count of the letter 's', and the sentence is 35 letters long — not a perfect pangram (which uses each letter exactly once, 26 letters). Perfect alternatives exist but none have achieved the cultural dominance of 'the quick brown fox'.",
+    "alternatives": "'Sphinx of black quartz, judge my vow' (29 letters) and 'Pack my box with five dozen liquor jugs' (32 letters) are shorter pangrams. 'Jackdaws love my big sphinx of quartz' is a 31-letter variant. None has displaced the quick brown fox in practical use.",
     "related": [
-      "Iris Dataset",
-      "Anscombe's Quartet"
+      "Now is the Time",
+      "Lorem Ipsum"
     ],
-    "length_tokens": null,
+    "length_tokens": 10,
     "license_status": "public_domain",
     "tags": [
-      "regression",
-      "ethics",
-      "pedagogy",
-      "fairness"
+      "pangram",
+      "typography",
+      "keyboard",
+      "English"
     ],
-    "url": "https://lib.stat.cmu.edu/datasets/boston"
+    "url": "https://en.wikipedia.org/wiki/The_quick_brown_fox_jumps_over_the_lazy_dog"
   },
   {
-    "name": "The Stanford Bunny",
-    "text": null,
-    "discipline": "computer graphics",
+    "name": "Lorem Ipsum",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "discipline": "graphic design",
     "disciplines": [
-      "computer graphics",
-      "3D scanning",
-      "geometry processing",
-      "computer science education"
+      "graphic design",
+      "typography",
+      "publishing",
+      "web design"
     ],
-    "category": "3d_model",
-    "year_introduced": 1994,
-    "creator": "Greg Turk and Marc Levoy",
-    "source": "Turk, G., & Levoy, M. (1994). Zippered polygon meshes from range images. Proceedings of SIGGRAPH '94, 311–318.",
-    "description": "A 3D mesh model of a ceramic rabbit figurine, scanned by Greg Turk and Marc Levoy at Stanford in 1994 to demonstrate range-image registration and zippering. With approximately 70,000 polygons, it became the canonical test mesh for geometry processing — to mesh research what the Utah Teapot is to rendering.",
-    "usage": "Used to benchmark mesh simplification, parameterization, remeshing, smoothing, and surface reconstruction algorithms. The Bunny appears in thousands of computer graphics papers and is a standard sample mesh in geometry libraries (libigl, MeshLab, CGAL).",
-    "known_issues": "The original scan has small holes in the bottom of the model because the scanner could not see the underside of the figurine when it was sitting on the platform. Several \"watertight\" repaired versions circulate, which can cause subtle benchmark inconsistencies depending on which mesh a paper actually uses.",
-    "alternatives": "The Stanford 3D Scanning Repository also includes the Dragon, Armadillo, Buddha, and Lucy models, which are commonly used together for richer evaluation. The Thingi10K dataset (Zhou & Jacobson, 2016) provides 10,000 diverse meshes from Thingiverse for modern, less-overfit benchmarks.",
+    "category": "natural_language",
+    "year_introduced": 1960,
+    "creator": "Unknown 1960s typesetter (widely believed to be at Letraset); scrambled from Cicero, De Finibus Bonorum et Malorum 1.10.32–33 (45 BCE)",
+    "source": "Letraset dry-transfer lettering sheets (1960s). Source text identified by Richard McClintock (Hampden-Sydney College) as Cicero, De Finibus Bonorum et Malorum 1.10.32–33.",
+    "description": "A scrambled, nonsensical Latin-looking passage derived from Cicero's De Finibus that has served as the default placeholder text in publishing, graphic design, and web design since the 1960s. The specific 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...' form is the version lipsum.com and countless design tools present as canonical.",
+    "usage": "When a graphic designer, typesetter, or web developer needs dummy body text to fill a layout without distracting from visual design, they reach for Lorem Ipsum. It is built into InDesign, Word, Figma, Sketch, and every CSS framework's documentation.",
+    "known_issues": "Because the Latin is scrambled, it is not meaningful prose and slightly mis-samples letter frequencies compared to real Latin or English — which can subtly mislead tests of readability, line-length, or font hinting. Since it is 'almost Latin', it has also occasionally been accidentally published as real copy.",
+    "alternatives": "Bacon Ipsum, Hipster Ipsum, and Cupcake Ipsum are novelty English-language replacements. Designers who want text that matches real English letter frequency use passages from Moby Dick or the Rainbow Passage instead.",
     "related": [
-      "The Utah Teapot"
+      "The Quick Brown Fox"
     ],
-    "length_tokens": null,
+    "length_tokens": 96,
     "license_status": "public_domain",
     "tags": [
-      "3D",
-      "mesh",
-      "benchmark",
-      "geometry"
+      "placeholder",
+      "typography",
+      "Latin",
+      "design"
     ],
-    "url": "https://graphics.stanford.edu/data/3Dscanrep/"
+    "url": "https://www.lipsum.com/"
+  },
+  {
+    "name": "The Gettysburg Address",
+    "text": "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.\n\nNow we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.\n\nBut, in a larger sense, we can not dedicate -- we can not consecrate -- we can not hallow -- this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us -- that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly resolve that these dead shall not have died in vain -- that this nation, under God, shall have a new birth of freedom -- and that government of the people, by the people, for the people, shall not perish from the earth.",
+    "discipline": "American history",
+    "disciplines": [
+      "American history",
+      "rhetoric",
+      "civic memorization",
+      "natural language processing"
+    ],
+    "category": "natural_language",
+    "year_introduced": 1863,
+    "creator": "Abraham Lincoln",
+    "source": "Lincoln, A. (1863). Address delivered at the dedication of the Soldiers' National Cemetery, Gettysburg, Pennsylvania, November 19, 1863. Bliss copy (1864), Library of Congress; the final authorial version, engraved on the Lincoln Memorial.",
+    "description": "Abraham Lincoln's 272-word speech at the dedication of the Soldiers' National Cemetery at Gettysburg on November 19, 1863. The Bliss copy, written out by Lincoln in 1864 at the request of Colonel Alexander Bliss, is the canonical version — it is the one engraved on the Lincoln Memorial and taught in American schools.",
+    "usage": "When an American civics teacher or recitation student needs a canonical short speech for memorization, they reach for the Gettysburg Address. In NLP, it serves as a compact, well-known, public-domain test corpus for tokenization, summarization, and historical-text tasks.",
+    "known_issues": "Five manuscript copies in Lincoln's hand exist (Nicolay, Hay, Everett, Bancroft, Bliss), with minor textual differences — most notably whether 'under God' appears. The Bliss copy is the standard, but academic discussions of the address occasionally reference the Nicolay or Hay drafts instead, and the text quoted in contemporary newspapers (transcribed from hearing) differs further.",
+    "alternatives": "For short canonical American political texts: the Preamble to the US Constitution, FDR's 'Day of Infamy' speech (1941, still copyrighted), Lincoln's Second Inaugural Address (1865, public domain).",
+    "related": [
+      "The Preamble to the US Constitution"
+    ],
+    "length_tokens": 316,
+    "license_status": "public_domain",
+    "tags": [
+      "history",
+      "rhetoric",
+      "memorization",
+      "American"
+    ],
+    "url": "https://www.abrahamlincolnonline.org/lincoln/speeches/gettysburg.htm"
+  },
+  {
+    "name": "UDHR Article 1",
+    "text": "All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.",
+    "discipline": "natural language processing",
+    "disciplines": [
+      "natural language processing",
+      "international law",
+      "human rights",
+      "computational linguistics"
+    ],
+    "category": "natural_language",
+    "year_introduced": 1948,
+    "creator": "United Nations General Assembly; drafting committee chaired by Eleanor Roosevelt",
+    "source": "United Nations General Assembly. (1948). Universal Declaration of Human Rights, Resolution 217 A (III), Paris, 10 December 1948.",
+    "description": "The first article of the Universal Declaration of Human Rights, adopted by the UN General Assembly in 1948. Two sentences, 30 English words. Because the UDHR has been translated into more languages than any other document (over 500), Article 1 has become the de facto short parallel-text benchmark for cross-lingual NLP research.",
+    "usage": "When an NLP researcher needs a short, public-domain, high-coverage parallel text for training or evaluating cross-lingual models, they reach for UDHR Article 1. It appears in the UDHR in Unicode project, the OPUS parallel-corpora collection, and in countless tokenizer and translation demos.",
+    "known_issues": "The English text is a translation-by-committee product with minor differences from subsequent re-translations. The phrase 'spirit of brotherhood' has been criticized as gendered; the 1998 Human Rights Day edition retained the original wording despite proposals to replace it. Not all 500+ language versions are equally careful translations — some are volunteer-contributed and contain errors.",
+    "alternatives": "The European Parliament proceedings (Europarl corpus), the UN Parallel Corpus (UN document translations, 2016), and the Bible (for very wide language coverage including low-resource languages) are the larger-scale alternatives.",
+    "related": [
+      "The North Wind and the Sun"
+    ],
+    "length_tokens": 33,
+    "license_status": "public_domain",
+    "tags": [
+      "NLP",
+      "parallel-text",
+      "human rights",
+      "United Nations"
+    ],
+    "url": "https://www.un.org/en/about-us/universal-declaration-of-human-rights"
+  },
+  {
+    "name": "Mary Had a Little Lamb",
+    "text": "Mary had a little lamb,\nIts fleece was white as snow,\nAnd every where that Mary went\nThe lamb was sure to go;\nHe followed her to school one day—\nThat was against the rule,\nIt made the children laugh and play,\nTo see a lamb at school.\n\nAnd so the Teacher turned him out,\nBut still he lingered near,\nAnd waited patiently about,\nTill Mary did appear;\nAnd then he ran to her, and laid\nHis head upon her arm,\nAs if he said—'I'm not afraid—\nYou'll keep me from all harm.'\n\n'What makes the lamb love Mary so?'\nThe eager children cry—\n'O, Mary loves the lamb, you know,'\nThe Teacher did reply;—\n'And you each gentle animal\nIn confidence may bind,\nAnd make them follow at your call,\nIf you are always kind.'",
+    "discipline": "speech synthesis",
+    "disciplines": [
+      "speech synthesis",
+      "automatic speech recognition",
+      "children's literature",
+      "audio history"
+    ],
+    "category": "natural_language",
+    "year_introduced": 1830,
+    "creator": "Sarah Josepha Hale",
+    "source": "Hale, S. J. (1830). 'Mary's Lamb', in Poems for Our Children. Boston: Marsh, Capen & Lyon.",
+    "description": "Sarah Josepha Hale's 1830 nursery rhyme, first published as 'Mary's Lamb' in Poems for Our Children. Thomas Edison recited the opening lines into his tinfoil phonograph on 9 December 1877, making it the first intelligible human speech ever recorded — a provenance that cemented it as the canonical demo utterance for speech-synthesis and speech-recognition research.",
+    "usage": "When a TTS or ASR researcher needs a short, universally-recognized, public-domain English utterance for demos or sanity checks, they reach for 'Mary had a little lamb'. The opening line is the canonical test phrase in Festival, Flite, Tacotron, and WaveNet papers, and is the reference first-audio-recording reenactment text.",
+    "known_issues": "The rhyme's authorship was disputed for over a century: John Roulstone, a young seminary student, claimed to have written the first twelve lines. Most modern scholars credit Hale. The 1830 text shown here differs in minor particulars from the simplified modern children's version ('everywhere' was originally two words, and the final moral stanza is usually dropped in modern retellings).",
+    "alternatives": "For longer TTS test corpora: the CMU ARCTIC databases, LJ Speech (Keith Ito, 2017), and the LibriTTS corpus (Zen et al., 2019). For a one-line test utterance with broader phonetic coverage, 'The quick brown fox jumps over the lazy dog' is sometimes used instead.",
+    "related": [
+      "The Harvard Sentences"
+    ],
+    "length_tokens": 179,
+    "license_status": "public_domain",
+    "tags": [
+      "nursery rhyme",
+      "TTS",
+      "ASR",
+      "phonograph"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Mary_Had_a_Little_Lamb"
+  },
+  {
+    "name": "99 Bottles of Beer",
+    "text": "99 bottles of beer on the wall, 99 bottles of beer.\nTake one down and pass it around, 98 bottles of beer on the wall.",
+    "discipline": "computer science education",
+    "disciplines": [
+      "computer science education",
+      "folk song",
+      "programming pedagogy"
+    ],
+    "category": "natural_language",
+    "year_introduced": 1950,
+    "creator": "Traditional American folk song; popularized as a CS pedagogical text by 99-bottles-of-beer.net (1994)",
+    "source": "Traditional. Canonical CS-culture reference: 99-bottles-of-beer.net (Oliver Schade & Tim Robinson, 1994–present), a collection of the song implemented in over 1,500 programming languages.",
+    "description": "The first verse of the traditional American countdown folk song '99 Bottles of Beer on the Wall'. Since the mid-1990s, generating the full 99-verse song has been the canonical 'Hello World for iteration' exercise in programming pedagogy, with the 99-bottles-of-beer.net project hosting implementations in over 1,500 languages.",
+    "usage": "When a programming instructor needs a short iteration exercise that exercises loops, conditionals (for the n=1 and n=0 edge cases), and string interpolation, they reach for '99 Bottles of Beer'. It is the defining exercise of the 99-bottles-of-beer.net Rosetta-stone-style language comparison, and has been used as a code-generation benchmark in LLM evaluation.",
+    "known_issues": "The song has edge cases that trip up naive implementations: 1 bottle is singular ('1 bottle', not '1 bottles'), 0 bottles should probably say 'no more', and the final verse breaks the pattern ('no more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more...'). These irregularities are the entire pedagogical point.",
+    "alternatives": "FizzBuzz (Imran Ghory, 2007; popularized by Jeff Atwood) is the modern interview-screening equivalent. The Cat's Cradle riddle and Fibonacci generation are other canonical iteration exercises.",
+    "related": [
+      "Hello, World! (K&R C)"
+    ],
+    "length_tokens": 31,
+    "license_status": "public_domain",
+    "tags": [
+      "CS education",
+      "iteration",
+      "folk song",
+      "pedagogy"
+    ],
+    "url": "https://www.99-bottles-of-beer.net/lyrics.html"
+  },
+  {
+    "name": "RFC 4648 Base64 Test Vectors",
+    "text": "BASE64(\"\") = \"\"\nBASE64(\"f\") = \"Zg==\"\nBASE64(\"fo\") = \"Zm8=\"\nBASE64(\"foo\") = \"Zm9v\"\nBASE64(\"foob\") = \"Zm9vYg==\"\nBASE64(\"fooba\") = \"Zm9vYmE=\"\nBASE64(\"foobar\") = \"Zm9vYmFy\"",
+    "discipline": "cryptography",
+    "disciplines": [
+      "cryptography",
+      "data encoding",
+      "computer science",
+      "software testing"
+    ],
+    "category": "sequence",
+    "year_introduced": 2006,
+    "creator": "Simon Josefsson (IETF)",
+    "source": "Josefsson, S. (2006). The Base16, Base32, and Base64 Data Encodings, RFC 4648, Section 10. Internet Engineering Task Force.",
+    "description": "The seven input/output Base64 test vectors from Section 10 of RFC 4648. Every correct Base64 implementation must produce exactly these outputs for these exact inputs, and every Base64 test suite in every programming language incorporates this table.",
+    "usage": "When a developer implementing a Base64 encoder needs a correctness test, they reach for RFC 4648 §10. These seven vectors are embedded verbatim in the unit tests of Python's base64 module, Go's encoding/base64, Rust's base64 crate, and the Node.js Buffer API, among thousands of others.",
+    "known_issues": "The vectors cover the four padding cases (0, 1, 2, and 3 bytes modulo 3) but do not exercise the URL-safe Base64 variant (RFC 4648 §5) which uses '-' and '_' instead of '+' and '/'. They also do not exercise line-wrapping behavior or the forgiving decoder mode from the WHATWG spec.",
+    "alternatives": "The original Base64 reference, RFC 2045 (MIME), predates RFC 4648 but has no standalone test vector table. For Base32 and Base16, the same RFC 4648 §10 provides parallel test vector tables.",
+    "related": [
+      "FIPS 180-4 SHA-256 abc Test Vector"
+    ],
+    "length_tokens": 87,
+    "license_status": "public_domain",
+    "tags": [
+      "test vector",
+      "encoding",
+      "RFC",
+      "Base64"
+    ],
+    "url": "https://datatracker.ietf.org/doc/html/rfc4648#section-10"
+  },
+  {
+    "name": "FIPS 180-4 SHA-256 abc Test Vector",
+    "text": "SHA-256(\"abc\") = ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+    "discipline": "cryptography",
+    "disciplines": [
+      "cryptography",
+      "hash functions",
+      "software testing",
+      "computer security"
+    ],
+    "category": "sequence",
+    "year_introduced": 2002,
+    "creator": "National Institute of Standards and Technology (NIST)",
+    "source": "NIST. (2002, rev. 2015). Secure Hash Standard (SHS), FIPS PUB 180-4, Appendix B.1 'SHA-256 Example'. US Department of Commerce.",
+    "description": "The SHA-256 test vector for the three-byte input 'abc', producing the 64-hex-character digest ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad. Published in Appendix B.1 of FIPS PUB 180-4, this is the most widely embedded SHA-256 correctness test in software.",
+    "usage": "When a cryptographer or SHA-256 implementer needs a canonical smoke-test vector, they reach for 'abc' → ba7816bf...015ad. It is hard-coded in the test suites of OpenSSL, BoringSSL, libsodium, CPython's hashlib, Go's crypto/sha256, and virtually every other SHA-256 implementation.",
+    "known_issues": "A single three-byte test vector only exercises a single block of the compression function — it does not catch block-boundary bugs, length-padding bugs at multi-block boundaries, or bugs in the final length-encoding step. Complete test suites pair this with NIST's longer CAVS/CAVP vectors.",
+    "alternatives": "For fuller coverage, NIST's Cryptographic Algorithm Validation Program (CAVP) publishes the SHA Byte-Oriented and Bit-Oriented test vector files. The empty-string vector (SHA-256('') = e3b0c442...b855) is the other canonical smoke test.",
+    "related": [
+      "RFC 4648 Base64 Test Vectors"
+    ],
+    "length_tokens": 39,
+    "license_status": "public_domain",
+    "tags": [
+      "test vector",
+      "hash",
+      "FIPS",
+      "NIST"
+    ],
+    "url": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+  },
+  {
+    "name": "Now is the Time",
+    "text": "Now is the time for all good men to come to the aid of their country.",
+    "discipline": "typing instruction",
+    "disciplines": [
+      "typing instruction",
+      "typography",
+      "keyboard practice"
+    ],
+    "category": "natural_language",
+    "year_introduced": 1867,
+    "creator": "Charles E. Weller",
+    "source": "Weller, C. E. (1918). The Early History of the Typewriter, p. 21. La Porte, IN: Chase & Shepard. Phrase first composed by Weller in 1867 as a telegraphic message timing drill.",
+    "description": "A 17-word English sentence proposed by court reporter Charles E. Weller in 1867 as a timed-typing practice text, and used by Frank E. McGurrin to demonstrate touch typing on the Remington in 1889. It became the canonical typing-drill sentence in American typewriter instruction throughout the 20th century.",
+    "usage": "When a typing instructor or typewriter demonstrator needs a short, balanced, easily-memorized practice sentence, they reach for this one. It appears in Remington, Royal, and Olympia typewriter manuals, the Palmer and Gregg touch-typing textbooks, and in the default sample text of countless typing-tutor software packages.",
+    "known_issues": "Weller's original 1867 form, attested in his own 1918 memoir, was 'Now is the time for all good men to come to the aid of the party' — referring to a Democratic Party rally. The 'their country' variant shown here is a 20th-century drift that became dominant in civilian typing instruction after the 1930s; the original 'the party' form is now rare. Both forms are 17 words and equally balanced for practice purposes.",
+    "alternatives": "The quick brown fox pangram is the other canonical short typing practice text. For longer drills, typing instructors use passages from 'A Tale of Two Cities' (Dickens) or the Declaration of Independence.",
+    "related": [
+      "The Quick Brown Fox"
+    ],
+    "length_tokens": 17,
+    "license_status": "public_domain",
+    "tags": [
+      "typing",
+      "keyboard",
+      "drill",
+      "typewriter"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Filler_text"
+  },
+  {
+    "name": "Pi to 100 Decimal Places",
+    "text": "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679",
+    "discipline": "numerical computing",
+    "disciplines": [
+      "numerical computing",
+      "mathematics",
+      "floating-point testing",
+      "computer science"
+    ],
+    "category": "sequence",
+    "year_introduced": 1706,
+    "creator": "William Jones (symbol π); Archimedes, Madhava, Ludolph van Ceulen, and others (numerical value)",
+    "source": "Jones, W. (1706). Synopsis Palmariorum Matheseos (introduced the symbol π). Reference values: NIST PML; OEIS A000796 (Decimal expansion of Pi).",
+    "description": "The first 100 decimal places of π — the ratio of a circle's circumference to its diameter. This specific truncation (to 100 places after the decimal point) is the canonical reference string used for quick correctness checks of floating-point libraries, symbolic math engines, and arbitrary-precision arithmetic implementations.",
+    "usage": "When a numerical-computing implementer needs a reference value for π beyond the ~15 digits of IEEE 754 double precision, they reach for this 100-digit truncation. It is embedded in the test suites of mpmath, GNU MP, SymPy, and the Wolfram Language, and is the default π-precision reference in most math competitions.",
+    "known_issues": "The 'right' number of digits is conventional — 100 is a round-number choice, but 50, 1000, and 1,000,000 digits are also commonly quoted reference values. The 100-digit truncation shown here is rounded down (truncated), not rounded to nearest; the next digit is '8', so a nearest-rounding would have changed the last digit.",
+    "alternatives": "For very high precision: y-cruncher's reference π digits (10^13 places as of 2024), the OEIS A000796 b-file, and the Bailey-Borwein-Plouffe formula for computing arbitrary hex digits of π directly. For other mathematical constants: e (A001113), √2 (A002193), γ (A001620).",
+    "related": [],
+    "length_tokens": 36,
+    "license_status": "public_domain",
+    "tags": [
+      "pi",
+      "mathematics",
+      "constant",
+      "reference"
+    ],
+    "url": "https://oeis.org/A000796"
+  },
+  {
+    "name": "Jabberwocky, Stanza 1",
+    "text": "'Twas brillig, and the slithy toves\n    Did gyre and gimble in the wabe;\nAll mimsy were the borogoves,\n    And the mome raths outgrabe.",
+    "discipline": "linguistics",
+    "disciplines": [
+      "linguistics",
+      "natural language processing",
+      "children's literature",
+      "morphology"
+    ],
+    "category": "natural_language",
+    "year_introduced": 1871,
+    "creator": "Lewis Carroll (Charles Lutwidge Dodgson)",
+    "source": "Carroll, L. (1871). Through the Looking-Glass, and What Alice Found There, Chapter 1. London: Macmillan.",
+    "description": "The opening stanza of Lewis Carroll's 1871 nonsense poem 'Jabberwocky', containing the famous invented words 'brillig', 'slithy', 'toves', 'gyre', 'gimble', 'wabe', 'mimsy', 'borogoves', 'mome', 'raths', and 'outgrabe'. It is the canonical English-language demonstration of how morphology and syntax convey meaning independent of the lexical content of words.",
+    "usage": "When a linguist or NLP researcher needs a short, well-known text full of morphologically-suggestive nonce words, they reach for Jabberwocky. It is the reference example in every morphology textbook (Aronoff, Spencer, Haspelmath), and a standard test case for part-of-speech taggers confronting out-of-vocabulary words.",
+    "known_issues": "Carroll himself provided partial glosses for the nonce words in Through the Looking-Glass (via Humpty Dumpty in chapter 6), which has led to arguments about whether the words are 'really' nonsense or whether they belong to a private Carrollian dialect. The poem is also in a particular register (mock-heroic Middle English pastiche) that does not match general English distribution.",
+    "alternatives": "Noam Chomsky's 'Colorless green ideas sleep furiously' (1957) is the other canonical morphologically-well-formed-but-semantically-anomalous English example. For cross-linguistic nonce-word studies, the Berko 'wug test' (Berko, 1958) is the standard methodology.",
+    "related": [
+      "The North Wind and the Sun"
+    ],
+    "length_tokens": 46,
+    "license_status": "public_domain",
+    "tags": [
+      "linguistics",
+      "poetry",
+      "nonsense",
+      "morphology"
+    ],
+    "url": "https://www.gutenberg.org/files/12/12-h/12-h.htm"
+  },
+  {
+    "name": "The Preamble to the US Constitution",
+    "text": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+    "discipline": "American history",
+    "disciplines": [
+      "American history",
+      "civic memorization",
+      "constitutional law"
+    ],
+    "category": "natural_language",
+    "year_introduced": 1787,
+    "creator": "Gouverneur Morris (Committee of Style, Constitutional Convention)",
+    "source": "Constitution of the United States of America (1787), Preamble. National Archives, Washington, DC.",
+    "description": "The 52-word opening of the US Constitution, drafted in final form by Gouverneur Morris as a member of the Constitutional Convention's Committee of Style in September 1787. A single sentence that names the authors ('We the People'), lists six purposes, and establishes the document.",
+    "usage": "When an American civics teacher or student needs a short, memorizable founding text, they reach for the Preamble. Generations of American schoolchildren learned it through the 1975 Schoolhouse Rock! song 'The Preamble', which made verbatim recall near-universal. It is also a standard short-text example in legal and rhetorical analysis courses.",
+    "known_issues": "The phrase 'We the People' has been historically and legally contested: at the time of ratification, 'the People' excluded enslaved individuals, women, and non-property-owning men. The Preamble has no legal force of its own (established in Jacobson v. Massachusetts, 1905) — it is interpretive context for the articles that follow, not operative law.",
+    "alternatives": "For short canonical American civic texts: the Gettysburg Address, the Declaration of Independence opening, the Bill of Rights (Amendments 1–10).",
+    "related": [
+      "The Gettysburg Address"
+    ],
+    "length_tokens": 65,
+    "license_status": "public_domain",
+    "tags": [
+      "civics",
+      "history",
+      "memorization",
+      "American"
+    ],
+    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
   }
 ]

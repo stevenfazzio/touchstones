@@ -25,20 +25,14 @@ class LicenseStatus(StrEnum):
 
     PUBLIC_DOMAIN = "public_domain"
     FAIR_USE = "fair_use"
-    COPYRIGHTED = "copyrighted"
     UNCLEAR = "unclear"
 
 
 Category = Literal[
     "natural_language",
-    "sequence",
-    "notation",
-    "visual",
-    "audio",
-    "tabular",
     "code",
-    "3d_model",
-    "mathematical",
+    "notation",
+    "sequence",
     "protocol",
 ]
 
@@ -64,13 +58,10 @@ class Entry(BaseModel):
     ]
 
     text: Annotated[
-        str | None,
+        str,
         Field(
-            default=None,
-            description=(
-                "Actual textual content. None if copyrighted, non-textual, "
-                "or otherwise not embedded."
-            ),
+            min_length=1,
+            description="The verbatim text itself — the artifact this entry exists to bundle.",
         ),
     ]
 
@@ -93,7 +84,11 @@ class Entry(BaseModel):
 
     category: Annotated[
         Category,
-        Field(description="Broad artifact grouping (natural_language, visual, tabular, ...)."),
+        Field(
+            description=(
+                "Broad artifact grouping (natural_language, code, notation, sequence, protocol)."
+            )
+        ),
     ]
 
     year_introduced: Annotated[
@@ -167,11 +162,10 @@ class Entry(BaseModel):
     ]
 
     length_tokens: Annotated[
-        int | None,
+        int,
         Field(
-            default=None,
             ge=0,
-            description="Approximate token count (cl100k_base). None for non-text entries.",
+            description="Approximate token count of `text` using the cl100k_base encoding.",
         ),
     ]
 
@@ -201,24 +195,11 @@ class Entry(BaseModel):
                 f"discipline {self.discipline!r} must appear in disciplines {self.disciplines}"
             )
 
-        # 2. length_tokens is None iff text is None
-        if self.text is None and self.length_tokens is not None:
-            raise ValueError("length_tokens must be None when text is None")
-        if self.text is not None and self.length_tokens is None:
-            raise ValueError("length_tokens is required when text is provided")
-
-        # 3. copyrighted entries must not bundle text (use fair_use for excerpts)
-        if self.license_status == LicenseStatus.COPYRIGHTED and self.text is not None:
-            raise ValueError(
-                "text must be None when license_status is 'copyrighted'; "
-                "use 'fair_use' if the excerpt qualifies"
-            )
-
-        # 4. self-reference check
+        # 2. self-reference check
         if self.name in self.related:
             raise ValueError(f"entry {self.name!r} cannot list itself in related")
 
-        # 5. dedupe checks
+        # 3. dedupe checks
         for field_name, value in [
             ("disciplines", self.disciplines),
             ("related", self.related),
