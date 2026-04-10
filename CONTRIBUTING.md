@@ -88,3 +88,5 @@ Entries with `text = null` or metadata-only records are **not accepted**. If the
 ## Growth and curation
 
 There is no hard cap on corpus size, but each addition must pass the [field + need + verbatim text] rule above. A small corpus of deeply-documented canonical texts is more useful than a large one diluted with marginally-relevant entries. When in doubt, err on the side of rejection: it's easier to add a missing entry later than to prune a mediocre one.
+
+For coverage planning — which fields the corpus has reached, which it hasn't, the Schelling-point framing that decides which fields are even in scope, and the "documents, not collections" rule that decides what shape an entry takes within an in-scope field — see [`docs/coverage.md`](docs/coverage.md). The selection rule above applies per-entry; the coverage doc is the companion that handles the corpus-level questions.
