@@ -43,4 +43,4 @@ df = corpus.to_dataframe()
 
 ## Status
 
-**v0.1 is schema-only.** The data schema is defined, validated, and tested, but no entries have been seeded yet. The corpus loads as an empty list. Entries will land in the next release. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the proposal process and field reference.
+**v0.1** ships with 6 seed entries spanning natural language, tabular data, code, 3D models, and images. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the proposal process and field reference.
