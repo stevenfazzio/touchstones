@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+        extras: [""]
+        include:
+          - python-version: "3.13"
+            extras: "pandas"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          if [ -z "${{ matrix.extras }}" ]; then
+            uv sync --extra dev
+          else
+            uv sync --extra dev --extra ${{ matrix.extras }}
+          fi
+
+      - name: Lint
+        if: matrix.extras == '' && matrix.python-version == '3.13'
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+
+      - name: Test
+        run: uv run pytest
