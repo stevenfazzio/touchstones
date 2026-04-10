@@ -45,6 +45,39 @@ def test_filter_by_category() -> None:
     assert all(e.category == "natural_language" for e in nl)
 
 
+def test_every_entry_has_language_and_script() -> None:
+    for entry in corpus:
+        assert isinstance(entry.language, str)
+        assert len(entry.language) > 0
+        assert isinstance(entry.script, str)
+        assert len(entry.script) > 0
+
+
+def test_corpus_is_currently_all_latin_script() -> None:
+    # Diagnostic snapshot at the moment Scheme B landed: 19 of 19 entries use
+    # Latin script. This is the bias the script field exists to surface, and
+    # this assertion will fail (deliberately) when the first non-Latin entry
+    # is added — at which point bump the count or replace with a richer check.
+    scripts = {e.script for e in corpus}
+    assert scripts == {"latin"}
+
+
+def test_language_distribution_snapshot() -> None:
+    # Diagnostic snapshot at the moment Scheme B landed: english dominates,
+    # everything else is a singleton or close to it. Update this distribution
+    # as the corpus grows.
+    from collections import Counter
+
+    languages = Counter(e.language for e in corpus)
+    assert languages["english"] == 11
+    assert languages["none"] == 4
+    assert languages["latin"] == 1
+    assert languages["c"] == 1
+    assert languages["bnf"] == 1
+    assert languages["http"] == 1
+    assert sum(languages.values()) == 19
+
+
 def test_filter_by_discipline() -> None:
     # Three entries list `linguistics` in their disciplines: Rainbow,
     # North Wind, and Jabberwocky.

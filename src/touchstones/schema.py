@@ -91,6 +91,36 @@ class Entry(BaseModel):
         ),
     ]
 
+    language: Annotated[
+        str,
+        Field(
+            min_length=1,
+            max_length=50,
+            description=(
+                "Primary symbol system the text is written in. Lowercase short identifier "
+                "shared by natural and programming languages and notation systems "
+                "(e.g. 'english', 'latin', 'japanese', 'c', 'python', 'bnf', 'http'). "
+                "Use 'none' for non-linguistic data such as raw hashes, numeric sequences, "
+                "or genomic strings. The convention is 'what would a search-by-language user type'."
+            ),
+        ),
+    ]
+
+    script: Annotated[
+        str,
+        Field(
+            min_length=1,
+            max_length=50,
+            description=(
+                "Writing script the bytes are rendered in (e.g. 'latin', 'cyrillic', "
+                "'cjk_han', 'devanagari', 'arabic', 'hebrew', 'greek'). Use 'mixed' "
+                "only for genuine multi-script texts where no script dominates. "
+                "Often derivable from `language` but kept as its own axis so the corpus "
+                "can be filtered by script independently."
+            ),
+        ),
+    ]
+
     year_introduced: Annotated[
         int,
         Field(

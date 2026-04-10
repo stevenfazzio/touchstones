@@ -21,7 +21,7 @@ This framing has two consequences for what belongs in the corpus:
 
 ## Documents, not collections
 
-Each entry's `text` field must contain exactly one document. When a focal artifact is itself a collection — a TREC topic file, the FIPS 180-4 test vector tables, an OEIS sequence, a parallel-text Bible, the full 720 Harvard Sentences — the entry is the *focal individual exemplar from* that collection, not the collection itself. The collection lives in the entry's `description`, `source`, and `usage` fields, where it provides context. It does not live in the `text` field, where it would dilute the artifact.
+Each entry's `text` field must contain exactly one document. When a focal artifact is itself a collection — a TREC topic file, the FIPS 180-4 test vector tables, an OEIS sequence, a parallel-text Bible, the full 720 Harvard Sentences — the entry is *one focal individual exemplar from* that collection, not the collection itself. The collection lives in the entry's `description`, `source`, and `usage` fields, where it provides context. It does not live in the `text` field, where it would dilute the artifact.
 
 **The test:** if the answer to "what is in this `text` field?" is *"an assortment of N independent items"* or *"a sample from a collection of N things,"* you have drifted from a corpus of documents into a corpus of corpuses. The `text` field should hold a single bounded document that stands on its own.
 
@@ -31,9 +31,50 @@ The existing corpus already follows this discipline:
 - **The Harvard Sentences** is List 1 (10 sentences), not the full 72-list, 720-sentence IEEE publication. The full collection is described in metadata; the entry's text is the canonical first list, which is itself the standard testing unit speech researchers reach for.
 - **Pi to 100 Decimal Places** is a defined finite slice of an infinite sequence. The entry isn't "the digits of π"; it's a bounded, citable artifact with an exact length.
 
-When a collection-shaped Schelling point produces multiple independently-focal exemplars (e.g., several TREC topics that each get heavy reuse), each one becomes its own atomic entry. When a focal text has multiple canonical versions — translations, editions, dialects — each version that is independently focal becomes its own entry. The Pater Noster in Latin Vulgate is one entry; a hypothetical KJV English Lord's Prayer would be a separate entry. The temptation to put a parallel-text table in one entry is the corpus-of-corpuses trap; refuse it.
+**The corpus may contain many atomic exemplars from a single collection.** This is a sharpening of the rule, not an exception to it. The unit is one bounded document per entry, but nothing prevents the corpus from sampling the same collection densely — multiple SHA test vectors, multiple TREC topics, multiple FASTA reference sequences, multiple Harvard Sentence lists, the Pater Noster in several languages. Each is its own atomic entry, linked via `related`. The corpus-of-corpuses trap is bundling N items into one entry's `text`; the cure is N separate entries, not "one entry per collection." This is the natural scaling pattern at corpus sizes past a few hundred (see the **anchor-and-neighbors** discussion under "Breadth axes" below).
 
 This rule is the structural complement to the Schelling-point framing. The framing decides which fields are in scope; this rule decides what shape an entry takes within an in-scope field.
+
+## Breadth axes
+
+The corpus is structured around four orthogonal axes that together define the *cells* of the breadth space. Every entry has explicit values on all four:
+
+| Axis | Schema field | Role |
+|---|---|---|
+| Type | `category` | Structural kind of text — `natural_language`, `code`, `notation`, `sequence`, `protocol`. Closed enum; the most stable axis. |
+| Language | `language` | Primary symbol system — natural languages (`english`, `latin`, `japanese`), programming languages (`c`, `python`), notation systems (`bnf`), protocols (`http`), or `none` for non-linguistic data. Open vocabulary. |
+| Script | `script` | Writing script the bytes are rendered in (`latin`, `cyrillic`, `cjk_han`, `devanagari`, …). Open vocabulary. |
+| Discipline | `discipline` / `disciplines` | Field(s) that reach for this artifact (`speech pathology`, `cryptography`, `linguistics`, …). Open vocabulary. |
+
+A *cell* is one `(category, language, script, discipline)` 4-tuple. Most cells are empty and most empty cells will stay empty (no field uses Korean cryptographic test vectors). The curator's job in **Phase 1 (breadth)** is to identify which empty cells are *interesting* — cells where adding the canonical exemplar opens new analytical territory — and fill them at N=1.
+
+Deliberately *not* in the schema: register, era, structure, length-band. These are real dimensions but they have no clean partition and any attempt to enum them invites endless argument. They stay implicit, captured by the curator's eye and by the per-entry metadata fields (`year_introduced`, `description`, `usage`).
+
+### Diagnostic snapshot
+
+Filling in `language` and `script` for the existing 19 entries surfaces the bias the breadth framing was designed to make visible:
+
+- **Script:** 19 / 19 are `latin`. The corpus has zero non-Latin entries.
+- **Language:** 11 / 19 are `english`. The non-English breakdown is 1 `latin` (Lorem Ipsum), 1 `c`, 1 `bnf`, 1 `http`, and 4 `none` (genome, hashes, π digits). Zero entries in any other natural language.
+- **Category:** 12 / 19 are `natural_language`. `code`, `notation`, and `protocol` have exactly one entry each — *enough to bias an embedding analysis, not enough to support a claim.*
+
+These three numbers are the concrete shape of "unconstrained curation reaching for what feels interesting." They are also the agenda for the next round of additions.
+
+### Anchor-and-neighbors curation
+
+Past ~200 entries, the natural way to grow is **anchor-and-neighbors**: for each existing anchor entry, identify 3–10 texts that occupy a similar position in the breadth-space and have their own weaker Schelling-point status. Anchor + neighbors is how the "documents, not collections" rule scales — see the clarification above. Examples:
+
+- φX174 genome → λ phage, human mtDNA reference (CRS), GFP, hen lysozyme, ubiquitin, bovine insulin
+- SHA-256 "abc" → other FIPS 180-4 SHA test vectors, MD5("a"), SHA-1("abc"), HMAC-SHA-1 RFC 2202 vectors
+- Harvard Sentences List 1 → Lists 2–10
+- Lorem Ipsum → variant lorems (Bacon Ipsum, Hipster Ipsum, Cupcake Ipsum)
+- UDHR Article 1 (English) → UDHR Article 1 in French, Spanish, Japanese, Sanskrit, … (parallel-text family)
+
+Parallel-text families are especially valuable: when two entries differ on *exactly one axis*, the embedding-analysis use case can attribute embedding shifts to that axis with much more confidence.
+
+### Target and phases
+
+The corpus targets ~1500–2000 entries reached in three phases: **Phase 1 (breadth)** fills ~80% of identified cells at N=1 (~200–400 entries); **Phase 2 (selective densification)** brings the 20–30 most analysis-critical cells to N=5–10 each (+200–500 entries); **Phase 3 (family expansion)** uses anchor-and-neighbors to reach the final size. 10k+ is explicitly *not* the near-term target — past ~2k, per-entry depth has to drop and the project becomes a different product.
 
 ## Status legend
 

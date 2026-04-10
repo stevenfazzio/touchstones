@@ -17,7 +17,7 @@ This project uses `uv`. Run everything through it so the venv stays in sync.
 
 Touchstones is a small, data-first Python package (src/ layout, `src/touchstones/`). The runtime surface is intentionally minimal: a Pydantic schema, a JSON file of entries, and a thin `Corpus` wrapper. Three pieces hold the design together:
 
-1. **`schema.py` — `Entry` is the source of truth.** Every field is validated by Pydantic, and the model is `frozen=True` with `extra="forbid"`. Both `text` and `length_tokens` are **required** — every entry bundles a verbatim standard text, no exceptions. The cross-field invariants live in a single `model_validator(mode="after")` (`_check_invariants`):
+1. **`schema.py` — `Entry` is the source of truth.** Every field is validated by Pydantic, and the model is `frozen=True` with `extra="forbid"`. `text`, `length_tokens`, `language`, and `script` are all **required** — every entry bundles a verbatim standard text, no exceptions. `language` and `script` together with `category` and `discipline` form the four orthogonal **breadth axes** the corpus is structured around (see `docs/coverage.md`). The cross-field invariants live in a single `model_validator(mode="after")` (`_check_invariants`):
    - `discipline` must appear in `disciplines`
    - entries can't self-reference in `related`
    - `disciplines` / `related` / `tags` must be deduped
@@ -35,7 +35,7 @@ Every entry in the corpus must pass this test: **"When a practitioner of [field]
 
 ## Status note (v0.1)
 
-`src/touchstones/data/entries.json` contains 19 seed entries across 5 `Category` enum values (`natural_language`, `code`, `notation`, `sequence`, `protocol`). Every entry has non-empty `text`; there are no metadata-only records. The test suite has two layers:
+`src/touchstones/data/entries.json` contains 19 seed entries across 5 `Category` enum values (`natural_language`, `code`, `notation`, `sequence`, `protocol`). Every entry has non-empty `text`; there are no metadata-only records. The corpus is currently 19/19 `script=latin` and 11/19 `language=english` — these are the diagnostic biases the breadth axes were added to make visible, and they're the agenda for the next round of additions. The corpus targets ~1500–2000 entries via the three-phase plan described in `docs/coverage.md`. The test suite has two layers:
 
 - `tests/test_schema.py` exercises the `Entry` validators against an in-memory `minimal_entry_dict` fixture (a placeholder, **not** a real corpus entry). When changing the schema, update the fixture and the relevant validator test together.
 - `tests/test_corpus.py` tests the full Corpus API against the real singleton (lookup, filter, iteration, texts, labels, related cross-references, DataFrame export).

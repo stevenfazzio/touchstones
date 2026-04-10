@@ -26,6 +26,8 @@ def minimal_entry_dict() -> dict:
         "discipline": "testing",
         "disciplines": ["testing", "demonstration"],
         "category": "natural_language",
+        "language": "english",
+        "script": "latin",
         "year_introduced": 2024,
         "creator": "Test Author",
         "source": "Test Suite Documentation",
@@ -88,6 +90,30 @@ def test_self_reference_in_related_raises(minimal_entry_dict: dict) -> None:
 
 def test_invalid_category_raises(minimal_entry_dict: dict) -> None:
     minimal_entry_dict["category"] = "not_a_real_category"
+    with pytest.raises(ValidationError):
+        Entry.model_validate(minimal_entry_dict)
+
+
+def test_language_required(minimal_entry_dict: dict) -> None:
+    minimal_entry_dict.pop("language")
+    with pytest.raises(ValidationError):
+        Entry.model_validate(minimal_entry_dict)
+
+
+def test_empty_language_rejected(minimal_entry_dict: dict) -> None:
+    minimal_entry_dict["language"] = ""
+    with pytest.raises(ValidationError):
+        Entry.model_validate(minimal_entry_dict)
+
+
+def test_script_required(minimal_entry_dict: dict) -> None:
+    minimal_entry_dict.pop("script")
+    with pytest.raises(ValidationError):
+        Entry.model_validate(minimal_entry_dict)
+
+
+def test_empty_script_rejected(minimal_entry_dict: dict) -> None:
+    minimal_entry_dict["script"] = ""
     with pytest.raises(ValidationError):
         Entry.model_validate(minimal_entry_dict)
 

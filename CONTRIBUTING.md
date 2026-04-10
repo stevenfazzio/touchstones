@@ -55,6 +55,8 @@ Each entry must include the following fields. See `src/touchstones/schema.py` fo
 | `discipline` | str | Primary field of use. Must appear in `disciplines`. |
 | `disciplines` | list[str] | All fields where this artifact is used. No duplicates. |
 | `category` | str | One of: `natural_language`, `code`, `notation`, `sequence`, `protocol`. |
+| `language` | str | **Required.** Lowercase short identifier for the symbol system the text is written in. Natural and programming languages share this field. See the language conventions below. |
+| `script` | str | **Required.** Lowercase identifier for the writing script (`latin`, `cyrillic`, `cjk_han`, `devanagari`, `arabic`, `hebrew`, `greek`, `mixed`). See the script conventions below. |
 | `year_introduced` | int | Year first published or standardized. BCE values are negative. |
 | `creator` | str | Person or organization. Use "Anonymous" or "Traditional" if unknown. |
 | `source` | str | Original publication or standard, with citation. |
@@ -67,6 +69,30 @@ Each entry must include the following fields. See `src/touchstones/schema.py` fo
 | `license_status` | enum | One of: `public_domain`, `fair_use`, `unclear`. |
 | `tags` | list[str] | Freeform tags for cross-cutting themes. No duplicates. |
 | `url` | str (URL) | Link to the authoritative source or full text. |
+
+## Language and script conventions
+
+`language` and `script` exist so the corpus can be filtered along the breadth axes that matter most to embedding-model analysis. Both are free-form lowercase strings — the schema does not enforce a closed vocabulary, but the conventions below should be followed so values are consistent across entries.
+
+### `language`
+
+The convention is **"what would a search-by-language user type."** Natural languages, programming languages, notation systems, and protocols all share this field.
+
+| Kind | Examples |
+|---|---|
+| Natural human languages | `english`, `latin`, `french`, `japanese`, `mandarin`, `arabic`, `russian`, `sanskrit` |
+| Programming languages | `c`, `python`, `javascript`, `lisp`, `fortran`, `assembly` |
+| Notation systems | `bnf`, `tex`, `regex`, `smiles`, `inchi`, `pgn`, `lilypond` |
+| Network / wire protocols | `http`, `dns`, `smtp`, `tls` |
+| Non-linguistic data | `none` (raw hashes, decimal/hex test vectors, numeric sequences, genomic strings) |
+
+Pick the *primary* language. Bilingual texts (e.g., a code snippet with English comments, or a parallel-text passage) take the dominant language and document the bilingualism in `description`. Don't try to express multilingualism in this field.
+
+### `script`
+
+The script the bytes are *rendered* in, not the strict Unicode script property. ACGT genomic strings, hex digests, and decimal digits all count as `latin` for our purposes — the question is "what alphabet would a reader recognize."
+
+Recommended values: `latin`, `cyrillic`, `cjk_han`, `hiragana`, `katakana`, `devanagari`, `arabic`, `hebrew`, `greek`. Use `mixed` only for genuine multi-script texts where no single script dominates (Japanese mixing han + kana is the canonical case).
 
 ## Computing `length_tokens`
 
