@@ -33,7 +33,7 @@ Touchstones is a small, data-first Python package (src/ layout, `src/touchstones
 
 ## Status note (v0.1)
 
-`src/touchstones/data/entries.json` contains 6 seed entries spanning multiple categories and license statuses. The test suite has two layers:
+`src/touchstones/data/entries.json` contains 18 seed entries covering all 10 `Category` enum values and a mix of license statuses. The test suite has two layers:
 
 - `tests/test_schema.py` exercises the `Entry` validators against an in-memory `minimal_entry_dict` fixture (a placeholder, **not** a real corpus entry). When changing the schema, update the fixture and the relevant validator test together.
 - `tests/test_corpus.py` tests the full Corpus API against the real singleton (lookup, filter, iteration, texts, labels, related cross-references, DataFrame export).
