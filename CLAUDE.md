@@ -33,9 +33,9 @@ Touchstones is a small, data-first Python package (src/ layout, `src/touchstones
 
 ## Status note (v0.1)
 
-`src/touchstones/data/entries.json` is currently `[]` — the corpus loads empty by design. The test suite has two layers that reflect this:
+`src/touchstones/data/entries.json` contains 6 seed entries spanning multiple categories and license statuses. The test suite has two layers:
 
 - `tests/test_schema.py` exercises the `Entry` validators against an in-memory `minimal_entry_dict` fixture (a placeholder, **not** a real corpus entry). When changing the schema, update the fixture and the relevant validator test together.
-- `tests/test_corpus.py` is a smoke layer over the empty corpus — it guards the API surface and import-time loading. Once entries are seeded, this file will need richer fixtures rather than relying on the singleton.
+- `tests/test_corpus.py` tests the full Corpus API against the real singleton (lookup, filter, iteration, texts, labels, related cross-references, DataFrame export).
 
-When seeding entries, route the change through `CONTRIBUTING.md`'s field reference and run `uv run pytest` — schema and corpus-level validation both run at load time, so a malformed entry will surface immediately.
+When adding entries, route the change through `CONTRIBUTING.md`'s field reference and run `uv run pytest` — schema and corpus-level validation both run at load time, so a malformed entry will surface immediately.
