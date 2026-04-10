@@ -20,7 +20,7 @@ from touchstones.schema import Entry
 class Corpus:
     """An immutable collection of canonical reference artifacts."""
 
-    def __init__(self, entries: list[Entry]) -> None:
+    def __init__(self, entries: list[Entry], *, check_related: bool = True) -> None:
         self._entries: tuple[Entry, ...] = tuple(entries)
         self._by_name: dict[str, Entry] = {}
         for entry in self._entries:
@@ -29,13 +29,17 @@ class Corpus:
             self._by_name[entry.name] = entry
 
         # Validate that every `related` reference points to an existing entry.
-        known_names = set(self._by_name)
-        for entry in self._entries:
-            missing = set(entry.related) - known_names
-            if missing:
-                raise ValueError(
-                    f"entry {entry.name!r} references unknown related entries: {sorted(missing)}"
-                )
+        # `check_related=False` is used by `filter()`, which intentionally
+        # produces subsets where cross-category related references dangle.
+        if check_related:
+            known_names = set(self._by_name)
+            for entry in self._entries:
+                missing = set(entry.related) - known_names
+                if missing:
+                    raise ValueError(
+                        f"entry {entry.name!r} references unknown related entries: "
+                        f"{sorted(missing)}"
+                    )
 
     @classmethod
     def load_default(cls) -> Corpus:
@@ -79,18 +83,16 @@ class Corpus:
                 and (tag is None or tag in entry.tags)
             )
 
-        return Corpus([e for e in self._entries if keep(e)])
+        return Corpus([e for e in self._entries if keep(e)], check_related=False)
 
-    def texts(self, *, include_none: bool = False) -> list[str | None]:
-        """Return the text content of every entry.
+    def texts(self) -> list[str]:
+        """Return the verbatim `text` of every entry, in iteration order.
 
-        By default, entries with `text is None` are skipped — useful for
-        embedding pipelines that need actual strings. Pass
-        `include_none=True` to keep `None` values, aligned with `labels()`.
+        Every entry has a non-empty text under the current schema, so this
+        returns a flat `list[str]` suitable for feeding directly into
+        embedding or tokenization pipelines.
         """
-        if include_none:
-            return [e.text for e in self._entries]
-        return [e.text for e in self._entries if e.text is not None]
+        return [e.text for e in self._entries]
 
     def labels(self, *, field: str) -> list[Any]:
         """Return the value of `field` for every entry, in iteration order."""

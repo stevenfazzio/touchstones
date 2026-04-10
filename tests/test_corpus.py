@@ -1,8 +1,8 @@
 """Tests for the corpus singleton and Corpus API.
 
-The default corpus contains 18 seeded entries spanning all 10 categories,
-multiple license statuses, and text/no-text paths. These tests exercise
-the full API surface against real data.
+The default corpus holds 19 verbatim standard-example-text entries spanning
+5 categories. Every entry has non-empty text under the current schema, so
+most tests are simple count / equality assertions against the real data.
 """
 
 from __future__ import annotations
@@ -15,38 +15,41 @@ from touchstones.schema import Entry
 
 def test_corpus_singleton_loads() -> None:
     assert isinstance(corpus, Corpus)
-    assert len(corpus) == 18
+    assert len(corpus) == 19
     assert all(isinstance(e, Entry) for e in corpus)
 
 
-def test_texts_returns_entries_with_text() -> None:
+def test_every_entry_has_text() -> None:
+    for entry in corpus:
+        assert isinstance(entry.text, str)
+        assert len(entry.text) > 0
+        assert entry.length_tokens > 0
+
+
+def test_texts_returns_flat_list_of_strings() -> None:
     texts = corpus.texts()
-    assert len(texts) == 6
-    assert all(isinstance(t, str) for t in texts)
-
-
-def test_texts_include_none() -> None:
-    texts = corpus.texts(include_none=True)
-    assert len(texts) == 18
-    assert sum(t is None for t in texts) == 12
+    assert len(texts) == 19
+    assert all(isinstance(t, str) and len(t) > 0 for t in texts)
 
 
 def test_labels() -> None:
     labels = corpus.labels(field="discipline")
-    assert len(labels) == 18
+    assert len(labels) == 19
     assert all(isinstance(label, str) for label in labels)
 
 
 def test_filter_by_category() -> None:
-    tabular = corpus.filter(category="tabular")
-    assert isinstance(tabular, Corpus)
-    assert len(tabular) == 3
-    assert all(e.category == "tabular" for e in tabular)
+    nl = corpus.filter(category="natural_language")
+    assert isinstance(nl, Corpus)
+    assert len(nl) == 12
+    assert all(e.category == "natural_language" for e in nl)
 
 
 def test_filter_by_discipline() -> None:
-    stats = corpus.filter(discipline="statistics")
-    assert len(stats) == 3
+    # Three entries list `linguistics` in their disciplines: Rainbow,
+    # North Wind, and Jabberwocky.
+    linguistics = corpus.filter(discipline="linguistics")
+    assert len(linguistics) == 3
 
 
 def test_filter_by_tag() -> None:
@@ -56,9 +59,9 @@ def test_filter_by_tag() -> None:
 
 
 def test_filter_combined() -> None:
-    result = corpus.filter(category="tabular", tag="pedagogy")
+    result = corpus.filter(category="natural_language", tag="phonetics")
     assert len(result) >= 1
-    assert all(e.category == "tabular" and "pedagogy" in e.tags for e in result)
+    assert all(e.category == "natural_language" and "phonetics" in e.tags for e in result)
 
 
 def test_lookup_by_name() -> None:
@@ -79,28 +82,26 @@ def test_membership_check() -> None:
 
 
 def test_related_cross_references() -> None:
-    anscombe = corpus["Anscombe's Quartet"]
-    iris = corpus["Iris Dataset"]
-    assert "Iris Dataset" in anscombe.related
-    assert "Anscombe's Quartet" in iris.related
+    # Triangle of kept phonetic passages — all mutually related.
+    rainbow = corpus["The Rainbow Passage"]
+    harvard = corpus["The Harvard Sentences"]
+    north_wind = corpus["The North Wind and the Sun"]
+    assert "The Harvard Sentences" in rainbow.related
+    assert "The Rainbow Passage" in harvard.related
+    assert "The North Wind and the Sun" in rainbow.related
+    assert "The Rainbow Passage" in north_wind.related
 
-    teapot = corpus["The Utah Teapot"]
-    lena = corpus["Lena"]
-    assert "Lena" in teapot.related
-    assert "The Utah Teapot" in lena.related
-
-
-def test_copyrighted_entry_has_no_text() -> None:
-    lena = corpus["Lena"]
-    assert lena.license_status == "copyrighted"
-    assert lena.text is None
-    assert lena.length_tokens is None
+    # A new bidirectional pair wired in during the refactor.
+    fox = corpus["The Quick Brown Fox"]
+    now = corpus["Now is the Time"]
+    assert "Now is the Time" in fox.related
+    assert "The Quick Brown Fox" in now.related
 
 
 def test_to_dataframe() -> None:
     pytest.importorskip("pandas")
     df = corpus.to_dataframe()
-    assert len(df) == 18
+    assert len(df) == 19
     assert "name" in df.columns
     assert "category" in df.columns
     assert "license_status" in df.columns

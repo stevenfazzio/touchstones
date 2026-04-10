@@ -62,31 +62,22 @@ def test_discipline_must_be_in_disciplines(minimal_entry_dict: dict) -> None:
         Entry.model_validate(minimal_entry_dict)
 
 
-def test_text_none_with_length_tokens_raises(minimal_entry_dict: dict) -> None:
-    minimal_entry_dict["text"] = None
-    minimal_entry_dict["length_tokens"] = 5
-    with pytest.raises(ValidationError, match="length_tokens must be None when text is None"):
+def test_text_required(minimal_entry_dict: dict) -> None:
+    minimal_entry_dict.pop("text")
+    with pytest.raises(ValidationError):
         Entry.model_validate(minimal_entry_dict)
 
 
-def test_text_set_without_length_tokens_raises(minimal_entry_dict: dict) -> None:
-    minimal_entry_dict["length_tokens"] = None
-    with pytest.raises(ValidationError, match="length_tokens is required"):
+def test_empty_text_rejected(minimal_entry_dict: dict) -> None:
+    minimal_entry_dict["text"] = ""
+    with pytest.raises(ValidationError):
         Entry.model_validate(minimal_entry_dict)
 
 
-def test_copyrighted_with_text_raises(minimal_entry_dict: dict) -> None:
-    minimal_entry_dict["license_status"] = "copyrighted"
-    with pytest.raises(ValidationError, match="text must be None when license_status"):
+def test_length_tokens_required(minimal_entry_dict: dict) -> None:
+    minimal_entry_dict.pop("length_tokens")
+    with pytest.raises(ValidationError):
         Entry.model_validate(minimal_entry_dict)
-
-
-def test_copyrighted_with_text_none_is_ok(minimal_entry_dict: dict) -> None:
-    minimal_entry_dict["text"] = None
-    minimal_entry_dict["length_tokens"] = None
-    minimal_entry_dict["license_status"] = "copyrighted"
-    entry = Entry.model_validate(minimal_entry_dict)
-    assert entry.text is None
 
 
 def test_self_reference_in_related_raises(minimal_entry_dict: dict) -> None:
