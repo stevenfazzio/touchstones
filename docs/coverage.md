@@ -197,11 +197,15 @@ A small but distinctive cluster: identifier strings that standards bodies delibe
 
 ## First wave
 
-The next round of research targets three clusters chosen for high Schelling-point density and unambiguous authoritative sources:
+Under the breadth framing and the diagnostic snapshot above, the immediate priorities are not the most interesting cells but the most *imbalanced* axes. Three priorities, in rough order of analytical leverage:
 
-1. **NLP and linguistic Schelling points** — "colorless green ideas sleep furiously", garden-path sentences, the Penn Treebank §00 sentence, the Brown Corpus opening. Cheapest to verify; densest with focal exemplars.
-2. **Cryptographic test vectors** — NIST and IETF publish authoritative bytes by design; the field's whole point is anti-gaming through shared inputs.
-3. **Tokenizer and Unicode coordination strings** — Kuhn's UTF-8 stress test and one canonical "I can eat glass" entry. Increasingly relevant to the audience this corpus most directly serves.
+1. **Break the script monoculture.** All 19 entries are `script=latin`. Adding the first entry per major non-Latin script — Cyrillic, CJK han, hiragana/katakana, Devanagari, Arabic, Hebrew, Greek — opens cells nothing currently fills. Concrete first candidates: Bashō's frog haiku in original Japanese (CJK + hiragana), one "I can eat glass" non-Latin variant, an Arabic UDHR Article 1, the opening of the Iliad in Greek. Each one of these *also* breaks the language monoculture, so this priority and #3 overlap heavily.
+
+2. **Backfill the underpopulated categories.** `code`, `notation`, and `protocol` each contain exactly one entry — enough to bias an embedding analysis, not enough to support a claim. Each needs to grow to at least N=3 before the corpus can be meaningfully sliced by category. Concrete first candidates: K&R `wc` and the canonical C quine (code); Wirth EBNF and one Dragon-book expression grammar (notation); RFC 1035 §6.1 DNS query and RFC 5321 §4.3 SMTP session (protocol).
+
+3. **Break the language monoculture within Latin script.** 11/19 entries are `english` and no other natural language is represented. The highest-leverage moves here are **parallel-text family members** for texts already in the corpus — UDHR Article 1 in French, Spanish, Latin, German; the Pater Noster in Latin Vulgate; "I can eat glass" in several Latin-script languages. Parallel-text families let analysts hold content constant and isolate the language axis, which is the cleanest factorial structure available for embedding-sensitivity work.
+
+Once these three are in good shape (call it ~50–80 new entries), the previously-named priority clusters — NLP and linguistic Schelling points (e.g., "colorless green ideas sleep furiously", garden-path sentences, the Penn Treebank §00 sentence), cryptographic test vector families, and tokenizer / Unicode coordination strings (Markus Kuhn's UTF-8 stress test) — become the natural Phase 2 targets, with the breadth-axis structure now in place to keep them from re-creating the original bias.
 
 ## What does not belong
 

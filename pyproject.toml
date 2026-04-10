@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "touchstones"
 version = "0.0.1"
-description = "A curated corpus of standard example texts used across fields"
+description = "A breadth-optimized corpus of standard example texts for analyzing text embedding and language models"
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [
