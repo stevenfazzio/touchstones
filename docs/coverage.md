@@ -62,15 +62,15 @@ Filling in `language` and `script` for the original 19 seed entries surfaced the
 
 These three numbers were the concrete shape of "unconstrained curation reaching for what feels interesting" and the agenda for the first two batches.
 
-#### Current state (36 entries)
+#### Current state (43 entries)
 
-After two breadth-filling batches — the **first non-Latin batch** (10 entries) and the **underpopulated-categories batch** (7 entries: K&R wc, SICP factorial, Thompson quine, Dragon-book grammar, Wirth syntax notation, RFC 5321 SMTP, RFC 1035 DNS) — the snapshot is:
+After three breadth-filling batches — the **first non-Latin batch** (10 entries), the **underpopulated-categories batch** (7 entries: K&R wc, SICP factorial, Thompson quine, Dragon-book grammar, Wirth syntax notation, RFC 5321 SMTP, RFC 1035 DNS), and the **UDHR parallel-text batch** (6 UDHR Article 1 translations — French, Spanish, German, Italian, Portuguese, Polish — plus the Triouleyre French pangram as a small follow-on, 7 entries total) — the snapshot is:
 
-- **Script:** 26 / 36 are `latin`, plus 10 entries across 9 non-Latin scripts (`arabic`, `cyrillic`, `cjk_han`, `devanagari`, `hangul`, `hebrew`, `hiragana`, `mixed`, and `greek` at N=2). The script monoculture is broken; further non-Latin additions are still high-leverage but no longer urgent.
-- **Language:** 11 / 36 are still `english`, plus 9 non-English natural languages at N=1–2 each, 4 `none` (raw bytes), and 9 programming/notation/protocol languages (`c` at N=3, then `bnf`, `cfg`, `dns`, `ebnf`-via-`wsn`, `http`, `latin`, `scheme`, `smtp` each at N=1). The English monoculture among Latin-script natural languages remains.
-- **Category:** 22 / 36 are `natural_language`. `code` is now 4, `sequence` 4, `notation` 3, `protocol` 3 — each non-NL category has at least N=3, so category slicing of the corpus is no longer dominated by single points.
+- **Script:** 33 / 43 are `latin`, plus 10 entries across 9 non-Latin scripts (`arabic`, `cyrillic`, `cjk_han`, `devanagari`, `hangul`, `hebrew`, `hiragana`, `mixed`, and `greek` at N=2). The script monoculture is broken; further non-Latin additions are still high-leverage but no longer urgent.
+- **Language:** 11 / 43 are still `english` — the absolute English count has not grown, but its share has dropped from 11/19 → 11/36 → 11/43 as the corpus has filled out. 15 non-English natural languages are now represented: 9 in non-Latin scripts (`arabic`, `russian`, `chinese`, `hindi`, `korean`, `japanese` at N=2, `ancient_greek`, `koine_greek`, `hebrew`) and 6 new in Latin script (`french` at N=2, plus `spanish`, `german`, `italian`, `portuguese`, `polish` each at N=1). Plus 4 `none` (raw bytes), 1 `latin` (Lorem Ipsum), and 9 programming/notation/protocol languages (`c` at N=3, then `bnf`, `cfg`, `dns`, `wsn`, `http`, `scheme`, `smtp` each at N=1).
+- **Category:** 29 / 43 are `natural_language`. `code` is 4, `sequence` 4, `notation` 3, `protocol` 3 — each non-NL category remains at N≥3.
 
-The next first-wave priority is **breaking the English monoculture within Latin script** (priority #3 below).
+The next first-wave priority is **continuing to break the English monoculture within Latin script** (priority #3 below). The UDHR batch made meaningful progress on the *share*, but the English/Latin-script cluster is still the corpus's largest single bias and many obvious Latin-script languages remain absent (Dutch, Catalan, Czech, Hungarian, Vietnamese, Indonesian, Swahili, Turkish, …).
 
 ### Anchor-and-neighbors curation
 
@@ -80,7 +80,7 @@ Past ~200 entries, the natural way to grow is **anchor-and-neighbors**: for each
 - SHA-256 "abc" → other FIPS 180-4 SHA test vectors, MD5("a"), SHA-1("abc"), HMAC-SHA-1 RFC 2202 vectors
 - Harvard Sentences List 1 → Lists 2–10
 - Lorem Ipsum → variant lorems (Bacon Ipsum, Hipster Ipsum, Cupcake Ipsum)
-- UDHR Article 1 (English) → UDHR Article 1 in French, Spanish, Japanese, Sanskrit, … (parallel-text family)
+- UDHR Article 1 (English) → UDHR Article 1 in 11 other languages so far ✓ (Arabic, Russian, Chinese, Hindi, Korean, French, Spanish, German, Italian, Portuguese, Polish); still to add: Latin Vulgate, Sanskrit, Japanese, Swahili, Tagalog, Vietnamese, … (parallel-text family)
 
 Parallel-text families are especially valuable: when two entries differ on *exactly one axis*, the embedding-analysis use case can attribute embedding shifts to that axis with much more confidence.
 
@@ -135,7 +135,7 @@ The map names *example artifacts* under each row to make the field's scope concr
 |---|---|---|
 | Treebank exemplar sentences | `untouched` | *Penn Treebank §00 sentence 1: "Pierre Vinken, 61 years old…"* |
 | Reference-corpus openings | `untouched` | *first sentence of Brown Corpus A01* |
-| Parallel-corpus exemplars | `thin` | UDHR Art. 1 ✓; *Pater Noster (Latin Vulgate), the historical predecessor of UDHR Art. 1 in cross-language linguistic comparison* |
+| Parallel-corpus exemplars | `thin` | UDHR Art. 1 in 12 languages ✓ (English, Arabic, Russian, Chinese, Hindi, Korean, French, Spanish, German, Italian, Portuguese, Polish); *Pater Noster (Latin Vulgate), the historical predecessor of UDHR Art. 1 in cross-language linguistic comparison* |
 | Word-vector probes | `untouched` | *"king − man + woman = queen"* |
 | Conversational AI exemplars | `untouched` | *ELIZA opening "How do you do. Please tell me your problem."* |
 
@@ -144,7 +144,7 @@ The map names *example artifacts* under each row to make the field's scope concr
 | Field | Status | Example artifacts |
 |---|---|---|
 | Pangrams (English) | `covered` | Quick Brown Fox ✓, Now Is The Time ✓ |
-| Pangrams (non-English) | `untouched` | *German "Falsches Üben…", French "Portez ce vieux whisky…", Russian, Japanese* |
+| Pangrams (non-English) | `thin` | French "Portez ce vieux whisky au juge blond qui fume" (Triouleyre, 1921, alexandrine, hétéroconsonantique) ✓; *Russian, Japanese; German has several circulating pangrams (Falsches Üben…, Zwölf Boxkämpfer…) but sourcing-validation found none with clear Schelling-point canonicity* |
 | Type-specimen phrases | `untouched` | *"Hamburgevons", "Handgloves"* |
 | Placeholder / filler text | `covered` | Lorem Ipsum ✓ |
 
@@ -216,7 +216,7 @@ Under the breadth framing and the diagnostic snapshot above, the immediate prior
 
 2. **Backfill the underpopulated categories. ✓ Done (underpopulated-categories batch).** Originally `code`, `notation`, and `protocol` each had exactly one entry. The 7-entry batch added K&R `wc`, SICP factorial, and the Thompson quine (code); the Dragon-book expression grammar and Wirth syntax notation self-definition (notation); and the RFC 5321 SMTP transaction scenario plus RFC 1035 DNS message-compression example (protocol). Each non-NL category is now at N≥3, enough to support meaningful category-wise slicing.
 
-3. **Break the language monoculture within Latin script. ← current focus.** 11 / 36 entries are still `english` and no other Latin-script natural language is yet represented in non-trivial form. The highest-leverage moves here are **parallel-text family members** for texts already in the corpus — UDHR Article 1 in French, Spanish, Latin, German; the Pater Noster in Latin Vulgate; "I can eat glass" in several Latin-script languages. Parallel-text families let analysts hold content constant and isolate the language axis, which is the cleanest factorial structure available for embedding-sensitivity work.
+3. **Break the language monoculture within Latin script. ⏳ In progress (UDHR parallel-text batch + Triouleyre French pangram).** 11 / 43 entries are still `english`; the absolute English count is unchanged from the v0.1 baseline but English's share has dropped from 11/19 → 11/36 → 11/43 thanks to the UDHR Article 1 batch (French, Spanish, German, Italian, Portuguese, Polish — 6 new Latin-script natural-language cells) and the Triouleyre French pangram follow-on (1921, the canonical French pangram, structurally an alexandrine; bumps `french` to N=2). Remaining work continues along the same axis: more parallel-text family members for texts already in the corpus — UDHR Article 1 in Latin Vulgate, Catalan, Dutch, Sanskrit, Japanese, Swahili, Tagalog, Vietnamese; the Pater Noster in Latin Vulgate; "I can eat glass" in several Latin-script languages. Parallel-text families let analysts hold content constant and isolate the language axis, which is the cleanest factorial structure available for embedding-sensitivity work.
 
 Once priority #3 is in good shape (call it ~30–50 more entries), the previously-named priority clusters — NLP and linguistic Schelling points (e.g., "colorless green ideas sleep furiously", garden-path sentences, the Penn Treebank §00 sentence), cryptographic test vector families, and tokenizer / Unicode coordination strings (Markus Kuhn's UTF-8 stress test) — become the natural Phase 2 targets, with the breadth-axis structure now in place to keep them from re-creating the original bias.
 
