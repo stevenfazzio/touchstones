@@ -44,7 +44,16 @@ class Entry(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
         frozen=True,
-        str_strip_whitespace=True,
+        # Deliberately NOT stripping whitespace: `text` is the verbatim
+        # artifact, and for file-shaped artifacts (CSV with trailing
+        # newlines, hex dumps, protocol captures, etc.) the boundary
+        # whitespace is part of the canonical bag of bytes. Stripping it
+        # would make the corpus's "verbatim text repository" claim false
+        # by 1-2 bytes per affected entry. The trade-off is that contributor
+        # mistakes (stray whitespace in `name`, `description`, etc.) are no
+        # longer silently fixed up - they'll surface as test failures or
+        # lookup mismatches, which is the right place to catch them.
+        str_strip_whitespace=False,
     )
 
     name: Annotated[
