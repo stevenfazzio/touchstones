@@ -52,13 +52,25 @@ Deliberately *not* in the schema: register, era, structure, length-band. These a
 
 ### Diagnostic snapshot
 
-Filling in `language` and `script` for the existing 19 entries surfaces the bias the breadth framing was designed to make visible:
+#### Initial baseline (v0.1, 19 entries)
+
+Filling in `language` and `script` for the original 19 seed entries surfaced the bias the breadth framing was designed to make visible:
 
 - **Script:** 19 / 19 are `latin`. The corpus has zero non-Latin entries.
 - **Language:** 11 / 19 are `english`. The non-English breakdown is 1 `latin` (Lorem Ipsum), 1 `c`, 1 `bnf`, 1 `http`, and 4 `none` (genome, hashes, π digits). Zero entries in any other natural language.
 - **Category:** 12 / 19 are `natural_language`. `code`, `notation`, and `protocol` have exactly one entry each — *enough to bias an embedding analysis, not enough to support a claim.*
 
-These three numbers are the concrete shape of "unconstrained curation reaching for what feels interesting." They are also the agenda for the next round of additions.
+These three numbers were the concrete shape of "unconstrained curation reaching for what feels interesting" and the agenda for the first two batches.
+
+#### Current state (36 entries)
+
+After two breadth-filling batches — the **first non-Latin batch** (10 entries) and the **underpopulated-categories batch** (7 entries: K&R wc, SICP factorial, Thompson quine, Dragon-book grammar, Wirth syntax notation, RFC 5321 SMTP, RFC 1035 DNS) — the snapshot is:
+
+- **Script:** 26 / 36 are `latin`, plus 10 entries across 9 non-Latin scripts (`arabic`, `cyrillic`, `cjk_han`, `devanagari`, `hangul`, `hebrew`, `hiragana`, `mixed`, and `greek` at N=2). The script monoculture is broken; further non-Latin additions are still high-leverage but no longer urgent.
+- **Language:** 11 / 36 are still `english`, plus 9 non-English natural languages at N=1–2 each, 4 `none` (raw bytes), and 9 programming/notation/protocol languages (`c` at N=3, then `bnf`, `cfg`, `dns`, `ebnf`-via-`wsn`, `http`, `latin`, `scheme`, `smtp` each at N=1). The English monoculture among Latin-script natural languages remains.
+- **Category:** 22 / 36 are `natural_language`. `code` is now 4, `sequence` 4, `notation` 3, `protocol` 3 — each non-NL category has at least N=3, so category slicing of the corpus is no longer dominated by single points.
+
+The next first-wave priority is **breaking the English monoculture within Latin script** (priority #3 below).
 
 ### Anchor-and-neighbors curation
 
@@ -93,13 +105,14 @@ The map names *example artifacts* under each row to make the field's scope concr
 
 | Field | Status | Example artifacts |
 |---|---|---|
-| First-program / language intro | `thin` | K&R Hello World ✓; *K&R `wc`, Smalltalk `Transcript show:`, classic Fortran `WRITE`* |
-| Programming exercises / pedagogy | `thin` | 99 Bottles ✓; *FizzBuzz reference solution, Ackermann small input, the canonical C quine* |
-| Algorithm reference implementations | `untouched` | *SICP `factorial`, Dijkstra's binary-search note, Knuth literate-program snippets* |
+| First-program / language intro | `thin` | K&R Hello World ✓, K&R `wc` ✓; *Smalltalk `Transcript show:`, classic Fortran `WRITE`* |
+| Programming exercises / pedagogy | `thin` | 99 Bottles ✓; *FizzBuzz reference solution, Ackermann small input* |
+| Self-reproducing programs / quines | `thin` | Thompson quine (Reflections on Trusting Trust) ✓; *Hofstadter quine variants, polyglot quines* |
+| Algorithm reference implementations | `thin` | SICP factorial ✓; *Dijkstra's binary-search note (EWD316), Knuth literate-program snippets* |
 | Cryptographic test vectors | `first wave` | SHA-256("abc") ✓, Base64 RFC 4648 ✓; *HMAC-SHA-1 RFC 2202 single vector, AES FIPS-197 worked example, MD5("")* |
 | Encoding round-trip standards | `thin` | Base64 RFC 4648 ✓; *RFC 8259 §13 JSON example, RFC 3986 URI example, RFC 3492 punycode single example* |
-| Network protocol exemplars | `thin` | HTTP/1.1 GET ✓; *DNS query RFC 1035 §6.1, SMTP session RFC 5321 §4.3, TLS 1.3 ClientHello RFC 8448* |
-| Grammar / language-theory examples | `thin` | BNF for ALGOL 60 ✓; *Dragon-book expression grammar, Wirth EBNF* |
+| Network protocol exemplars | `thin` | HTTP/1.1 GET ✓, RFC 5321 SMTP transaction (App. D.1) ✓, RFC 1035 DNS message compression (§4.1.4) ✓; *TLS 1.3 ClientHello RFC 8448, IMAP4rev1 RFC 3501 §6.1 example* |
+| Grammar / language-theory examples | `thin` | BNF for ALGOL 60 ✓, Dragon-book expression grammar ✓, Wirth Syntax Notation self-definition ✓; *ABNF self-definition (RFC 5234), ISO/IEC 14977 EBNF self-definition* |
 | Regular-expression canon | `untouched` | *RFC 5322 email ABNF, RFC 3986 URI ABNF* |
 | Floating-point edge cases | `untouched` | *one IEEE 754 binary64 boundary value, one Kahan-summation pathological input* |
 | Tokenizer / Unicode test strings | `first wave` | *Markus Kuhn UTF-8 stress test, "I can eat glass" in one canonical language* |
@@ -199,13 +212,13 @@ A small but distinctive cluster: identifier strings that standards bodies delibe
 
 Under the breadth framing and the diagnostic snapshot above, the immediate priorities are not the most interesting cells but the most *imbalanced* axes. Three priorities, in rough order of analytical leverage:
 
-1. **Break the script monoculture.** All 19 entries are `script=latin`. Adding the first entry per major non-Latin script — Cyrillic, CJK han, hiragana/katakana, Devanagari, Arabic, Hebrew, Greek — opens cells nothing currently fills. Concrete first candidates: Bashō's frog haiku in original Japanese (CJK + hiragana), one "I can eat glass" non-Latin variant, an Arabic UDHR Article 1, the opening of the Iliad in Greek. Each one of these *also* breaks the language monoculture, so this priority and #3 overlap heavily.
+1. **Break the script monoculture. ✓ Done (first non-Latin batch).** Originally all 19 entries were `script=latin`; the first non-Latin batch added 10 entries opening cells in Arabic, Cyrillic, CJK han, Devanagari, Hangul, Hebrew, hiragana, mixed (Japanese), and a second Greek. Further non-Latin additions are still high-leverage but no longer urgent.
 
-2. **Backfill the underpopulated categories.** `code`, `notation`, and `protocol` each contain exactly one entry — enough to bias an embedding analysis, not enough to support a claim. Each needs to grow to at least N=3 before the corpus can be meaningfully sliced by category. Concrete first candidates: K&R `wc` and the canonical C quine (code); Wirth EBNF and one Dragon-book expression grammar (notation); RFC 1035 §6.1 DNS query and RFC 5321 §4.3 SMTP session (protocol).
+2. **Backfill the underpopulated categories. ✓ Done (underpopulated-categories batch).** Originally `code`, `notation`, and `protocol` each had exactly one entry. The 7-entry batch added K&R `wc`, SICP factorial, and the Thompson quine (code); the Dragon-book expression grammar and Wirth syntax notation self-definition (notation); and the RFC 5321 SMTP transaction scenario plus RFC 1035 DNS message-compression example (protocol). Each non-NL category is now at N≥3, enough to support meaningful category-wise slicing.
 
-3. **Break the language monoculture within Latin script.** 11/19 entries are `english` and no other natural language is represented. The highest-leverage moves here are **parallel-text family members** for texts already in the corpus — UDHR Article 1 in French, Spanish, Latin, German; the Pater Noster in Latin Vulgate; "I can eat glass" in several Latin-script languages. Parallel-text families let analysts hold content constant and isolate the language axis, which is the cleanest factorial structure available for embedding-sensitivity work.
+3. **Break the language monoculture within Latin script. ← current focus.** 11 / 36 entries are still `english` and no other Latin-script natural language is yet represented in non-trivial form. The highest-leverage moves here are **parallel-text family members** for texts already in the corpus — UDHR Article 1 in French, Spanish, Latin, German; the Pater Noster in Latin Vulgate; "I can eat glass" in several Latin-script languages. Parallel-text families let analysts hold content constant and isolate the language axis, which is the cleanest factorial structure available for embedding-sensitivity work.
 
-Once these three are in good shape (call it ~50–80 new entries), the previously-named priority clusters — NLP and linguistic Schelling points (e.g., "colorless green ideas sleep furiously", garden-path sentences, the Penn Treebank §00 sentence), cryptographic test vector families, and tokenizer / Unicode coordination strings (Markus Kuhn's UTF-8 stress test) — become the natural Phase 2 targets, with the breadth-axis structure now in place to keep them from re-creating the original bias.
+Once priority #3 is in good shape (call it ~30–50 more entries), the previously-named priority clusters — NLP and linguistic Schelling points (e.g., "colorless green ideas sleep furiously", garden-path sentences, the Penn Treebank §00 sentence), cryptographic test vector families, and tokenizer / Unicode coordination strings (Markus Kuhn's UTF-8 stress test) — become the natural Phase 2 targets, with the breadth-axis structure now in place to keep them from re-creating the original bias.
 
 ## What does not belong
 

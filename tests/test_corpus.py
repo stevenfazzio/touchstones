@@ -1,6 +1,6 @@
 """Tests for the corpus singleton and Corpus API.
 
-The default corpus holds 29 verbatim standard-example-text entries spanning
+The default corpus holds 36 verbatim standard-example-text entries spanning
 5 categories and 10 scripts. Every entry has non-empty text under the current
 schema, so most tests are simple count / equality assertions against the real
 data.
@@ -16,7 +16,7 @@ from touchstones.schema import Entry
 
 def test_corpus_singleton_loads() -> None:
     assert isinstance(corpus, Corpus)
-    assert len(corpus) == 29
+    assert len(corpus) == 36
     assert all(isinstance(e, Entry) for e in corpus)
 
 
@@ -29,13 +29,13 @@ def test_every_entry_has_text() -> None:
 
 def test_texts_returns_flat_list_of_strings() -> None:
     texts = corpus.texts()
-    assert len(texts) == 29
+    assert len(texts) == 36
     assert all(isinstance(t, str) and len(t) > 0 for t in texts)
 
 
 def test_labels() -> None:
     labels = corpus.labels(field="discipline")
-    assert len(labels) == 29
+    assert len(labels) == 36
     assert all(isinstance(label, str) for label in labels)
 
 
@@ -55,14 +55,15 @@ def test_every_entry_has_language_and_script() -> None:
 
 
 def test_script_distribution_snapshot() -> None:
-    # Diagnostic snapshot after the first non-Latin batch landed: Latin still
-    # dominates (the existing 19 entries) but 9 additional scripts are now
-    # represented at N=1 or N=2. Update this snapshot as additional non-Latin
-    # entries are added.
+    # Diagnostic snapshot after the underpopulated-categories batch landed.
+    # The 7-entry batch (K&R wc, SICP factorial, Thompson quine, Dragon
+    # grammar, Wirth WSN, RFC 5321 SMTP, RFC 1035 DNS) is all Latin script,
+    # so latin grows from 19 to 26. The non-Latin counts are unchanged from
+    # the previous batch. Update this snapshot as additional entries land.
     from collections import Counter
 
     scripts = Counter(e.script for e in corpus)
-    assert scripts["latin"] == 19
+    assert scripts["latin"] == 26
     assert scripts["arabic"] == 1
     assert scripts["cyrillic"] == 1
     assert scripts["cjk_han"] == 1
@@ -72,13 +73,15 @@ def test_script_distribution_snapshot() -> None:
     assert scripts["mixed"] == 1
     assert scripts["greek"] == 2
     assert scripts["hebrew"] == 1
-    assert sum(scripts.values()) == 29
+    assert sum(scripts.values()) == 36
 
 
 def test_language_distribution_snapshot() -> None:
-    # Diagnostic snapshot after the first non-Latin batch landed: english
-    # still dominates but 9 additional natural languages are now represented.
-    # Update this distribution as the corpus grows.
+    # Diagnostic snapshot after the underpopulated-categories batch. English
+    # still dominates among natural languages, and the new batch added five
+    # new programming/notation/protocol language identifiers (scheme, cfg,
+    # wsn, smtp, dns) plus two more entries in language=c (K&R wc + Thompson
+    # quine). Update this distribution as the corpus grows.
     from collections import Counter
 
     languages = Counter(e.language for e in corpus)
@@ -86,9 +89,10 @@ def test_language_distribution_snapshot() -> None:
     assert languages["english"] == 11
     assert languages["none"] == 4
     assert languages["latin"] == 1
-    assert languages["c"] == 1
     assert languages["bnf"] == 1
     assert languages["http"] == 1
+    # Updated by the underpopulated-categories batch:
+    assert languages["c"] == 3  # Hello World + K&R wc + Thompson quine
     # Languages added by the first non-Latin batch:
     assert languages["arabic"] == 1
     assert languages["russian"] == 1
@@ -99,7 +103,13 @@ def test_language_distribution_snapshot() -> None:
     assert languages["ancient_greek"] == 1
     assert languages["koine_greek"] == 1
     assert languages["hebrew"] == 1
-    assert sum(languages.values()) == 29
+    # Languages added by the underpopulated-categories batch:
+    assert languages["scheme"] == 1  # SICP factorial
+    assert languages["cfg"] == 1  # Dragon book expression grammar
+    assert languages["wsn"] == 1  # Wirth Syntax Notation
+    assert languages["smtp"] == 1  # RFC 5321 transaction scenario
+    assert languages["dns"] == 1  # RFC 1035 message compression
+    assert sum(languages.values()) == 36
 
 
 def test_filter_by_discipline() -> None:
@@ -158,7 +168,7 @@ def test_related_cross_references() -> None:
 def test_to_dataframe() -> None:
     pytest.importorskip("pandas")
     df = corpus.to_dataframe()
-    assert len(df) == 29
+    assert len(df) == 36
     assert "name" in df.columns
     assert "category" in df.columns
     assert "license_status" in df.columns

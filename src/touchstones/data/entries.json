@@ -985,5 +985,232 @@
       "tokenizer-stress"
     ],
     "url": "https://www.sefaria.org/Genesis.1.1"
+  },
+  {
+    "name": "K&R Word Count",
+    "text": "#include <stdio.h>\n\n#define\tIN\t1    /* inside a word */\n#define\tOUT\t0    /* outside a word */\n\n/* count lines, words, and characters in input */\nmain()\n{\n\tint c, nl, nw, nc, state;\n\n\tstate = OUT;\n\tnl = nw = nc = 0;\n\twhile ((c = getchar()) != EOF) {\n\t\t++nc;\n\t\tif (c == '\\n')\n\t\t\t++nl;\n\t\tif (c == ' ' || c == '\\n' || c == '\\t')\n\t\t\tstate = OUT;\n\t\telse if (state == OUT) {\n\t\t\tstate = IN;\n\t\t\t++nw;\n\t\t}\n\t}\n\tprintf(\"%d %d %d\\n\", nl, nw, nc);\n}",
+    "discipline": "computer science education",
+    "disciplines": [
+      "computer science education",
+      "programming",
+      "software engineering"
+    ],
+    "category": "code",
+    "language": "c",
+    "script": "latin",
+    "year_introduced": 1978,
+    "creator": "Brian W. Kernighan and Dennis M. Ritchie",
+    "source": "Kernighan, B. W. & Ritchie, D. M. (1978). The C Programming Language. Prentice Hall. Section 1.5.4 'Word Counting'.",
+    "description": "The 'word count' program from section 1.5.4 of K&R, the canonical 'next program after Hello World' in the K&R curriculum. It is the first program in the book that does nontrivial input processing with state, introducing the IN/OUT state-machine pattern that K&R uses to discuss program structure. Reads stdin and prints the number of lines, words, and characters.",
+    "usage": "Used in C pedagogy as the canonical worked example of state-machine-style stream processing — every K&R-derived course reaches it within the first week. Also widely used as a target for compiler/interpreter regression tests, formal-verification exercises (KLEE, CBMC), and 'rewrite K&R wc in language X' folklore comparisons. Pairs with Hello World as the diptych of K&R's introductory chapter.",
+    "known_issues": "Like Hello World, written in pre-ANSI K&R C: implicit int return type, main with no return statement, no function prototypes. Modern C compilers (C99+) emit warnings or errors. The condition c == '\\n' appears twice (once to count lines, once as part of the whitespace check) for clarity rather than performance.",
+    "alternatives": "BSD/GNU wc is the production-grade descendant. K&R Exercise 1-11 asks the reader to extend the program to count words longer than n characters; Exercise 1-12 to print one word per line — both build on this canonical baseline.",
+    "related": [
+      "Hello, World! (K&R C)"
+    ],
+    "length_tokens": 157,
+    "license_status": "fair_use",
+    "tags": [
+      "programming",
+      "pedagogy",
+      "C",
+      "K&R"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Wc_(Unix)"
+  },
+  {
+    "name": "SICP Factorial",
+    "text": "(define (factorial n)\n  (if (= n 1)\n      1\n      (* n (factorial (- n 1)))))\n\n(define (factorial n)\n  (fact-iter 1 1 n))\n\n(define (fact-iter product counter max-count)\n  (if (> counter max-count)\n      product\n      (fact-iter (* counter product)\n                 (+ counter 1)\n                 max-count)))",
+    "discipline": "computer science education",
+    "disciplines": [
+      "computer science education",
+      "programming language theory",
+      "functional programming"
+    ],
+    "category": "code",
+    "language": "scheme",
+    "script": "latin",
+    "year_introduced": 1985,
+    "creator": "Harold Abelson, Gerald Jay Sussman, and Julie Sussman",
+    "source": "Abelson, H., Sussman, G. J., & Sussman, J. (1985, 2e 1996). Structure and Interpretation of Computer Programs. MIT Press. Section 1.2.1 'Linear Recursion and Iteration'.",
+    "description": "The two factorial definitions from SICP §1.2.1, presented as a pair to demonstrate the canonical contrast between a *recursive process* (the first definition, which generates a chain of deferred multiplications growing linearly with n) and an *iterative process* (the second definition, in which all state is captured by the three variables product, counter, and max-count). The pair is the lesson — neither definition alone captures what makes the example canonical.",
+    "usage": "Used as the introductory worked example for procedural abstraction across the Scheme/Lisp pedagogical tradition and for the SICP-derived functional-programming curriculum more broadly. The recursive/iterative distinction this pair makes — that a recursive *function* can generate either a recursive or an iterative *process* — is the conceptual payload course materials reach for when introducing tail-call elimination, accumulator patterns, and the difference between a procedure's syntax and its runtime behavior.",
+    "known_issues": "Both definitions assume n >= 1; passing 0 or a negative integer to either form silently produces wrong results or non-termination. The recursive form is also notorious for blowing the stack on large n in non-tail-call-optimizing implementations (i.e., most non-Scheme languages where readers transcribe it). SICP itself notes this and uses the contrast to motivate the discussion of process vs. procedure.",
+    "alternatives": "The Fibonacci variants in SICP §1.2.2 make the same recursive/iterative contrast more dramatically (the recursive Fibonacci is exponential, the iterative one linear). Outside SICP, Haskell's `factorial = product . enumFromTo 1` and the C for-loop versions are the canonical equivalents in their respective communities.",
+    "related": [],
+    "length_tokens": 87,
+    "license_status": "fair_use",
+    "tags": [
+      "scheme",
+      "functional",
+      "pedagogy",
+      "recursion"
+    ],
+    "url": "https://sicp.sourceacademy.org/chapters/1.2.1.html"
+  },
+  {
+    "name": "Thompson Quine (Reflections on Trusting Trust)",
+    "text": "char\ts[ ] = {\n\t'\\t',\n\t'0',\n\t'\\n',\n\t'}',\n\t',',\n\t';',\n\t'\\n',\n\t'\\n',\n\t'/',\n\t'*',\n\t'\\n',\n\t(213 lines deleted)\n\t0\n};\n\n/*\n * The string s is a\n * representation of the body\n * of this program from '0'\n * to the end.\n */\n\nmain( )\n{\n\tint i;\n\n\tprintf(\"char\\ts[ ] = {\\n\");\n\tfor(i=0; s[i]; i++)\n\t\tprintf(\"\\t%d, \\n\", s[i]);\n\tprintf(\"%s\", s);\n}",
+    "discipline": "computer security",
+    "disciplines": [
+      "computer security",
+      "programming language theory",
+      "compiler design",
+      "computer science"
+    ],
+    "category": "code",
+    "language": "c",
+    "script": "latin",
+    "year_introduced": 1984,
+    "creator": "Ken Thompson",
+    "source": "Thompson, K. (1984). Reflections on Trusting Trust. Communications of the ACM, 27(8), 761–763. Figure 1.",
+    "description": "Figure 1 of Ken Thompson's 1984 ACM Turing Award Lecture, the self-reproducing C program ('quine') that Thompson uses as Step 1 of his compiler-trojan argument. The program prints its own source code by encoding the body in the character array s[] and using a print loop to emit first the array literal and then the array contents. The figure as printed in CACM contains the published abbreviation '(213 lines deleted)' standing in for the full literal-character listing — that ellipsis is part of the canonical text, not editorial truncation.",
+    "usage": "Used across computer-security pedagogy as the canonical concrete starting point for the trusting-trust argument: a compiler that miscompiles itself can hide a backdoor in its own bootstrap, and a self-reproducing program is the basic building block. Also reproduced in essentially every survey of quines as the historically primary C example, predating the explosion of golfed quines that followed Hofstadter's 1985 'Metamagical Themas' column. Russ Cox's 2023 reproduction of the full attack made Figure 1 itself a benchmark for compiler-archaeology work.",
+    "known_issues": "The published figure abbreviates the literal-character data with the parenthetical '(213 lines deleted)'. To actually run the program, that ellipsis must be expanded to the full 213-line listing of escape-coded source bytes — Thompson did not publish them. Reconstructions exist (Russ Cox 2023; Evan Jones; others) and agree on the technique but differ in cosmetic details. The pre-ANSI K&R C syntax (implicit int, no prototype on main) is invalid under modern C standards.",
+    "alternatives": "Modern golfed C quines (e.g., the 2-line Bratley–Millo style) are shorter but lack the historical weight. Equivalent self-reproducing programs exist in Python (typically a one-liner using repr and %), Lisp (((lambda (x) (list x (list 'quote x))) '(lambda (x) (list x (list 'quote x))))), and most other languages — but Thompson's C version is the one academic papers cite.",
+    "related": [
+      "Hello, World! (K&R C)"
+    ],
+    "length_tokens": 130,
+    "license_status": "fair_use",
+    "tags": [
+      "security",
+      "quine",
+      "trusting-trust",
+      "C"
+    ],
+    "url": "https://dl.acm.org/doi/10.1145/358198.358210"
+  },
+  {
+    "name": "Dragon Book Expression Grammar",
+    "text": "E → E + T | T\nT → T * F | F\nF → ( E ) | id",
+    "discipline": "compiler design",
+    "disciplines": [
+      "compiler design",
+      "formal languages",
+      "programming language theory",
+      "computer science education"
+    ],
+    "category": "notation",
+    "language": "cfg",
+    "script": "latin",
+    "year_introduced": 1986,
+    "creator": "Alfred V. Aho, Ravi Sethi, Jeffrey D. Ullman (later Aho, Lam, Sethi, Ullman)",
+    "source": "Aho, A. V., Lam, M. S., Sethi, R., & Ullman, J. D. (2006). Compilers: Principles, Techniques, and Tools (2nd ed.). Pearson/Addison-Wesley. Section 4.1.2 'Representative Grammars'. Originally in the 1st edition (Aho/Sethi/Ullman, 1986).",
+    "description": "The canonical three-production arithmetic expression grammar from the 'Dragon book', the textbook that has trained essentially every compiler implementer of the last forty years. Section 4.1.2 of the 2nd edition introduces this exact form as the running example for syntax analysis, and it reappears throughout chapter 4 in left-recursion elimination, LL(1) parsing-table construction, LR item-set construction, and operator-precedence parsing.",
+    "usage": "Used across compiler pedagogy as the universal worked example for context-free grammar techniques. When a parser-construction tutorial needs an input grammar to demonstrate FIRST/FOLLOW computation, action/goto tables, or shift-reduce conflicts, this is the grammar it reaches for — the precedence structure (E for sums, T for products, F for atoms) is just complex enough to exhibit the interesting cases and just simple enough to fit on a slide.",
+    "known_issues": "The grammar is left-recursive on E and T, which makes it usable directly with LR parser generators (yacc, bison, menhir) but not with recursive-descent or other top-down parsers. Section 4.3 of the textbook subsequently transforms it via left-recursion elimination to E → T E', E' → + T E' | ε, T → F T', T' → * F T' | ε, F → ( E ) | id — the LL(1)-friendly form. The terminal id stands abstractly for any identifier or number; production-grade grammars distinguish them.",
+    "alternatives": "The four-operator extension (adding subtraction and division as expr → expr + term | expr - term | term, etc.) appears as exercise 2.2.4 in the same textbook. Outside the Dragon-book lineage, Wirth's PL/0 grammar and the C99 grammar Annex A are the other widely-quoted reference grammars in compiler curricula.",
+    "related": [
+      "BNF for ALGOL 60"
+    ],
+    "length_tokens": 23,
+    "license_status": "fair_use",
+    "tags": [
+      "grammar",
+      "compiler",
+      "parsing",
+      "CFG"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools"
+  },
+  {
+    "name": "Wirth Syntax Notation (self-definition)",
+    "text": "SYNTAX     = { PRODUCTION } .\nPRODUCTION = IDENTIFIER \"=\" EXPRESSION \".\" .\nEXPRESSION = TERM { \"|\" TERM } .\nTERM       = FACTOR { FACTOR } .\nFACTOR     = IDENTIFIER\n           | LITERAL\n           | \"[\" EXPRESSION \"]\"\n           | \"(\" EXPRESSION \")\"\n           | \"{\" EXPRESSION \"}\" .\nIDENTIFIER = letter { letter } .\nLITERAL    = \"\"\"\" character { character } \"\"\"\" .",
+    "discipline": "formal languages",
+    "disciplines": [
+      "formal languages",
+      "programming language theory",
+      "compiler design",
+      "computer science"
+    ],
+    "category": "notation",
+    "language": "wsn",
+    "script": "latin",
+    "year_introduced": 1977,
+    "creator": "Niklaus Wirth",
+    "source": "Wirth, N. (1977). What Can We Do About the Unnecessary Diversity of Notation for Syntactic Definitions? Communications of the ACM, 20(11), 822–823.",
+    "description": "Niklaus Wirth's 1977 metasyntax — Wirth Syntax Notation, often called WSN — defined in itself: a fixed-point demonstration that the productions of WSN can describe the productions of WSN. Wirth introduced the notation as a remedy for the proliferation of incompatible BNF dialects in language reference manuals; the self-definition is the existence proof that the notation is closed under describing itself, the property he was arguing every metalanguage should have.",
+    "usage": "Used as the canonical example whenever a course or textbook needs a metalanguage demonstrated by self-description. Also the historical predecessor of the ISO/IEC 14977 (1996) standardized EBNF and of Wirth's later use of the notation in 'Compiler Construction' (1996) and the Oberon and Modula language reports — the conventions of = for definition, { } for repetition, [ ] for optionality, and . as the production terminator all originate here.",
+    "known_issues": "WSN is sometimes loosely called 'Wirth's EBNF', but it predates and differs from the later ISO/IEC 14977 EBNF (1996), which uses ; rather than . as the production terminator and has a longer, more elaborate self-definition. Conflating the two leads to subtle parser bugs when implementing 'EBNF' from secondary sources without checking which dialect is meant. The literal-quote escape \"\"\"\" (four consecutive quote characters) representing a single \" inside a quoted literal is also a frequent source of confusion.",
+    "alternatives": "ISO/IEC 14977 EBNF (1996) is the standardized variant most modern parser generators target. ABNF (RFC 5234, 2008) is the IETF lineage used by internet protocol specifications. PEG (Ford 2004) resolves the ambiguity issues these notations share by requiring ordered choice.",
+    "related": [
+      "BNF for ALGOL 60"
+    ],
+    "length_tokens": 92,
+    "license_status": "fair_use",
+    "tags": [
+      "grammar",
+      "metalanguage",
+      "EBNF",
+      "Wirth"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Wirth_syntax_notation"
+  },
+  {
+    "name": "RFC 5321 SMTP Transaction Scenario",
+    "text": "C: EHLO Sender.com\nS: 250-receiver.example.com Hello Sender.com\nS: 250-SIZE 52428800\nS: 250-VRFY\nS: 250-EXPN\nS: 250-HELP\nS: 250-8BITMIME\nS: 250-PIPELINING\nS: 250 DSN\nC: MAIL FROM:<Smith@client.example.com>\nS: 250 OK\nC: RCPT TO:<Jones@receiver.example.com>\nS: 250 OK\nC: RCPT TO:<Green@receiver.example.com>\nS: 250 OK\nC: DATA\nS: 354 Start mail input; end with <CRLF>.<CRLF>\nC: Blah blah blah...\nC: ...etc. etc. etc.\nC: .\nS: 250 OK\nC: QUIT\nS: 221 receiver.example.com Service closing transmission channel",
+    "discipline": "internet protocols",
+    "disciplines": [
+      "internet protocols",
+      "networking",
+      "email systems",
+      "computer science education"
+    ],
+    "category": "protocol",
+    "language": "smtp",
+    "script": "latin",
+    "year_introduced": 2008,
+    "creator": "John Klensin (IETF)",
+    "source": "Klensin, J. (2008). Simple Mail Transfer Protocol (RFC 5321), Appendix D.1 'A Typical SMTP Transaction Scenario'. Internet Engineering Task Force.",
+    "description": "The complete worked example of an SMTP session published in Appendix D.1 of RFC 5321 — the SMTP standard that obsoletes RFC 2821. EHLO greeting, capability advertisement, two recipients via MAIL FROM/RCPT TO, message body via DATA terminated by <CRLF>.<CRLF>, and a clean QUIT. The C:/S: prefixes (Client/Server) are part of the published example and are the convention every SMTP tutorial subsequently borrowed.",
+    "usage": "Used as the canonical reference dialogue when teaching SMTP, debugging mail-server implementations, building protocol replay tests, and constructing email-sending pedagogical materials. Anyone who has typed `telnet smtp.example.com 25` and tried to send mail by hand is following this script. The dotted-line termination convention (<CRLF>.<CRLF> ending DATA) is the focal point of countless SMTP-injection security write-ups.",
+    "known_issues": "The 'Blah blah blah... ...etc. etc. etc.' message body is a deliberate placeholder, not a real message — the example is showing the protocol envelope, not the message format (which is RFC 5322's domain). The session does not exercise STARTTLS, SMTP AUTH, BDAT (RFC 3030), or any of the modern extensions production SMTP traffic depends on. SIZE 52428800 (50 MB) is an example value, not a recommendation.",
+    "alternatives": "RFC 821 (Postel, 1982) Appendix F contains the historical predecessor with HELO instead of EHLO. RFC 8314 modernizes recommended client-server practice. For minimal protocol exemplars, the IMAP4rev1 (RFC 3501 §6.1) and POP3 (RFC 1939 §11) example sessions play the same focal role for their respective protocols.",
+    "related": [
+      "HTTP/1.1 GET Request"
+    ],
+    "length_tokens": 195,
+    "license_status": "fair_use",
+    "tags": [
+      "protocol",
+      "SMTP",
+      "email",
+      "RFC"
+    ],
+    "url": "https://datatracker.ietf.org/doc/html/rfc5321#appendix-D.1"
+  },
+  {
+    "name": "RFC 1035 DNS Message Compression Example",
+    "text": "For example, a datagram might need to use the domain names F.ISI.ARPA,\nFOO.F.ISI.ARPA, ARPA, and the root.  Ignoring the other fields of the\nmessage, these domain names might be represented as:\n\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    20 |           1           |           F           |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    22 |           3           |           I           |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    24 |           S           |           I           |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    26 |           4           |           A           |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    28 |           R           |           P           |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    30 |           A           |           0           |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    40 |           3           |           F           |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    42 |           O           |           O           |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    44 | 1  1|                20                       |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    64 | 1  1|                26                       |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+\n    92 |           0           |                       |\n       +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+",
+    "discipline": "internet protocols",
+    "disciplines": [
+      "internet protocols",
+      "networking",
+      "domain name system",
+      "computer science education"
+    ],
+    "category": "protocol",
+    "language": "dns",
+    "script": "latin",
+    "year_introduced": 1987,
+    "creator": "Paul Mockapetris (IETF)",
+    "source": "Mockapetris, P. (1987). Domain Names — Implementation and Specification (RFC 1035), Section 4.1.4 'Message compression'. Internet Engineering Task Force.",
+    "description": "The worked compression example from RFC 1035 §4.1.4, showing how the four domain names F.ISI.ARPA, FOO.F.ISI.ARPA, ARPA, and the root would be encoded in a single DNS message via label-length octets and back-references. F.ISI.ARPA is laid out in full at offset 20; FOO.F.ISI.ARPA at offset 40 reuses it via a pointer to offset 20; ARPA at offset 64 points to offset 26 (the trailing 'ARPA' label inside F.ISI.ARPA); and the root at offset 92 is the single zero-octet that terminates any DNS name.",
+    "usage": "Used by every DNS implementer as the reference example for getting label compression right. The compression scheme — high two bits of a label-length octet set to 11 to indicate a 14-bit pointer offset — is the most error-prone part of the DNS wire format, and this is the figure CVE write-ups and parser test suites cite when explaining the bugs they found. The example also doubles as a teaching aid for the more general concept of in-message back-references in compact binary encodings.",
+    "known_issues": "The ASCII-art bit-width conventions in the original RFC are tricky to read: each row is a 16-bit word and the vertical bars at columns 0 and 8 separate the two octets. The figure uses base-10 offsets in the left margin, which beginners sometimes confuse for byte counts within the row. RFC 3597 (2003) clarifies that compression must not be used for unknown record types, a constraint not visible in this 1987 example.",
+    "alternatives": "RFC 6891 (EDNS) extends the DNS message format with the OPT pseudo-record but does not change compression rules. The DNS-over-HTTPS (RFC 8484) and DNS-over-TLS (RFC 7858) transports wrap classic RFC 1035 messages without altering the compression scheme, so this example remains canonical for the wire format itself.",
+    "related": [
+      "HTTP/1.1 GET Request"
+    ],
+    "length_tokens": 479,
+    "license_status": "fair_use",
+    "tags": [
+      "protocol",
+      "DNS",
+      "compression",
+      "RFC"
+    ],
+    "url": "https://datatracker.ietf.org/doc/html/rfc1035#section-4.1.4"
   }
 ]
