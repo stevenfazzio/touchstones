@@ -251,7 +251,8 @@
     "alternatives": "'Sphinx of black quartz, judge my vow' (29 letters) and 'Pack my box with five dozen liquor jugs' (32 letters) are shorter pangrams. 'Jackdaws love my big sphinx of quartz' is a 31-letter variant. None has displaced the quick brown fox in practical use.",
     "related": [
       "Now is the Time",
-      "Lorem Ipsum"
+      "Lorem Ipsum",
+      "Portez ce vieux whisky (French Pangram)"
     ],
     "length_tokens": 10,
     "license_status": "public_domain",
@@ -524,7 +525,8 @@
     "known_issues": "Weller's original 1867 form, attested in his own 1918 memoir, was 'Now is the time for all good men to come to the aid of the party' — referring to a Democratic Party rally. The 'their country' variant shown here is a 20th-century drift that became dominant in civilian typing instruction after the 1930s; the original 'the party' form is now rare. Both forms are 17 words and equally balanced for practice purposes.",
     "alternatives": "The quick brown fox pangram is the other canonical short typing practice text. For longer drills, typing instructors use passages from 'A Tale of Two Cities' (Dickens) or the Declaration of Independence.",
     "related": [
-      "The Quick Brown Fox"
+      "The Quick Brown Fox",
+      "Portez ce vieux whisky (French Pangram)"
     ],
     "length_tokens": 17,
     "license_status": "public_domain",
@@ -535,6 +537,43 @@
       "typewriter"
     ],
     "url": "https://en.wikipedia.org/wiki/Filler_text"
+  },
+  {
+    "name": "Portez ce vieux whisky (French Pangram)",
+    "text": "Portez ce vieux whisky au juge blond qui fume.",
+    "discipline": "typing instruction",
+    "disciplines": [
+      "typing instruction",
+      "typography",
+      "keyboard practice",
+      "font testing",
+      "tokenizer testing"
+    ],
+    "category": "natural_language",
+    "language": "french",
+    "script": "latin",
+    "year_introduced": 1921,
+    "creator": "Charles Triouleyre (champion des dactylographes français)",
+    "source": "Triouleyre, C. (1921). 'Causerie dactylographique.' L'Employé, no. 289 (November 1921), Paris. Earliest documented attestation; the phrase entered standard typing pedagogy via Albert Navarre's Manuel d'organisation du bureau (1924) and Traité pratique de dactylographie (1936 edition onwards).",
+    "description": "A 37-letter French pangram composed by Charles Triouleyre, French national typing champion, and first published in the November 1921 issue of L'Employé as a 'phrase-gamme' (literally 'scale phrase') — a typing training exercise analogous to piano scales. The phrase is a classical alexandrine (12 syllables with medial caesura) and is hétéroconsonantique (each consonant appears exactly once). French Wikipedia calls it 'probablement le plus célèbre pangramme français' and a 'chef-d'œuvre du genre'.",
+    "usage": "When a font designer, typing instructor, or French typography practitioner needs the canonical short French pangram, they reach for this sentence. It serves the same role in French typography that 'The quick brown fox jumps over the lazy dog' serves in English — appearing in font preview displays, keyboard test utilities, typing tutorials, and tokenizer evaluation as the default short example. Holding pangram function constant across English and French isolates the language axis for embedding-sensitivity analysis.",
+    "known_issues": "The phrase covers all 26 base Latin letters but does not exercise French diacritics (é, è, ê, à, ç, ï, ô, û) or the ligatures (œ, æ), which are functionally part of the French writing system. For diacritic-aware testing, alternatives that cover the full diacritic space exist but none has displaced the Triouleyre alexandrine in cultural use. The 'Charles Triouleyre' attribution is firm (per the 1921 byline), but biographical details about Triouleyre himself are sparse beyond 'champion des dactylographes français'.",
+    "alternatives": "'Le vif zéphyr jubile sur les kumquats du clown gracieux' is the technical alternative used in macOS font preview and several font-testing pipelines. 'Voix ambiguë d'un cœur qui au zéphyr préfère les jattes de kiwis' is a diacritic-and-ligature-covering variant. Neither has displaced the Triouleyre alexandrine in everyday French typographic use.",
+    "related": [
+      "The Quick Brown Fox",
+      "Now is the Time"
+    ],
+    "length_tokens": 13,
+    "license_status": "public_domain",
+    "tags": [
+      "pangram",
+      "typography",
+      "keyboard",
+      "French",
+      "typing",
+      "alexandrine"
+    ],
+    "url": "https://fr.wikipedia.org/wiki/Portez_ce_vieux_whisky_au_juge_blond_qui_fume"
   },
   {
     "name": "Pi to 100 Decimal Places",
