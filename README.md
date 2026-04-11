@@ -58,7 +58,7 @@ df = corpus.to_dataframe()
 
 ## Status
 
-The corpus currently has **19 seed entries** across 5 categories (`natural_language`, `code`, `notation`, `sequence`, `protocol`). Every entry has verbatim, non-empty `text`. The current shape is 11/19 `language=english` and 19/19 `script=latin` — these are the diagnostic biases the breadth axes were added to make visible, and they are the agenda for the next round of additions.
+The corpus currently has **49 entries** across 5 categories (`natural_language` 35, `code` 4, `sequence` 4, `notation` 3, `protocol` 3). Every entry has verbatim, non-empty `text`. Four breadth-filling batches have moved the diagnostic shape from a starting 11/19 `language=english` and 19/19 `script=latin` to 11/49 and 39/49: the first non-Latin batch (10 entries) opened 9 non-Latin scripts; the underpopulated-categories batch (7 entries) brought `code`, `notation`, and `protocol` each to N≥3; and two UDHR Article 1 parallel-text batches (12 entries plus a French pangram follow-on) added 16 non-English natural-language cells, including the first Bantu (Swahili), Austronesian (Indonesian), and Austroasiatic (Vietnamese) language-family entries. The remaining first-wave priority is breaking the English monoculture within Latin script — English is unchanged at 11 absolute entries while the corpus has grown around it.
 
 Target size: **~1500–2000 entries**, reached in three phases:
 
