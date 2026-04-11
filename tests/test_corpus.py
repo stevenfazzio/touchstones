@@ -1,6 +1,6 @@
 """Tests for the corpus singleton and Corpus API.
 
-The default corpus holds 49 verbatim standard-example-text entries spanning
+The default corpus holds 52 verbatim standard-example-text entries spanning
 5 categories and 10 scripts. Every entry has non-empty text under the current
 schema, so most tests are simple count / equality assertions against the real
 data.
@@ -16,7 +16,7 @@ from touchstones.schema import Entry
 
 def test_corpus_singleton_loads() -> None:
     assert isinstance(corpus, Corpus)
-    assert len(corpus) == 49
+    assert len(corpus) == 52
     assert all(isinstance(e, Entry) for e in corpus)
 
 
@@ -29,20 +29,20 @@ def test_every_entry_has_text() -> None:
 
 def test_texts_returns_flat_list_of_strings() -> None:
     texts = corpus.texts()
-    assert len(texts) == 49
+    assert len(texts) == 52
     assert all(isinstance(t, str) and len(t) > 0 for t in texts)
 
 
 def test_labels() -> None:
     labels = corpus.labels(field="discipline")
-    assert len(labels) == 49
+    assert len(labels) == 52
     assert all(isinstance(label, str) for label in labels)
 
 
 def test_filter_by_category() -> None:
     nl = corpus.filter(category="natural_language")
     assert isinstance(nl, Corpus)
-    assert len(nl) == 35
+    assert len(nl) == 36
     assert all(e.category == "natural_language" for e in nl)
 
 
@@ -55,15 +55,15 @@ def test_every_entry_has_language_and_script() -> None:
 
 
 def test_script_distribution_snapshot() -> None:
-    # Diagnostic snapshot after the second UDHR parallel-text batch (6
-    # entries: Latin, Dutch, Catalan, Swahili, Indonesian, Vietnamese), all
-    # of which are Latin script — so latin grows from 33 to 39. The
-    # non-Latin counts are unchanged. Update this snapshot as additional
-    # entries land.
+    # Diagnostic snapshot after the natural-sciences batch (3 entries:
+    # Newton's Axiomata sive Leges Motus, Sanger's bovine insulin sequence,
+    # Caffeine SMILES) — all three are Latin script, so latin grows from 39
+    # to 42. The non-Latin counts are unchanged. Update this snapshot as
+    # additional entries land.
     from collections import Counter
 
     scripts = Counter(e.script for e in corpus)
-    assert scripts["latin"] == 39
+    assert scripts["latin"] == 42
     assert scripts["arabic"] == 1
     assert scripts["cyrillic"] == 1
     assert scripts["cjk_han"] == 1
@@ -73,23 +73,23 @@ def test_script_distribution_snapshot() -> None:
     assert scripts["mixed"] == 1
     assert scripts["greek"] == 2
     assert scripts["hebrew"] == 1
-    assert sum(scripts.values()) == 49
+    assert sum(scripts.values()) == 52
 
 
 def test_language_distribution_snapshot() -> None:
-    # Diagnostic snapshot after the second UDHR parallel-text batch added
-    # six more Latin-script natural languages (Latin, Dutch, Catalan,
-    # Swahili, Indonesian, Vietnamese). The Latin entry brings `latin` from
-    # 1 to 2 (joining Lorem Ipsum); the other five are new at N=1. English
-    # is still unchanged at 11 — its share of the corpus has now dropped
-    # from 11/43 to 11/49 as the breadth axis continues to fill out.
-    # Update this distribution as the corpus grows.
+    # Diagnostic snapshot after the natural-sciences batch (3 entries):
+    # Newton's Axiomata sive Leges Motus brings `latin` from 2 to 3 (joining
+    # Lorem Ipsum and the Latin UDHR translation); Sanger's bovine insulin
+    # sequence brings `none` from 4 to 5 (joining the φX174 genome and
+    # several other raw-byte sequences); Caffeine SMILES adds `smiles` as a
+    # new language at N=1. English is still unchanged at 11 — its share of
+    # the corpus has now dropped from 11/49 to 11/52. Update this
+    # distribution as the corpus grows.
     from collections import Counter
 
     languages = Counter(e.language for e in corpus)
-    # Pre-batch baseline (still correct):
+    # Pre-batch baseline (still correct for unchanged languages):
     assert languages["english"] == 11
-    assert languages["none"] == 4
     assert languages["bnf"] == 1
     assert languages["http"] == 1
     # Updated by the underpopulated-categories batch:
@@ -117,14 +117,17 @@ def test_language_distribution_snapshot() -> None:
     assert languages["italian"] == 1  # UDHR Article 1 (Italian)
     assert languages["portuguese"] == 1  # UDHR Article 1 (Portuguese)
     assert languages["polish"] == 1  # UDHR Article 1 (Polish)
-    # Languages added or grown by the second UDHR parallel-text batch:
-    assert languages["latin"] == 2  # Lorem Ipsum + UDHR Article 1 (Latin)
+    # Languages added by the second UDHR parallel-text batch:
     assert languages["dutch"] == 1  # UDHR Article 1 (Dutch)
     assert languages["catalan"] == 1  # UDHR Article 1 (Catalan)
     assert languages["swahili"] == 1  # UDHR Article 1 (Swahili)
     assert languages["indonesian"] == 1  # UDHR Article 1 (Indonesian)
     assert languages["vietnamese"] == 1  # UDHR Article 1 (Vietnamese)
-    assert sum(languages.values()) == 49
+    # Updated or added by the natural-sciences batch:
+    assert languages["latin"] == 3  # Lorem Ipsum + UDHR Latin + Newton's Axiomata
+    assert languages["none"] == 5  # +Sanger's bovine insulin sequence
+    assert languages["smiles"] == 1  # Caffeine canonical SMILES
+    assert sum(languages.values()) == 52
 
 
 def test_filter_by_discipline() -> None:
@@ -183,7 +186,7 @@ def test_related_cross_references() -> None:
 def test_to_dataframe() -> None:
     pytest.importorskip("pandas")
     df = corpus.to_dataframe()
-    assert len(df) == 49
+    assert len(df) == 52
     assert "name" in df.columns
     assert "category" in df.columns
     assert "license_status" in df.columns

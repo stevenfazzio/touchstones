@@ -1923,5 +1923,104 @@
       "tokenizer-stress"
     ],
     "url": "https://www.ohchr.org/en/human-rights/universal-declaration/translations/vietnamese"
+  },
+  {
+    "name": "Newton's Axiomata sive Leges Motus",
+    "text": "Axiomata sive Leges Motus.\n\nLex. I.\nCorpus omne perseverare in statu suo quiescendi vel movendi uniformiter in directum, nisi quatenus a viribus impressis cogitur statum illum mutare.\n\nLex. II.\nMutationem motus proportionalem esse vi motrici impressæ, & fieri secundum lineam rectam qua vis illa imprimitur.\n\nLex. III.\nActioni contrariam semper & æqualem esse reactionem: sive corporum duorum actiones in se mutuo semper esse æquales & in partes contrarias dirigi.",
+    "discipline": "classical mechanics",
+    "disciplines": [
+      "classical mechanics",
+      "physics",
+      "history of science"
+    ],
+    "category": "natural_language",
+    "language": "latin",
+    "script": "latin",
+    "year_introduced": 1687,
+    "creator": "Isaac Newton",
+    "source": "Newton, Isaac. Philosophiae Naturalis Principia Mathematica, Book I, \"Axiomata sive Leges Motus.\" London, 1687 (first edition). Transcribed from Project Gutenberg ebook #28233.",
+    "description": "Newton's three Laws of Motion as he stated them in the Axiomata section opening Book I of the Principia (1687): the law of inertia, the law of force and acceleration, and the law of action and reaction. The founding axiomatization of classical mechanics, in Newton's original Latin.",
+    "usage": "The canonical primary source for citations of Newton's Laws in physics, history of science, and classical-mechanics pedagogy. Also serves as a Latin-script natural-language sample drawn from the early-modern scientific register, distinct from Lorem Ipsum (Renaissance typesetting filler) and the UDHR Latin translation (mid-20th-century formal-legal style).",
+    "known_issues": "Three Principia editions exist (1687, 1713, 1726); the Latin text of Lex I–III is essentially identical across them. The entry omits Newton's own explanatory paragraph that follows each Lex statement (commentary on the law, not the law itself), as well as the Corollaria and Scholium that close the Axiomata section. Capitalisation of the section heading is normalised from the source's three-line all-caps title block (AXIOMATA / SIVE / LEGES MOTUS) to the conventional inline form, and Project Gutenberg's italic-marker underscores are stripped.",
+    "alternatives": "English translations: Andrew Motte (1729), Cohen & Whitman (1999). Modern physics textbooks almost always paraphrase the laws in their own language rather than quote the Latin verbatim.",
+    "related": [],
+    "length_tokens": 136,
+    "license_status": "public_domain",
+    "tags": [
+      "physics",
+      "mechanics",
+      "axiom",
+      "Newton",
+      "Principia",
+      "early modern"
+    ],
+    "url": "https://www.gutenberg.org/ebooks/28233"
+  },
+  {
+    "name": "Sanger's Bovine Insulin Sequence",
+    "text": "A: GIVEQCCASVCSLYQLENYCN\nB: FVNQHLCGSHLVEALYLVCGERGFFYTPKA",
+    "discipline": "biochemistry",
+    "disciplines": [
+      "biochemistry",
+      "proteomics",
+      "molecular biology",
+      "history of science"
+    ],
+    "category": "sequence",
+    "language": "none",
+    "script": "latin",
+    "year_introduced": 1955,
+    "creator": "Frederick Sanger and colleagues",
+    "source": "Ryle, A. P., Sanger, F., Smith, L. F., & Kitai, R. (1955). \"The disulphide bonds of insulin.\" Biochemical Journal 60(4): 541–556. Sequence as currently catalogued in UniProt P01317 (INS_BOVIN): mature A-chain (residues 85–105) and B-chain (residues 25–54) of the bovine preproinsulin precursor.",
+    "description": "The mature bovine insulin protein in modern one-letter amino-acid codes: A-chain (21 residues) and B-chain (30 residues), totalling 51 residues across two chains held together by disulfide bonds. The first protein ever fully sequenced — Sanger's 1951–1955 work, for which he received the 1958 Nobel Prize in Chemistry.",
+    "usage": "The founding artifact of protein sequencing and proteomics. Used as a historical reference in biochemistry pedagogy, as a small canonical protein in structural-biology pipelines (paired with PDB structures such as 2INS), and as a tokeniser/embedding probe for amino-acid letter sequences distinct from DNA letter sequences.",
+    "known_issues": "The linear amino-acid sequence does not capture the three disulfide bonds (A6–A11 intrachain; A7–B7 and A20–B19 interchain) that define insulin's tertiary structure and biological activity. Bovine insulin differs from human insulin at three positions (A8, A10, B30). Sanger's original 1951–1955 papers used three-letter amino-acid codes and full residue names rather than the one-letter codes shown here, which became standard later (IUPAC-IUB 1968).",
+    "alternatives": "UniProt P01317 (full bovine preproinsulin precursor, 105 aa, including signal peptide and C-peptide); PDB 2INS (bovine insulin crystal structure); UniProt P01308 (human insulin, modern clinical reference).",
+    "related": [
+      "The Phi X 174 Genome"
+    ],
+    "length_tokens": 35,
+    "license_status": "public_domain",
+    "tags": [
+      "protein",
+      "sequence",
+      "Sanger",
+      "insulin",
+      "biochemistry",
+      "amino acid"
+    ],
+    "url": "https://rest.uniprot.org/uniprotkb/P01317.fasta"
+  },
+  {
+    "name": "Caffeine SMILES",
+    "text": "CN1C=NC2=C1C(=O)N(C(=O)N2C)C",
+    "discipline": "cheminformatics",
+    "disciplines": [
+      "cheminformatics",
+      "chemistry",
+      "computational chemistry"
+    ],
+    "category": "notation",
+    "language": "smiles",
+    "script": "latin",
+    "year_introduced": 1988,
+    "creator": "David Weininger (SMILES notation); molecular structure of caffeine determined long before",
+    "source": "PubChem CID 2519 (caffeine), SMILES property, U.S. National Library of Medicine. SMILES notation defined in: Weininger, D. (1988). \"SMILES, a chemical language and information system. 1. Introduction to methodology and encoding rules.\" Journal of Chemical Information and Computer Sciences 28(1): 31–36.",
+    "description": "The canonical SMILES (Simplified Molecular-Input Line-Entry System) string for caffeine (1,3,7-trimethylxanthine, C8H10N4O2), as catalogued by PubChem. SMILES is the dominant line notation for representing molecular structures in cheminformatics and computational chemistry.",
+    "usage": "The standard machine-readable representation of caffeine for cheminformatics tools (RDKit, OpenBabel, ChEMBL queries, PubChem lookups, ML featurisation). Caffeine is a conventional 'hello-world' molecule in SMILES tutorials and tokenizer/embedding tests because it is small, planar, achiral, biologically familiar, and exercises ring numbering, branching, and aromatic-vs-Kekulé conventions in a single short string.",
+    "known_issues": "SMILES is non-unique: multiple valid strings encode the same molecule, and different toolkits canonicalise differently (PubChem/Daylight, RDKit, OpenSMILES, OpenEye each produce distinct 'canonical' forms). PubChem renamed this property from 'CanonicalSMILES' to 'SMILES' (with a sister 'ConnectivitySMILES' field) in a recent schema update. The string does not encode stereochemistry (caffeine has none) or distinguish tautomers.",
+    "alternatives": "InChI: InChI=1S/C8H10N4O2/c1-10-4-9-6-5(10)7(13)12(3)8(14)11(6)2/h4H,1-3H3. InChIKey: RYYVLZVUVIJVGH-UHFFFAOYSA-N. Other line notations: SMARTS, SLN, SYBYL, Wiswesser line-notation (WLN, historical).",
+    "related": [],
+    "length_tokens": 24,
+    "license_status": "public_domain",
+    "tags": [
+      "chemistry",
+      "SMILES",
+      "molecule",
+      "caffeine",
+      "cheminformatics",
+      "line notation"
+    ],
+    "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2519"
   }
 ]
