@@ -350,7 +350,12 @@
     "known_issues": "The English text is a translation-by-committee product with minor differences from subsequent re-translations. The phrase 'spirit of brotherhood' has been criticized as gendered; the 1998 Human Rights Day edition retained the original wording despite proposals to replace it. Not all 500+ language versions are equally careful translations — some are volunteer-contributed and contain errors.",
     "alternatives": "The European Parliament proceedings (Europarl corpus), the UN Parallel Corpus (UN document translations, 2016), and the Bible (for very wide language coverage including low-resource languages) are the larger-scale alternatives.",
     "related": [
-      "The North Wind and the Sun"
+      "The North Wind and the Sun",
+      "UDHR Article 1 (Arabic)",
+      "UDHR Article 1 (Russian)",
+      "UDHR Article 1 (Chinese Simplified)",
+      "UDHR Article 1 (Hindi)",
+      "UDHR Article 1 (Korean)"
     ],
     "length_tokens": 33,
     "license_status": "public_domain",
@@ -620,5 +625,365 @@
       "American"
     ],
     "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+  },
+  {
+    "name": "UDHR Article 1 (Arabic)",
+    "text": "يولد جميع الناس أحراراً ومتساوين في الكرامة والحقوق. وهم قد وهبوا العقل والوجدان وعليهم أن يعاملوا بعضهم بعضاً بروح الإخاء.",
+    "discipline": "natural language processing",
+    "disciplines": [
+      "natural language processing",
+      "international law",
+      "human rights",
+      "computational linguistics"
+    ],
+    "category": "natural_language",
+    "language": "arabic",
+    "script": "arabic",
+    "year_introduced": 1948,
+    "creator": "United Nations General Assembly; Arabic translation issued by the United Nations",
+    "source": "United Nations General Assembly. (1948). Universal Declaration of Human Rights, Resolution 217 A (III), Paris, 10 December 1948. Arabic text published at un.org/ar.",
+    "description": "The Arabic translation of UDHR Article 1, in one of the six UN official languages. Two sentences in Modern Standard Arabic. Right-to-left script with bidirectional rendering requirements. Forms a parallel-text family with the corpus's other UDHR Article 1 entries — same content, different language and script.",
+    "usage": "Used as a short, public-domain Arabic test text for cross-lingual NLP — tokenizer behavior on Arabic morphology and connecting forms, embedding alignment with the parallel English text, RTL rendering pipelines, and bidi-aware text processing. Holding article content constant across languages isolates the language and script axes for embedding-sensitivity analysis.",
+    "known_issues": "Multiple Arabic translations of the UDHR are in circulation. The UN's official version on un.org/ar (used here) renders 'reason and conscience' as 'العقل والوجدان', while some popular Wikisource transcriptions use the variant 'عقلاً وضميرًا'. Tashkīl (vowel marks) appear sparsely as in the source — the text is not fully vocalized.",
+    "alternatives": "The UN Parallel Corpus (2016) provides Arabic-aligned UN document translations at much larger scale. The Tanzil project's Quran corpus is the standard Classical Arabic reference text.",
+    "related": [
+      "UDHR Article 1",
+      "UDHR Article 1 (Russian)",
+      "UDHR Article 1 (Chinese Simplified)",
+      "UDHR Article 1 (Hindi)",
+      "UDHR Article 1 (Korean)"
+    ],
+    "length_tokens": 91,
+    "license_status": "public_domain",
+    "tags": [
+      "NLP",
+      "parallel-text",
+      "human rights",
+      "United Nations",
+      "Arabic",
+      "RTL"
+    ],
+    "url": "https://www.un.org/ar/about-us/universal-declaration-of-human-rights"
+  },
+  {
+    "name": "UDHR Article 1 (Russian)",
+    "text": "Все люди рождаются свободными и равными в своем достоинстве и правах. Они наделены разумом и совестью и должны поступать в отношении друг друга в духе братства.",
+    "discipline": "natural language processing",
+    "disciplines": [
+      "natural language processing",
+      "international law",
+      "human rights",
+      "computational linguistics"
+    ],
+    "category": "natural_language",
+    "language": "russian",
+    "script": "cyrillic",
+    "year_introduced": 1948,
+    "creator": "United Nations General Assembly; Russian translation issued by the United Nations",
+    "source": "United Nations General Assembly. (1948). Universal Declaration of Human Rights, Resolution 217 A (III), Paris, 10 December 1948. Russian text published at un.org/ru.",
+    "description": "The Russian translation of UDHR Article 1, in one of the six UN official languages. Two sentences in modern literary Russian. Opens the Cyrillic script axis as a parallel-text neighbor of the existing English UDHR Article 1 entry.",
+    "usage": "Used as a short, public-domain Russian test text for cross-lingual NLP — Cyrillic tokenizer behavior, embedding sensitivity to morphologically rich fusional languages, and parallel-text alignment with the corresponding English entry. Russian's heavy inflection produces a token-per-word ratio that diverges from English in characteristic ways visible in the cl100k_base count.",
+    "known_issues": null,
+    "alternatives": "The UN Parallel Corpus and OPUS provide much larger Russian-aligned corpora. For Russian-specific work, the Russian National Corpus (ruscorpora.ru) and the Lenta.ru news corpus are larger reference resources.",
+    "related": [
+      "UDHR Article 1",
+      "UDHR Article 1 (Arabic)",
+      "UDHR Article 1 (Chinese Simplified)",
+      "UDHR Article 1 (Hindi)",
+      "UDHR Article 1 (Korean)"
+    ],
+    "length_tokens": 74,
+    "license_status": "public_domain",
+    "tags": [
+      "NLP",
+      "parallel-text",
+      "human rights",
+      "United Nations",
+      "Russian",
+      "Cyrillic"
+    ],
+    "url": "https://www.un.org/ru/about-us/universal-declaration-of-human-rights"
+  },
+  {
+    "name": "UDHR Article 1 (Chinese Simplified)",
+    "text": "人人生而自由，在尊严和权利上一律平等。他们赋有理性和良心，并应以兄弟关系的精神相对待。",
+    "discipline": "natural language processing",
+    "disciplines": [
+      "natural language processing",
+      "international law",
+      "human rights",
+      "computational linguistics"
+    ],
+    "category": "natural_language",
+    "language": "chinese",
+    "script": "cjk_han",
+    "year_introduced": 1948,
+    "creator": "United Nations General Assembly; Chinese translation issued by the United Nations",
+    "source": "United Nations General Assembly. (1948). Universal Declaration of Human Rights, Resolution 217 A (III), Paris, 10 December 1948. Simplified Chinese text published at un.org/zh.",
+    "description": "The Simplified Chinese translation of UDHR Article 1, in one of the six UN official languages. Two sentences in the post-1956 simplified character set (jiantizi). Opens the CJK Han script axis for the corpus.",
+    "usage": "Used as a short, public-domain Simplified Chinese test text for cross-lingual NLP — Chinese character segmentation (no whitespace word boundaries), embedding behavior on logographic scripts, and parallel-text alignment with the English UDHR Article 1. cl100k_base tokenization of CJK characters is dense (≈1 token per 1–2 characters), producing a token-per-character ratio sharply different from English.",
+    "known_issues": "The Traditional Chinese form (繁體字, used in Taiwan and Hong Kong) is a separate translation that differs not only in character set but in word choice; the corpus may want a sister entry for that variant. The text uses 兄弟关系 ('brotherhood', literally 'older-brother–younger-brother relationship') for the source's 'spirit of brotherhood'.",
+    "alternatives": "The UN Parallel Corpus and the WMT Chinese-English shared task data are larger Simplified Chinese parallel resources. For Classical Chinese, the canonical short reference text is the Analects (论语).",
+    "related": [
+      "UDHR Article 1",
+      "UDHR Article 1 (Arabic)",
+      "UDHR Article 1 (Russian)",
+      "UDHR Article 1 (Hindi)",
+      "UDHR Article 1 (Korean)"
+    ],
+    "length_tokens": 50,
+    "license_status": "public_domain",
+    "tags": [
+      "NLP",
+      "parallel-text",
+      "human rights",
+      "United Nations",
+      "Chinese",
+      "CJK"
+    ],
+    "url": "https://www.un.org/zh/about-us/universal-declaration-of-human-rights"
+  },
+  {
+    "name": "UDHR Article 1 (Hindi)",
+    "text": "सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है। उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए।",
+    "discipline": "natural language processing",
+    "disciplines": [
+      "natural language processing",
+      "international law",
+      "human rights",
+      "computational linguistics"
+    ],
+    "category": "natural_language",
+    "language": "hindi",
+    "script": "devanagari",
+    "year_introduced": 1948,
+    "creator": "United Nations General Assembly; Hindi translation circulated by the OHCHR translation project",
+    "source": "United Nations General Assembly. (1948). Universal Declaration of Human Rights, Resolution 217 A (III). Hindi text as collected by the OHCHR UDHR translation project and reproduced on Hindi Wikipedia (मानवाधिकारों की सार्वभौम घोषणा).",
+    "description": "The Hindi translation of UDHR Article 1, opening the Devanagari script axis. Hindi is not one of the six UN official languages, so the Hindi UDHR is not a UN-published text but a widely-circulated translation curated through the OHCHR translation project. Two sentences with the conjunct-rich Devanagari orthography characteristic of literary Hindi.",
+    "usage": "Used as a short, public-domain Hindi test text for cross-lingual NLP and tokenizer evaluation. Devanagari is one of the most token-inefficient scripts under cl100k_base — Hindi text typically generates 4–5× more tokens per character than English, which the length_tokens count of this entry visibly demonstrates and which makes Hindi a high-value breadth case for embedding-sensitivity work.",
+    "known_issues": "Because Hindi is not a UN official language, no single 'authoritative' UN-issued Hindi UDHR translation exists; multiple variants are in circulation with minor lexical and orthographic differences (e.g. स्वतन्त्रता vs स्वतंत्रता). The version here is the most-cited form, used by Hindi Wikipedia and the OHCHR-curated translation collection. cl100k_base fragments most Devanagari conjuncts at the byte level — it does not respect grapheme cluster boundaries — which inflates the token count and is itself a documented embedding-model failure mode.",
+    "alternatives": "The IndicNLP Suite and AI4Bharat's IndicCorp provide much larger Hindi reference corpora for serious NLP work.",
+    "related": [
+      "UDHR Article 1",
+      "UDHR Article 1 (Arabic)",
+      "UDHR Article 1 (Russian)",
+      "UDHR Article 1 (Chinese Simplified)",
+      "UDHR Article 1 (Korean)"
+    ],
+    "length_tokens": 180,
+    "license_status": "public_domain",
+    "tags": [
+      "NLP",
+      "parallel-text",
+      "human rights",
+      "United Nations",
+      "Hindi",
+      "Devanagari",
+      "tokenizer-stress"
+    ],
+    "url": "https://hi.wikipedia.org/wiki/%E0%A4%AE%E0%A4%BE%E0%A4%A8%E0%A4%B5%E0%A4%BE%E0%A4%A7%E0%A4%BF%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8B%E0%A4%82_%E0%A4%95%E0%A5%80_%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%AD%E0%A5%8C%E0%A4%AE_%E0%A4%98%E0%A5%8B%E0%A4%B7%E0%A4%A3%E0%A4%BE"
+  },
+  {
+    "name": "UDHR Article 1 (Korean)",
+    "text": "모든 인간은 태어날 때부터 자유로우며 그 존엄과 권리에 있어 동등하다. 인간은 천부적으로 이성과 양심을 부여받았으며 서로 형제애의 정신으로 행동하여야 한다.",
+    "discipline": "natural language processing",
+    "disciplines": [
+      "natural language processing",
+      "international law",
+      "human rights",
+      "computational linguistics"
+    ],
+    "category": "natural_language",
+    "language": "korean",
+    "script": "hangul",
+    "year_introduced": 1948,
+    "creator": "United Nations General Assembly; Korean translation collected by the OHCHR translation project",
+    "source": "United Nations General Assembly. (1948). Universal Declaration of Human Rights, Resolution 217 A (III). Korean text as reproduced on Korean Wikisource (세계 인권 선언) and as collected by the OHCHR UDHR translation project.",
+    "description": "The Korean translation of UDHR Article 1, opening the Hangul script axis. Korean is not one of the six UN official languages. Hangul is a featural script — its visual structure encodes phonological features — making it analytically distinct from both alphabetic and logographic systems.",
+    "usage": "Used as a short, public-domain Korean test text for cross-lingual NLP. Hangul syllable blocks (precomposed under NFC) tokenize differently from decomposed jamo (NFD) — this entry's text is in the precomposed form, the standard for modern Korean text. Useful for tokenizer behavior, normalization-form sensitivity, and parallel-text alignment with the English UDHR Article 1.",
+    "known_issues": "Because Korean is not a UN official language, no single UN-issued Korean UDHR translation exists; the National Human Rights Commission of Korea (NHRCK) and OHCHR-curated translation collections preserve canonical forms with very minor variations. The text here uses precomposed Hangul (NFC) — the same byte sequence under NFD decomposition would tokenize differently and is a documented gotcha for Korean NLP pipelines.",
+    "alternatives": "The Sejong Corpus and the Modu corpus are the standard large-scale Korean reference corpora for serious NLP work.",
+    "related": [
+      "UDHR Article 1",
+      "UDHR Article 1 (Arabic)",
+      "UDHR Article 1 (Russian)",
+      "UDHR Article 1 (Chinese Simplified)",
+      "UDHR Article 1 (Hindi)"
+    ],
+    "length_tokens": 85,
+    "license_status": "public_domain",
+    "tags": [
+      "NLP",
+      "parallel-text",
+      "human rights",
+      "United Nations",
+      "Korean",
+      "Hangul"
+    ],
+    "url": "https://ko.wikisource.org/wiki/%EC%84%B8%EA%B3%84_%EC%9D%B8%EA%B6%8C_%EC%84%A0%EC%96%B8"
+  },
+  {
+    "name": "Bashō Frog Haiku",
+    "text": "古池や蛙飛びこむ水の音",
+    "discipline": "Japanese literature",
+    "disciplines": [
+      "Japanese literature",
+      "comparative literature",
+      "poetics"
+    ],
+    "category": "natural_language",
+    "language": "japanese",
+    "script": "mixed",
+    "year_introduced": 1686,
+    "creator": "Matsuo Bashō (松尾芭蕉)",
+    "source": "Matsuo Bashō. (1686). 'Furuike ya / kawazu tobikomu / mizu no oto.' First published in Kawazu Awase (蛙合, 'The Frog Contest'), a haikai anthology assembled by Bashō's school.",
+    "description": "The most famous haiku in the Japanese tradition, first published in 1686 in the Kawazu Awase anthology. The 5-7-5 mora structure, the seasonal kigo (蛙, frog, indicating spring), and the cut (kireji や after 古池) are all canonical examples of every major formal feature of the haiku. It is the haiku Japanese schoolchildren learn first and the one Western readers encounter when haiku is explained.",
+    "usage": "Used as the focal exemplar of the haiku form in Japanese literary studies, comparative poetics, and translation studies (where the same 17 morae have spawned hundreds of English renderings, each making a different argument about what is essential). For computational work the text exercises mixed-script Japanese — kanji (古, 池, 蛙, 飛, 水, 音) and hiragana (や, びこむ, の) — and the very short length makes per-token embedding behavior highly readable.",
+    "known_issues": "Multiple orthographic forms of the haiku are in circulation. The Kawazu Awase original used 飛びこむ (with こむ in hiragana); modern reprints frequently substitute 飛び込む (with the kanji 込), which is metrically and semantically identical. A separate variant attested in the 1686 Anisakura collection reads 蛙飛ンだる instead of 蛙飛びこむ — a Danrin-school colloquial form Bashō later refined. This entry uses the form preferred by Japanese Wikipedia and standard scholarly editions (e.g., Iwanami Bunko Bashō kushū).",
+    "alternatives": "Other canonical Bashō haiku that scholars sometimes substitute as the focal exemplar: 'Kareeda ni karasu no tomarikeri' (枯枝に烏のとまりけり, the autumn crow on the bare branch) and the closing haiku of Oku no Hosomichi, 'Hamaguri no futami ni wakare yuku aki zo'.",
+    "related": [],
+    "length_tokens": 18,
+    "license_status": "public_domain",
+    "tags": [
+      "poetry",
+      "haiku",
+      "Japanese",
+      "Edo period",
+      "canonical"
+    ],
+    "url": "https://ja.wikipedia.org/wiki/%E5%8F%A4%E6%B1%A0%E3%82%84%E8%9B%99%E9%A3%9B%E3%81%B3%E3%81%93%E3%82%80%E6%B0%B4%E3%81%AE%E9%9F%B3"
+  },
+  {
+    "name": "Iroha",
+    "text": "いろはにほへと ちりぬるを\nわかよたれそ つねならむ\nうゐのおくやま けふこえて\nあさきゆめみし ゑひもせす",
+    "discipline": "Japanese language pedagogy",
+    "disciplines": [
+      "Japanese language pedagogy",
+      "Japanese literature",
+      "writing systems",
+      "typography"
+    ],
+    "category": "natural_language",
+    "language": "japanese",
+    "script": "hiragana",
+    "year_introduced": 1079,
+    "creator": "Anonymous (traditionally attributed to Kūkai, 774–835; modern scholarship dates the first attestation to 1079)",
+    "source": "Konkōmyō Saishōō-kyō Ongi (金光明最勝王経音義), 1079 — the earliest attested manuscript of the poem, in man'yōgana orthography. Modern hiragana presentation as standardized in contemporary Japanese textbooks.",
+    "description": "The Iroha (いろは歌) is a Japanese poem dating to at least 1079 that uses every kana of the historical syllabary exactly once — a perfect pangram in 47 morae. It served for nearly a thousand years as the conventional ordering of kana characters (the iroha-jun, 'iroha order'), only displaced by the modern gojūon ordering in the late 19th century.",
+    "usage": "Used as the canonical exemplar of a Japanese-script pangram and as an introduction to the historical kana set. For writing-systems research it includes the now-obsolete kana ゐ (wi) and ゑ (we), which were eliminated from standard Japanese in the 1946 orthographic reform — the poem cannot be reconstructed without them. For typography and tokenizer testing it is the Japanese counterpart to the English 'Quick Brown Fox'.",
+    "known_issues": "Multiple orthographic presentations exist. The 1079 attestation is in man'yōgana (Chinese characters used phonetically). Medieval and early-modern manuscripts variously add or omit kanji glosses, the trailing ん (which is not part of the original 47-mora set), and the line/group structure (4 groups of 12, 6 groups of 7-5, etc.). This entry uses the standard modern hiragana presentation in 4 lines as taught in contemporary Japanese textbooks and presented on Japanese Wikipedia.",
+    "alternatives": "The Tori Naku (とりなく) pangram is a 19th-century alternative composed to use only modern kana (no ゐ or ゑ). Modern computer typography practice sometimes uses the gojūon table (五十音) directly rather than a poetic pangram.",
+    "related": [
+      "The Quick Brown Fox",
+      "Now is the Time"
+    ],
+    "length_tokens": 63,
+    "license_status": "public_domain",
+    "tags": [
+      "pangram",
+      "Japanese",
+      "writing systems",
+      "kana",
+      "Heian"
+    ],
+    "url": "https://ja.wikipedia.org/wiki/%E3%81%84%E3%82%8D%E3%81%AF%E6%AD%8C"
+  },
+  {
+    "name": "Iliad, Book 1 Opening (Homeric Greek)",
+    "text": "μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος\nοὐλομένην, ἣ μυρί᾽ Ἀχαιοῖς ἄλγε᾽ ἔθηκε,\nπολλὰς δ᾽ ἰφθίμους ψυχὰς Ἄϊδι προΐαψεν\nἡρώων, αὐτοὺς δὲ ἑλώρια τεῦχε κύνεσσιν\nοἰωνοῖσί τε πᾶσι, Διὸς δ᾽ ἐτελείετο βουλή,\nἐξ οὗ δὴ τὰ πρῶτα διαστήτην ἐρίσαντε\nἈτρεΐδης τε ἄναξ ἀνδρῶν καὶ δῖος Ἀχιλλεύς.",
+    "discipline": "classical philology",
+    "disciplines": [
+      "classical philology",
+      "Greek literature",
+      "comparative literature",
+      "narratology"
+    ],
+    "category": "natural_language",
+    "language": "ancient_greek",
+    "script": "greek",
+    "year_introduced": -750,
+    "creator": "Homer (traditionally); the orally-composed text was fixed in writing by the late 8th century BCE",
+    "source": "Homer, Iliad, Book 1, lines 1–7. Text: Allen, T. W. (ed.) (1931). Homeri Ilias. Oxford Classical Texts. As digitized by the Perseus Digital Library, Tufts University.",
+    "description": "The proem (opening invocation) of Homer's Iliad — seven dactylic hexameters in which the poet asks the Muse to sing of the wrath of Achilles and previews the destruction it will cause. The most-quoted opening in Greek literature and the founding example of the epic invocation as a poetic form.",
+    "usage": "The canonical exemplar of the epic invocation in Western literary studies. For classical philology it is a test passage for Greek meter, accentuation, dialect features (Ionic with Aeolic admixture), and editorial decisions about elision and synizesis. For computational work it stresses tokenizer behavior on polytonic Greek (smooth and rough breathings, acute, grave, and circumflex accents, iota subscript, and apostrophes for elision) — features cl100k_base handles inconsistently.",
+    "known_issues": "Allen's 1902 OCT prints the opening with lowercase μῆνιν (preserved here), following the older convention of capitalizing only proper names. Modern editions (West 1998–2000) capitalize Μῆνιν as the start of the work. Editions also vary on whether to print θεά (acute, treating it as a vocative set off by commas) or θεὰ (grave, no commas, treating the line as a single breath); this entry follows Perseus's reproduction of the Allen text.",
+    "alternatives": "The opening of the Odyssey ('Ἄνδρα μοι ἔννεπε, Μοῦσα...') is the parallel canonical Homeric proem and is sometimes substituted in pedagogical contexts. The opening of Hesiod's Theogony ('Μουσάων Ἑλικωνιάδων...') is the other archaic Greek epic invocation.",
+    "related": [],
+    "length_tokens": 333,
+    "license_status": "public_domain",
+    "tags": [
+      "poetry",
+      "epic",
+      "Homer",
+      "ancient Greek",
+      "polytonic",
+      "tokenizer-stress"
+    ],
+    "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1"
+  },
+  {
+    "name": "Pater Noster (Koine Greek)",
+    "text": "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς· ἁγιασθήτω τὸ ὄνομά σου, ἐλθέτω ἡ βασιλεία σου, γενηθήτω τὸ θέλημά σου, ὡς ἐν οὐρανῷ καὶ ἐπὶ γῆς· τὸν ἄρτον ἡμῶν τὸν ἐπιούσιον δὸς ἡμῖν σήμερον· καὶ ἄφες ἡμῖν τὰ ὀφειλήματα ἡμῶν, ὡς καὶ ἡμεῖς ἀφήκαμεν τοῖς ὀφειλέταις ἡμῶν· καὶ μὴ εἰσενέγκῃς ἡμᾶς εἰς πειρασμόν, ἀλλὰ ῥῦσαι ἡμᾶς ἀπὸ τοῦ πονηροῦ.",
+    "discipline": "biblical studies",
+    "disciplines": [
+      "biblical studies",
+      "comparative liturgy",
+      "historical translation studies",
+      "computational linguistics"
+    ],
+    "category": "natural_language",
+    "language": "koine_greek",
+    "script": "greek",
+    "year_introduced": 80,
+    "creator": "Attributed to Jesus of Nazareth as recorded in the Gospel of Matthew; final form fixed in the 1st-century Greek Matthean tradition",
+    "source": "Matthew 6:9–13, SBL Greek New Testament (Holmes, M. W., ed., 2010). Society of Biblical Literature & Logos Bible Software. Doxology omitted, following Nestle-Aland and SBLGNT against the Textus Receptus.",
+    "description": "The Lord's Prayer (Pater Noster) as preserved in Matthew 6:9–13 in the SBL Greek New Testament — the canonical Koine Greek form on which all later liturgical and translation traditions depend. Probably the most-translated short text in human history after UDHR Article 1, and an anchor for centuries of historical-translation comparative work.",
+    "usage": "Used as a focal exemplar for cross-lingual and historical translation studies — it has been rendered into more languages, dialects, and scripts than any other text of comparable length, and the Greek source acts as the philological reference against which translations are aligned. For computational work it stresses Koine-specific orthographic features (no iota subscript, raised dot punctuation, final-position sigma) and provides a parallel-text anchor that will eventually link to Latin Vulgate, Old Church Slavonic, English BCP, and other liturgical translations.",
+    "known_issues": "The longer doxology ('ὅτι σοῦ ἐστιν ἡ βασιλεία καὶ ἡ δύναμις καὶ ἡ δόξα εἰς τοὺς αἰῶνας. ἀμήν.') appears in the Textus Receptus and Byzantine manuscripts but is absent from the earliest manuscripts (Codex Sinaiticus, Codex Vaticanus); it is therefore omitted from this entry, following the Nestle-Aland 28 / SBLGNT critical text. The framing clause from verse 9 ('Οὕτως οὖν προσεύχεσθε ὑμεῖς·', 'Pray then like this:') is also omitted as it is Jesus's instruction rather than the prayer itself.",
+    "alternatives": "The Lukan version of the prayer (Luke 11:2–4) is shorter and is itself an attested early form, sometimes preferred in synoptic-comparison work. The Latin Vulgate Pater Noster is the standard parallel text in Western liturgical and translation studies.",
+    "related": [],
+    "length_tokens": 395,
+    "license_status": "public_domain",
+    "tags": [
+      "biblical",
+      "liturgy",
+      "Greek",
+      "Koine",
+      "parallel-text",
+      "tokenizer-stress"
+    ],
+    "url": "https://www.biblegateway.com/passage/?search=Matthew+6%3A9-13&version=SBLGNT"
+  },
+  {
+    "name": "Genesis 1:1 (Biblical Hebrew)",
+    "text": "בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃",
+    "discipline": "biblical studies",
+    "disciplines": [
+      "biblical studies",
+      "Hebrew studies",
+      "comparative philology",
+      "computational linguistics"
+    ],
+    "category": "natural_language",
+    "language": "hebrew",
+    "script": "hebrew",
+    "year_introduced": -900,
+    "creator": "Anonymous priestly redactor of the Pentateuch (P source); fixed text from the Masoretic tradition",
+    "source": "Genesis 1:1, Biblia Hebraica Stuttgartensia (Elliger & Rudolph, eds., 1977), based on the Leningrad Codex (Codex Leningradensis B19a, 1008 CE). As digitized by Sefaria.",
+    "description": "The first verse of the Torah and of the Hebrew Bible — seven Hebrew words rendering 'In the beginning God created the heavens and the earth'. Possibly the most-quoted single Hebrew sentence in history and the first Hebrew text most learners encounter. The form here is the fully pointed-and-cantillated Masoretic Text from the BHS critical edition.",
+    "usage": "Used as a focal exemplar of pointed Biblical Hebrew across biblical studies, comparative philology, and computational work on Semitic languages. The text exhibits all three layers of the Masoretic apparatus simultaneously: consonants, niqqud (vowel points), and te'amim (cantillation marks) — making it a stress test for any pipeline that claims to handle Hebrew. The closing sof passuq (׃) and the maqqef-free word boundaries are also visible.",
+    "known_issues": "Three distinct text-layers can be stripped to produce simpler forms: (a) consonants only ('בראשית ברא אלהים את השמים ואת הארץ'), (b) consonants + niqqud, or (c) the full pointed-and-cantillated form used here. Tokenizers and embedding models that were not trained on cantillated text frequently treat the te'amim as out-of-vocabulary and produce unstable embeddings. The Samaritan Pentateuch preserves a slightly different consonantal form of this verse, used in Samaritan-tradition work.",
+    "alternatives": "The Shema (Deuteronomy 6:4, 'שְׁמַע יִשְׂרָאֵל יְהוָה אֱלֹהֵינוּ יְהוָה אֶחָד') is the other most-cited short Hebrew text and the central liturgical declaration of Judaism. The Aleppo Codex tradition is the alternative Masoretic textual base to the Leningrad Codex used by BHS.",
+    "related": [],
+    "length_tokens": 93,
+    "license_status": "public_domain",
+    "tags": [
+      "biblical",
+      "Hebrew",
+      "Masoretic",
+      "Tanakh",
+      "tokenizer-stress"
+    ],
+    "url": "https://www.sefaria.org/Genesis.1.1"
   }
 ]

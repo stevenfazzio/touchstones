@@ -1,8 +1,9 @@
 """Tests for the corpus singleton and Corpus API.
 
-The default corpus holds 19 verbatim standard-example-text entries spanning
-5 categories. Every entry has non-empty text under the current schema, so
-most tests are simple count / equality assertions against the real data.
+The default corpus holds 29 verbatim standard-example-text entries spanning
+5 categories and 10 scripts. Every entry has non-empty text under the current
+schema, so most tests are simple count / equality assertions against the real
+data.
 """
 
 from __future__ import annotations
@@ -15,7 +16,7 @@ from touchstones.schema import Entry
 
 def test_corpus_singleton_loads() -> None:
     assert isinstance(corpus, Corpus)
-    assert len(corpus) == 19
+    assert len(corpus) == 29
     assert all(isinstance(e, Entry) for e in corpus)
 
 
@@ -28,20 +29,20 @@ def test_every_entry_has_text() -> None:
 
 def test_texts_returns_flat_list_of_strings() -> None:
     texts = corpus.texts()
-    assert len(texts) == 19
+    assert len(texts) == 29
     assert all(isinstance(t, str) and len(t) > 0 for t in texts)
 
 
 def test_labels() -> None:
     labels = corpus.labels(field="discipline")
-    assert len(labels) == 19
+    assert len(labels) == 29
     assert all(isinstance(label, str) for label in labels)
 
 
 def test_filter_by_category() -> None:
     nl = corpus.filter(category="natural_language")
     assert isinstance(nl, Corpus)
-    assert len(nl) == 12
+    assert len(nl) == 22
     assert all(e.category == "natural_language" for e in nl)
 
 
@@ -53,29 +54,52 @@ def test_every_entry_has_language_and_script() -> None:
         assert len(entry.script) > 0
 
 
-def test_corpus_is_currently_all_latin_script() -> None:
-    # Diagnostic snapshot at the moment Scheme B landed: 19 of 19 entries use
-    # Latin script. This is the bias the script field exists to surface, and
-    # this assertion will fail (deliberately) when the first non-Latin entry
-    # is added — at which point bump the count or replace with a richer check.
-    scripts = {e.script for e in corpus}
-    assert scripts == {"latin"}
+def test_script_distribution_snapshot() -> None:
+    # Diagnostic snapshot after the first non-Latin batch landed: Latin still
+    # dominates (the existing 19 entries) but 9 additional scripts are now
+    # represented at N=1 or N=2. Update this snapshot as additional non-Latin
+    # entries are added.
+    from collections import Counter
+
+    scripts = Counter(e.script for e in corpus)
+    assert scripts["latin"] == 19
+    assert scripts["arabic"] == 1
+    assert scripts["cyrillic"] == 1
+    assert scripts["cjk_han"] == 1
+    assert scripts["devanagari"] == 1
+    assert scripts["hangul"] == 1
+    assert scripts["hiragana"] == 1
+    assert scripts["mixed"] == 1
+    assert scripts["greek"] == 2
+    assert scripts["hebrew"] == 1
+    assert sum(scripts.values()) == 29
 
 
 def test_language_distribution_snapshot() -> None:
-    # Diagnostic snapshot at the moment Scheme B landed: english dominates,
-    # everything else is a singleton or close to it. Update this distribution
-    # as the corpus grows.
+    # Diagnostic snapshot after the first non-Latin batch landed: english
+    # still dominates but 9 additional natural languages are now represented.
+    # Update this distribution as the corpus grows.
     from collections import Counter
 
     languages = Counter(e.language for e in corpus)
+    # Pre-batch baseline (still correct):
     assert languages["english"] == 11
     assert languages["none"] == 4
     assert languages["latin"] == 1
     assert languages["c"] == 1
     assert languages["bnf"] == 1
     assert languages["http"] == 1
-    assert sum(languages.values()) == 19
+    # Languages added by the first non-Latin batch:
+    assert languages["arabic"] == 1
+    assert languages["russian"] == 1
+    assert languages["chinese"] == 1
+    assert languages["hindi"] == 1
+    assert languages["korean"] == 1
+    assert languages["japanese"] == 2  # Bashō (mixed script) + Iroha (hiragana)
+    assert languages["ancient_greek"] == 1
+    assert languages["koine_greek"] == 1
+    assert languages["hebrew"] == 1
+    assert sum(languages.values()) == 29
 
 
 def test_filter_by_discipline() -> None:
@@ -134,7 +158,7 @@ def test_related_cross_references() -> None:
 def test_to_dataframe() -> None:
     pytest.importorskip("pandas")
     df = corpus.to_dataframe()
-    assert len(df) == 19
+    assert len(df) == 29
     assert "name" in df.columns
     assert "category" in df.columns
     assert "license_status" in df.columns
