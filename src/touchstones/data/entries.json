@@ -2022,5 +2022,176 @@
       "line notation"
     ],
     "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2519"
+  },
+  {
+    "name": "goto fail (CVE-2014-1266)",
+    "text": "if ((err = SSLHashSHA1.update(&hashCtx, &clientRandom)) != 0)\n        goto fail;\n    if ((err = SSLHashSHA1.update(&hashCtx, &serverRandom)) != 0)\n        goto fail;\n    if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)\n        goto fail;\n        goto fail;\n    if ((err = SSLHashSHA1.final(&hashCtx, &hashOut)) != 0)\n        goto fail;",
+    "discipline": "computer security",
+    "disciplines": [
+      "computer security",
+      "secure coding",
+      "software engineering",
+      "cryptography"
+    ],
+    "category": "code",
+    "language": "c",
+    "script": "latin",
+    "year_introduced": 2014,
+    "creator": "Apple Inc.",
+    "source": "Apple Inc. Security framework, ssl/sslKeyExchange.c, function SSLVerifySignedServerKeyExchange, lines 625-633 of the Security-55471 release. Disclosed February 2014 as CVE-2014-1266.",
+    "description": "The canonical 'famous because of a flaw' code excerpt: nine lines from Apple's TLS implementation containing a duplicated, unconditional `goto fail;` statement that bypassed the entire subsequent signature-verification step in iOS and OS X TLS handshakes. The bug was disclosed as CVE-2014-1266 and is universally referred to in the secure-coding literature by the name of the buggy line itself: 'goto fail'.",
+    "usage": "When a secure-coding instructor needs the textbook example of how a single duplicated line can break TLS authentication, they reach for this exact excerpt from sslKeyExchange.c. It is the standard case study for the dangers of brace-less if-statements, the value of mandatory braces in style guides (Apple's response was enforcement of MISRA-C-style brace rules), and the failure modes of cleanup-via-goto in C. Reproduced verbatim in essentially every post-2014 textbook on secure C programming and in Adam Langley's widely-cited contemporaneous writeup.",
+    "known_issues": "The excerpt is the bug site, not the entire vulnerable function. The function SSLVerifySignedServerKeyExchange continues for another 20 lines after the shown excerpt, including the call to sslRawVerify that is the actual signature check the duplicated goto bypasses. Reproductions vary in how much surrounding context they include; the nine-line form here is the minimum that lets the bug be self-evident.",
+    "alternatives": "The closest contemporary analog is Heartbleed (CVE-2014-0160), disclosed two months later in OpenSSL — also a missing-check bug in TLS handshake code, also from 2014, also producing authentication/disclosure failure from a small omission. The pair is the canonical 'two 2014 TLS bugs' cluster in security curricula.",
+    "related": [
+      "Heartbleed (CVE-2014-0160)"
+    ],
+    "length_tokens": 108,
+    "license_status": "public_domain",
+    "tags": [
+      "security",
+      "TLS",
+      "CVE",
+      "famous-bug",
+      "C"
+    ],
+    "url": "https://github.com/apple-oss-distributions/Security/blob/Security-55471/libsecurity_ssl/lib/sslKeyExchange.c"
+  },
+  {
+    "name": "Heartbleed (CVE-2014-0160)",
+    "text": "int\ntls1_process_heartbeat(SSL *s)\n\t{\n\tunsigned char *p = &s->s3->rrec.data[0], *pl;\n\tunsigned short hbtype;\n\tunsigned int payload;\n\tunsigned int padding = 16; /* Use minimum padding */\n\n\t/* Read type and payload length first */\n\thbtype = *p++;\n\tn2s(p, payload);\n\tpl = p;\n\n\tif (s->msg_callback)\n\t\ts->msg_callback(0, s->version, TLS1_RT_HEARTBEAT,\n\t\t\t&s->s3->rrec.data[0], s->s3->rrec.length,\n\t\t\ts, s->msg_callback_arg);\n\n\tif (hbtype == TLS1_HB_REQUEST)\n\t\t{\n\t\tunsigned char *buffer, *bp;\n\t\tint r;\n\n\t\t/* Allocate memory for the response, size is 1 bytes\n\t\t * message type, plus 2 bytes payload length, plus\n\t\t * payload, plus padding\n\t\t */\n\t\tbuffer = OPENSSL_malloc(1 + 2 + payload + padding);\n\t\tbp = buffer;\n\t\t\n\t\t/* Enter response type, length and copy payload */\n\t\t*bp++ = TLS1_HB_RESPONSE;\n\t\ts2n(payload, bp);\n\t\tmemcpy(bp, pl, payload);",
+    "discipline": "computer security",
+    "disciplines": [
+      "computer security",
+      "secure coding",
+      "cryptography",
+      "software engineering"
+    ],
+    "category": "code",
+    "language": "c",
+    "script": "latin",
+    "year_introduced": 2014,
+    "creator": "OpenSSL Project (Robin Seggelmann, original author of the patch)",
+    "source": "OpenSSL ssl/t1_lib.c, function tls1_process_heartbeat, lines 2553-2587 of the OpenSSL_1_0_1f release tag. The vulnerable code was introduced in commit 4817504 (2011) and shipped in OpenSSL 1.0.1 through 1.0.1f. Disclosed April 2014 as CVE-2014-0160.",
+    "description": "The canonical Heartbleed excerpt: 35 lines of OpenSSL's tls1_process_heartbeat function showing the bug from the function signature through the unchecked memcpy. The attacker-controlled `payload` length is read from the heartbeat record header at `n2s(p, payload);` and then used at `memcpy(bp, pl, payload);` to copy that many bytes into the response buffer — with no check that `pl` actually has `payload` bytes available. The result was the disclosure of up to 64KB of process memory per request, including private keys.",
+    "usage": "When a security instructor needs the textbook example of a missing bounds check in security-critical code, they reach for this exact excerpt from tls1_process_heartbeat. It is the standard case study for memory-safety failure in C, for the danger of trusting attacker-supplied length fields, and for the broader 'why memory-safe languages' argument. Reproduced verbatim in every post-2014 secure-coding textbook and in the Codenomicon and Google Project Zero writeups that announced the disclosure.",
+    "known_issues": "Different writeups quote different excerpt sizes. The minimum that contains the bug is two non-adjacent lines (`n2s(p, payload);` and `memcpy(bp, pl, payload);`); the form here includes the function signature, the request branch entry, and the malloc that also trusts the unchecked length, which is the smallest excerpt that lets the missing-check structure be self-evident without elision. The function continues for another ~30 lines after the shown excerpt to handle the response branch and free buffers.",
+    "alternatives": "Pairs directly with goto fail (CVE-2014-1266), disclosed two months earlier in Apple's TLS stack — also a missing-check bug in handshake code from 2014. The two bugs together are the canonical 'two 2014 TLS disasters' contrast in security curricula: a missing branch versus a missing length check.",
+    "related": [
+      "goto fail (CVE-2014-1266)"
+    ],
+    "length_tokens": 274,
+    "license_status": "public_domain",
+    "tags": [
+      "security",
+      "TLS",
+      "CVE",
+      "famous-bug",
+      "memory-safety",
+      "C"
+    ],
+    "url": "https://github.com/openssl/openssl/blob/OpenSSL_1_0_1f/ssl/t1_lib.c"
+  },
+  {
+    "name": "Duff's Device",
+    "text": "send(to, from, count)\nregister short *to, *from;\nregister count;\n{\n\tregister n=(count+7)/8;\n\tswitch(count%8){\n\tcase 0:\tdo{\t*to = *from++;\n\tcase 7:\t\t*to = *from++;\n\tcase 6:\t\t*to = *from++;\n\tcase 5:\t\t*to = *from++;\n\tcase 4:\t\t*to = *from++;\n\tcase 3:\t\t*to = *from++;\n\tcase 2:\t\t*to = *from++;\n\tcase 1:\t\t*to = *from++;\n\t\t}while(--n>0);\n\t}\n}",
+    "discipline": "programming language theory",
+    "disciplines": [
+      "programming language theory",
+      "compiler design",
+      "computer science",
+      "software engineering"
+    ],
+    "category": "code",
+    "language": "c",
+    "script": "latin",
+    "year_introduced": 1983,
+    "creator": "Tom Duff",
+    "source": "Duff, T. (1983, November 10). Internal memorandum at Lucasfilm, subsequently posted to USENET newsgroup net.lang.c in May 1984. Archived at lysator.liu.se/c/duffs-device.html with the original message headers.",
+    "description": "Tom Duff's loop-unrolling switch-case interleaving from 1983, the canonical example of legal C that looks illegal. The device interleaves a `switch` statement with a `do-while` loop in a way that exploits C's switch fall-through and the absence of structural restrictions on where `case` labels can appear, producing an unrolled byte-copy loop from arbitrary count. Duff wrote it at Lucasfilm to speed up real-time graphics output and described it on USENET with the now-famous closing line: 'I feel a combination of pride and revulsion at this discovery.'",
+    "usage": "When a C compiler writer or language lawyer needs the canonical example of a construct that the standard permits but human readers do not believe is legal, they reach for Duff's Device. It is in the GCC test suite (where every conforming C compiler must accept it), reproduced in K&R-adjacent C textbooks as the definitive 'why switch fall-through is in the language' example, and cited in every discussion of structured programming's limits. The Jargon File entry is the standard secondary reference.",
+    "known_issues": "The original 1983 form uses pre-ANSI K&R declaration syntax (implicit int, no parameter types in the function header) and compiles only with warnings under modern C standards. Modern ANSI/ISO C versions of the device exist but are not the canonical text. There is also no explicit license statement on Duff's writings or on the lysator archive; the code has been reproduced for forty years without any restriction asserted by Duff, including in the GCC test suite, the Jargon File, Wikipedia, and most C compiler textbooks.",
+    "alternatives": "Modern compilers will perform equivalent loop unrolling automatically when given a straightforward `for` loop, so the device has no remaining performance use. As a *teaching* example of switch fall-through it has no real substitute — later attempts to make the same point (the 'computed goto' extensions in GCC, Protothreads in Adam Dunkels' work) all trace their lineage to it.",
+    "related": [],
+    "length_tokens": 141,
+    "license_status": "public_domain",
+    "tags": [
+      "C",
+      "loop-unrolling",
+      "switch",
+      "language-lawyer",
+      "Lucasfilm"
+    ],
+    "url": "https://www.lysator.liu.se/c/duffs-device.html"
+  },
+  {
+    "name": "Colorless Green Ideas Sleep Furiously",
+    "text": "Colorless green ideas sleep furiously.",
+    "discipline": "linguistics",
+    "disciplines": [
+      "linguistics",
+      "syntax",
+      "philosophy of language",
+      "natural language processing"
+    ],
+    "category": "natural_language",
+    "language": "english",
+    "script": "latin",
+    "year_introduced": 1957,
+    "creator": "Noam Chomsky",
+    "source": "Chomsky, N. (1957). Syntactic Structures. The Hague: Mouton & Co. Sentence (1) of Chapter 2, page 15.",
+    "description": "The five-word sentence Chomsky introduced on page 15 of Syntactic Structures (1957) as evidence that grammaticality and meaningfulness are independent: the sentence is syntactically well-formed by every English rule but semantically anomalous, with no coherent interpretation. Chomsky paired it with the ungrammatical permutation 'Furiously sleep ideas green colorless' to argue that no statistical model of word co-occurrence could explain why a native speaker finds the first acceptable and the second not.",
+    "usage": "When a linguist or philosopher of language needs the canonical example of a syntactically well-formed semantically anomalous English sentence, they reach for this exact five-word string. It is in every introductory syntax textbook from Akmajian through Carnie, the standard worked example for the syntax/semantics distinction, and the standard probe for selectional-restriction failures in computational semantics. It is also one of the most-cited sentences in 20th-century linguistics, second perhaps only to 'The cat sat on the mat'.",
+    "known_issues": "Subsequent writers have constructed contexts in which the sentence does have an interpretation — most famously the 1985 Stanford 'Colorless Green Ideas' contest collected by John Hollander, with prize entries giving the line a metaphorical poetic reading. These do not undermine Chomsky's point: the question is whether the sentence is interpretable *out of context* by ordinary compositional semantics, and the consensus answer remains no. The sentence is also sometimes wrongly attributed to earlier writers; Chomsky 1957 is the standard citation.",
+    "alternatives": "Lewis Carroll's Jabberwocky stanza 1 (1871) is the other canonical English example in this space, but it makes a different point: Jabberwocky uses real morphology with nonce lexemes, while 'Colorless green ideas' uses real lexemes with anomalous selectional combinations. The two together cover the morphology/semantics axes of the well-formedness question. 'The horse raced past the barn fell' (Bever 1970) is the complementary garden-path example — well-formed *and* meaningful, but parsed wrong by humans on first pass.",
+    "related": [
+      "Jabberwocky, Stanza 1",
+      "The Horse Raced Past the Barn Fell"
+    ],
+    "length_tokens": 8,
+    "license_status": "public_domain",
+    "tags": [
+      "linguistics",
+      "syntax",
+      "Chomsky",
+      "semantic-anomaly",
+      "famous-flaw"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Colorless_green_ideas_sleep_furiously"
+  },
+  {
+    "name": "The Horse Raced Past the Barn Fell",
+    "text": "The horse raced past the barn fell.",
+    "discipline": "psycholinguistics",
+    "disciplines": [
+      "psycholinguistics",
+      "linguistics",
+      "natural language processing",
+      "syntax"
+    ],
+    "category": "natural_language",
+    "language": "english",
+    "script": "latin",
+    "year_introduced": 1970,
+    "creator": "Thomas G. Bever",
+    "source": "Bever, T. G. (1970). The cognitive basis for linguistic structures. In J. R. Hayes (Ed.), Cognition and the Development of Language (pp. 279-362). New York: Wiley.",
+    "description": "The eight-word garden-path sentence Bever introduced in 1970 to demonstrate that the human sentence parser commits early to a single structural analysis and reanalyzes only when forced to. On first pass, readers parse 'The horse raced past the barn' as a complete clause and then stumble at 'fell'; the resolution requires reparsing 'raced past the barn' as a reduced relative clause modifying 'horse' (i.e., 'the horse [that was] raced past the barn fell'). It is the canonical garden-path sentence in psycholinguistics.",
+    "usage": "When a psycholinguist or NLP researcher needs the textbook example of a syntactically valid sentence that humans parse wrong on first pass, they reach for this exact eight-word string. It is the canonical stimulus for self-paced reading and eyetracking studies of reanalysis cost, the canonical input for testing whether a parser handles reduced relative clauses, and the standard demonstration for the minimal-attachment and late-closure parsing principles in introductory psycholinguistics courses.",
+    "known_issues": "The sentence is occasionally given with a comma after 'barn' or with 'that was' explicit, both of which destroy the garden-path effect by signaling the reduced-relative reading in advance. The canonical form has no comma and no overt relativizer. Some sources misattribute the sentence to Bransford or to later researchers; Bever 1970 is the standard citation. The effect also weakens for readers who have seen the sentence before — the example is so widely taught that many linguistics students are immune to the garden path on encountering it in textbooks.",
+    "alternatives": "'The old man the boat' is a five-word minimal-pair garden-path with the same lexical-category reanalysis structure (man as verb, not noun). 'The complex houses married and single soldiers and their families' is the longer canonical alternative. For the broader class of well-formedness probes: Chomsky's 'Colorless green ideas sleep furiously' (1957) is the syntactic-but-anomalous complement to this syntactic-and-misparsed example.",
+    "related": [
+      "Colorless Green Ideas Sleep Furiously",
+      "Jabberwocky, Stanza 1"
+    ],
+    "length_tokens": 8,
+    "license_status": "public_domain",
+    "tags": [
+      "linguistics",
+      "psycholinguistics",
+      "garden-path",
+      "parsing",
+      "famous-flaw"
+    ],
+    "url": "https://en.wikipedia.org/wiki/Garden-path_sentence"
   }
 ]

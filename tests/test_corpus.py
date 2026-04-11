@@ -1,6 +1,6 @@
 """Tests for the corpus singleton and Corpus API.
 
-The default corpus holds 52 verbatim standard-example-text entries spanning
+The default corpus holds 57 verbatim standard-example-text entries spanning
 5 categories and 10 scripts. Every entry has non-empty text under the current
 schema, so most tests are simple count / equality assertions against the real
 data.
@@ -16,7 +16,7 @@ from touchstones.schema import Entry
 
 def test_corpus_singleton_loads() -> None:
     assert isinstance(corpus, Corpus)
-    assert len(corpus) == 52
+    assert len(corpus) == 57
     assert all(isinstance(e, Entry) for e in corpus)
 
 
@@ -29,20 +29,20 @@ def test_every_entry_has_text() -> None:
 
 def test_texts_returns_flat_list_of_strings() -> None:
     texts = corpus.texts()
-    assert len(texts) == 52
+    assert len(texts) == 57
     assert all(isinstance(t, str) and len(t) > 0 for t in texts)
 
 
 def test_labels() -> None:
     labels = corpus.labels(field="discipline")
-    assert len(labels) == 52
+    assert len(labels) == 57
     assert all(isinstance(label, str) for label in labels)
 
 
 def test_filter_by_category() -> None:
     nl = corpus.filter(category="natural_language")
     assert isinstance(nl, Corpus)
-    assert len(nl) == 36
+    assert len(nl) == 38
     assert all(e.category == "natural_language" for e in nl)
 
 
@@ -55,15 +55,15 @@ def test_every_entry_has_language_and_script() -> None:
 
 
 def test_script_distribution_snapshot() -> None:
-    # Diagnostic snapshot after the natural-sciences batch (3 entries:
-    # Newton's Axiomata sive Leges Motus, Sanger's bovine insulin sequence,
-    # Caffeine SMILES) — all three are Latin script, so latin grows from 39
-    # to 42. The non-Latin counts are unchanged. Update this snapshot as
-    # additional entries land.
+    # Diagnostic snapshot after the deficit-defined-canonicity batch (5
+    # entries: goto fail, Heartbleed, Duff's Device, Colorless green ideas,
+    # The horse raced past the barn fell) — all five are Latin script, so
+    # latin grows from 42 to 47. The non-Latin counts are unchanged. Update
+    # this snapshot as additional entries land.
     from collections import Counter
 
     scripts = Counter(e.script for e in corpus)
-    assert scripts["latin"] == 42
+    assert scripts["latin"] == 47
     assert scripts["arabic"] == 1
     assert scripts["cyrillic"] == 1
     assert scripts["cjk_han"] == 1
@@ -73,27 +73,29 @@ def test_script_distribution_snapshot() -> None:
     assert scripts["mixed"] == 1
     assert scripts["greek"] == 2
     assert scripts["hebrew"] == 1
-    assert sum(scripts.values()) == 52
+    assert sum(scripts.values()) == 57
 
 
 def test_language_distribution_snapshot() -> None:
-    # Diagnostic snapshot after the natural-sciences batch (3 entries):
-    # Newton's Axiomata sive Leges Motus brings `latin` from 2 to 3 (joining
-    # Lorem Ipsum and the Latin UDHR translation); Sanger's bovine insulin
-    # sequence brings `none` from 4 to 5 (joining the φX174 genome and
-    # several other raw-byte sequences); Caffeine SMILES adds `smiles` as a
-    # new language at N=1. English is still unchanged at 11 — its share of
-    # the corpus has now dropped from 11/49 to 11/52. Update this
-    # distribution as the corpus grows.
+    # Diagnostic snapshot after the deficit-defined-canonicity batch
+    # (5 entries: goto fail, Heartbleed, Duff's Device, Colorless green
+    # ideas, The horse raced past the barn fell). The three code entries
+    # bring `c` from 3 to 6 (joining Hello World, K&R wc, and the Thompson
+    # quine). The two linguistic entries bring `english` from 11 to 13 —
+    # the first absolute increase in the English count since the v0.1
+    # baseline, and a deliberate one: both entries are "famous because of a
+    # flaw" canonical exemplars (semantic anomaly and garden-path
+    # respectively) that have no equivalent in any other language. Update
+    # this distribution as the corpus grows.
     from collections import Counter
 
     languages = Counter(e.language for e in corpus)
+    # Updated by the deficit-defined-canonicity batch:
+    assert languages["english"] == 13  # +Colorless green ideas, +horse raced past barn
+    assert languages["c"] == 6  # +goto fail, +Heartbleed, +Duff's Device
     # Pre-batch baseline (still correct for unchanged languages):
-    assert languages["english"] == 11
     assert languages["bnf"] == 1
     assert languages["http"] == 1
-    # Updated by the underpopulated-categories batch:
-    assert languages["c"] == 3  # Hello World + K&R wc + Thompson quine
     # Languages added by the first non-Latin batch:
     assert languages["arabic"] == 1
     assert languages["russian"] == 1
@@ -127,14 +129,15 @@ def test_language_distribution_snapshot() -> None:
     assert languages["latin"] == 3  # Lorem Ipsum + UDHR Latin + Newton's Axiomata
     assert languages["none"] == 5  # +Sanger's bovine insulin sequence
     assert languages["smiles"] == 1  # Caffeine canonical SMILES
-    assert sum(languages.values()) == 52
+    assert sum(languages.values()) == 57
 
 
 def test_filter_by_discipline() -> None:
-    # Three entries list `linguistics` in their disciplines: Rainbow,
-    # North Wind, and Jabberwocky.
+    # Five entries list `linguistics` in their disciplines: Rainbow, North
+    # Wind, Jabberwocky, Colorless Green Ideas, and The Horse Raced Past
+    # the Barn Fell.
     linguistics = corpus.filter(discipline="linguistics")
-    assert len(linguistics) == 3
+    assert len(linguistics) == 5
 
 
 def test_filter_by_tag() -> None:
@@ -186,7 +189,7 @@ def test_related_cross_references() -> None:
 def test_to_dataframe() -> None:
     pytest.importorskip("pandas")
     df = corpus.to_dataframe()
-    assert len(df) == 52
+    assert len(df) == 57
     assert "name" in df.columns
     assert "category" in df.columns
     assert "license_status" in df.columns
