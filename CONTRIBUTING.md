@@ -25,10 +25,12 @@ If you can name the field, the need, and the exact string — *and* the string i
 ### Examples that fail
 
 - **The Utah Teapot** — famous, but it's a 3D mesh, not a text people copy-paste.
-- **The Iris dataset** — reached for via library import (`sklearn.datasets.load_iris()`), not as a text string anyone bundles.
+- **MNIST** — reached for as a binary download or via library import, not as a verbatim text anyone bundles.
 - **The Mandelbrot set** — a mathematical object with no canonical textual form.
 - **The Rosetta Stone** — famous, but no community reaches for "the text of the Rosetta Stone" as a standard reference text.
 - **Dijkstra's 1959 shortest-path example** — referenced as a concept, not embedded as a specific verbatim string.
+
+The boundary is subtle on the "famous reference dataset" front: "the Iris dataset" *as a concept* fails on the same grounds as MNIST, but the specific **UCI `iris.data` file** *is* in the corpus, because its two well-known row-35/row-38 data-entry errors give that exact bag of bytes Schelling-point status under the deficit-defined-canonicity lens (see `docs/coverage.md`). The lesson: the test isn't "does this thing get accessed via library?" — it's "is there a specific historical bag of bytes that practitioners reload verbatim, and can you name what makes it that bag and not some other?"
 
 ## What makes a good entry
 
@@ -54,7 +56,7 @@ Each entry must include the following fields. See `src/touchstones/schema.py` fo
 | `text` | str | **Required, non-empty.** The verbatim standard text itself. No editorial trailers, no "[source: …]" footers, no paraphrases. |
 | `discipline` | str | Primary field of use. Must appear in `disciplines`. |
 | `disciplines` | list[str] | All fields where this artifact is used. No duplicates. |
-| `category` | str | One of: `natural_language`, `code`, `notation`, `sequence`, `protocol`. |
+| `category` | str | One of: `natural_language`, `code`, `notation`, `sequence`, `protocol`, `dataset`. |
 | `language` | str | **Required.** Lowercase short identifier for the symbol system the text is written in. Natural and programming languages share this field. See the language conventions below. |
 | `script` | str | **Required.** Lowercase identifier for the writing script (`latin`, `cyrillic`, `cjk_han`, `devanagari`, `arabic`, `hebrew`, `greek`, `mixed`). See the script conventions below. |
 | `year_introduced` | int | Year first published or standardized. BCE values are negative. |

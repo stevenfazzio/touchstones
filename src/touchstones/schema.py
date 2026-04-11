@@ -34,6 +34,7 @@ Category = Literal[
     "notation",
     "sequence",
     "protocol",
+    "dataset",
 ]
 
 
@@ -86,7 +87,8 @@ class Entry(BaseModel):
         Category,
         Field(
             description=(
-                "Broad artifact grouping (natural_language, code, notation, sequence, protocol)."
+                "Broad artifact grouping (natural_language, code, notation, sequence, "
+                "protocol, dataset)."
             )
         ),
     ]
