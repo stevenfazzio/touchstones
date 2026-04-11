@@ -583,37 +583,6 @@
     "url": "https://fr.wikipedia.org/wiki/Portez_ce_vieux_whisky_au_juge_blond_qui_fume"
   },
   {
-    "name": "Pi to 100 Decimal Places",
-    "text": "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679",
-    "discipline": "numerical computing",
-    "disciplines": [
-      "numerical computing",
-      "mathematics",
-      "floating-point testing",
-      "computer science"
-    ],
-    "category": "sequence",
-    "language": "none",
-    "script": "latin",
-    "year_introduced": 1706,
-    "creator": "William Jones (symbol π); Archimedes, Madhava, Ludolph van Ceulen, and others (numerical value)",
-    "source": "Jones, W. (1706). Synopsis Palmariorum Matheseos (introduced the symbol π). Reference values: NIST PML; OEIS A000796 (Decimal expansion of Pi).",
-    "description": "The first 100 decimal places of π — the ratio of a circle's circumference to its diameter. This specific truncation (to 100 places after the decimal point) is the canonical reference string used for quick correctness checks of floating-point libraries, symbolic math engines, and arbitrary-precision arithmetic implementations.",
-    "usage": "When a numerical-computing implementer needs a reference value for π beyond the ~15 digits of IEEE 754 double precision, they reach for this 100-digit truncation. It is embedded in the test suites of mpmath, GNU MP, SymPy, and the Wolfram Language, and is the default π-precision reference in most math competitions.",
-    "known_issues": "The 'right' number of digits is conventional — 100 is a round-number choice, but 50, 1000, and 1,000,000 digits are also commonly quoted reference values. The 100-digit truncation shown here is rounded down (truncated), not rounded to nearest; the next digit is '8', so a nearest-rounding would have changed the last digit.",
-    "alternatives": "For very high precision: y-cruncher's reference π digits (10^13 places as of 2024), the OEIS A000796 b-file, and the Bailey-Borwein-Plouffe formula for computing arbitrary hex digits of π directly. For other mathematical constants: e (A001113), √2 (A002193), γ (A001620).",
-    "related": [],
-    "length_tokens": 36,
-    "license_status": "public_domain",
-    "tags": [
-      "pi",
-      "mathematics",
-      "constant",
-      "reference"
-    ],
-    "url": "https://oeis.org/A000796"
-  },
-  {
     "name": "Jabberwocky, Stanza 1",
     "text": "'Twas brillig, and the slithy toves\n    Did gyre and gimble in the wabe;\nAll mimsy were the borogoves,\n    And the mome raths outgrabe.",
     "discipline": "linguistics",

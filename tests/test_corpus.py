@@ -1,6 +1,6 @@
 """Tests for the corpus singleton and Corpus API.
 
-The default corpus holds 57 verbatim standard-example-text entries spanning
+The default corpus holds 56 verbatim standard-example-text entries spanning
 5 categories and 10 scripts. Every entry has non-empty text under the current
 schema, so most tests are simple count / equality assertions against the real
 data.
@@ -16,7 +16,7 @@ from touchstones.schema import Entry
 
 def test_corpus_singleton_loads() -> None:
     assert isinstance(corpus, Corpus)
-    assert len(corpus) == 57
+    assert len(corpus) == 56
     assert all(isinstance(e, Entry) for e in corpus)
 
 
@@ -29,13 +29,13 @@ def test_every_entry_has_text() -> None:
 
 def test_texts_returns_flat_list_of_strings() -> None:
     texts = corpus.texts()
-    assert len(texts) == 57
+    assert len(texts) == 56
     assert all(isinstance(t, str) and len(t) > 0 for t in texts)
 
 
 def test_labels() -> None:
     labels = corpus.labels(field="discipline")
-    assert len(labels) == 57
+    assert len(labels) == 56
     assert all(isinstance(label, str) for label in labels)
 
 
@@ -55,15 +55,17 @@ def test_every_entry_has_language_and_script() -> None:
 
 
 def test_script_distribution_snapshot() -> None:
-    # Diagnostic snapshot after the deficit-defined-canonicity batch (5
-    # entries: goto fail, Heartbleed, Duff's Device, Colorless green ideas,
-    # The horse raced past the barn fell) — all five are Latin script, so
-    # latin grows from 42 to 47. The non-Latin counts are unchanged. Update
-    # this snapshot as additional entries land.
+    # Diagnostic snapshot after removing the Pi to 100 Decimal Places entry,
+    # which was script=latin, language=none, category=sequence. The removal
+    # was a curatorial correction: π-to-100 failed the per-entry selection
+    # rule on close inspection (the 100-digit cutoff is conventional rather
+    # than canonical, and the truncated-vs-rounded ambiguity means there is
+    # no single canonical bag of bytes). latin drops from 47 to 46. The
+    # non-Latin counts are unchanged. Update this snapshot as entries land.
     from collections import Counter
 
     scripts = Counter(e.script for e in corpus)
-    assert scripts["latin"] == 47
+    assert scripts["latin"] == 46
     assert scripts["arabic"] == 1
     assert scripts["cyrillic"] == 1
     assert scripts["cjk_han"] == 1
@@ -73,7 +75,7 @@ def test_script_distribution_snapshot() -> None:
     assert scripts["mixed"] == 1
     assert scripts["greek"] == 2
     assert scripts["hebrew"] == 1
-    assert sum(scripts.values()) == 57
+    assert sum(scripts.values()) == 56
 
 
 def test_language_distribution_snapshot() -> None:
@@ -127,9 +129,11 @@ def test_language_distribution_snapshot() -> None:
     assert languages["vietnamese"] == 1  # UDHR Article 1 (Vietnamese)
     # Updated or added by the natural-sciences batch:
     assert languages["latin"] == 3  # Lorem Ipsum + UDHR Latin + Newton's Axiomata
-    assert languages["none"] == 5  # +Sanger's bovine insulin sequence
+    # Pi to 100 was removed in a curatorial correction: `none` drops 5 → 4
+    # (φX174 genome, RFC 4648 Base64 vectors, FIPS 180-4 SHA-256 abc, Sanger insulin).
+    assert languages["none"] == 4
     assert languages["smiles"] == 1  # Caffeine canonical SMILES
-    assert sum(languages.values()) == 57
+    assert sum(languages.values()) == 56
 
 
 def test_filter_by_discipline() -> None:
@@ -189,7 +193,7 @@ def test_related_cross_references() -> None:
 def test_to_dataframe() -> None:
     pytest.importorskip("pandas")
     df = corpus.to_dataframe()
-    assert len(df) == 57
+    assert len(df) == 56
     assert "name" in df.columns
     assert "category" in df.columns
     assert "license_status" in df.columns
